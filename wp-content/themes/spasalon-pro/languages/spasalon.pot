@@ -1,0 +1,1174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Spasalon\n"
+"POT-Creation-Date: 2013-11-15 12:20+0530\n"
+"PO-Revision-Date: 2013-11-15 12:20+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: 404.php:16 ../spasalon_pro/404.php:16
+msgid "Unfortunately, the page you tried accessing could not be retrieved. "
+msgstr ""
+
+#: 404.php:19 ../spasalon_pro/404.php:19 ../twentythirteen/content-none.php:27
+#: ../twentytwelve/404.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: aboutus.php:13 ../spasalon_pro/aboutus.php:13
+msgid "Welcome to "
+msgstr ""
+
+#: aboutus.php:30 ../spasalon_pro/aboutus.php:30
+msgid "Our Team"
+msgstr ""
+
+#: aboutus.php:55 ../spasalon_pro/aboutus.php:55
+msgid "Designation: "
+msgstr ""
+
+#: aboutus.php:92 ../spasalon_pro/aboutus.php:92
+msgid "Name"
+msgstr ""
+
+#: aboutus.php:93 ../spasalon_pro/aboutus.php:93
+msgid "Designation: Sr Therapist"
+msgstr ""
+
+#: aboutus.php:95 ../spasalon_pro/aboutus.php:95
+msgid ""
+"Cras sit amet nibh libero,in gravida nulla. Nulla vel metus scelerisque ante "
+"sollicitudin commodo in gravida nulla. Nulla vel metus scelerisque ante "
+"sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus "
+"viverra turpis."
+msgstr ""
+
+#: aboutus.php:110 ../spasalon_pro/aboutus.php:110
+msgid "Popular Procedures"
+msgstr ""
+
+#: aboutus.php:139 ../spasalon_pro/aboutus.php:139
+msgid "Ayurveda Spa"
+msgstr ""
+
+#: aboutus.php:141 aboutus.php:155 ../spasalon_pro/aboutus.php:141
+#: ../spasalon_pro/aboutus.php:155
+msgid ""
+"In convallis hendrerit velit id vulputate.onvallis hendrerit velit id "
+"vulputate. Donec eget consequat urna. Pellentesque ac nibh risus. Duis "
+"scelerisque, metus ac  Donec eget consequat urna. Pellentesque ac nibh "
+"risus. Duis scelerisque, metus ac adipiscing."
+msgstr ""
+
+#: aboutus.php:153 ../spasalon_pro/aboutus.php:153
+msgid "Thermal Spa"
+msgstr ""
+
+#: archive.php:8 ../spasalon_pro/archive.php:8
+msgid "Daily Archives:"
+msgstr ""
+
+#: archive.php:10 ../spasalon_pro/archive.php:10
+msgid "Monthly Archives:"
+msgstr ""
+
+#: archive.php:12 ../spasalon_pro/archive.php:12
+msgid "Yearly Archives:"
+msgstr ""
+
+#: archive.php:14 ../spasalon_pro/archive.php:14
+msgid "Blog Archives"
+msgstr ""
+
+#: archive.php:28 blog.php:24 category.php:21 page.php:24 search.php:19
+#: single.php:23 ../spasalon_pro/archive.php:28 ../spasalon_pro/blog.php:24
+#: ../spasalon_pro/category.php:21 ../spasalon_pro/page.php:24
+#: ../spasalon_pro/search.php:19 ../spasalon_pro/single.php:23
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:49
+msgid "Leave a comment"
+msgstr ""
+
+#: archive.php:28 blog.php:24 category.php:21 page.php:24 search.php:19
+#: single.php:23 ../spasalon_pro/archive.php:28 ../spasalon_pro/blog.php:24
+#: ../spasalon_pro/category.php:21 ../spasalon_pro/page.php:24
+#: ../spasalon_pro/search.php:19 ../spasalon_pro/single.php:23
+msgid "1 Comment"
+msgstr ""
+
+#: archive.php:28 blog.php:24 category.php:21 page.php:24 search.php:19
+#: single.php:23 ../spasalon_pro/archive.php:28 ../spasalon_pro/blog.php:24
+#: ../spasalon_pro/category.php:21 ../spasalon_pro/page.php:24
+#: ../spasalon_pro/search.php:19 ../spasalon_pro/single.php:23
+msgid "% Comments"
+msgstr ""
+
+#: blog.php:37 page.php:31 single.php:30 ../spasalon_pro/blog.php:37
+#: ../spasalon_pro/page.php:31 ../spasalon_pro/single.php:30
+#: ../twentythirteen/content-aside.php:14
+#: ../twentythirteen/content-audio.php:25
+#: ../twentythirteen/content-chat.php:24
+#: ../twentythirteen/content-gallery.php:25
+#: ../twentythirteen/content-image.php:24
+#: ../twentythirteen/content-link.php:25
+#: ../twentythirteen/content-quote.php:14
+#: ../twentythirteen/content-status.php:14
+#: ../twentythirteen/content-video.php:24 ../twentythirteen/content.php:42
+#: ../twentythirteen/image.php:70 ../twentythirteen/page.php:35
+#: ../twentytwelve/content-page.php:21 ../twentytwelve/content.php:42
+#: ../twentytwelve/image.php:102
+msgid "Pages:"
+msgstr ""
+
+#: category.php:9 ../spasalon_pro/category.php:9
+msgid "Category  Archives:"
+msgstr ""
+
+#: comments.php:2 ../spasalon_pro/comments.php:2
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:13 comments.php:22 ../spasalon_pro/comments.php:13
+#: ../spasalon_pro/comments.php:22 ../twentythirteen/comments.php:45
+#: ../twentytwelve/comments.php:42
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:14 comments.php:23 ../spasalon_pro/comments.php:14
+#: ../spasalon_pro/comments.php:23 ../twentythirteen/comments.php:46
+#: ../twentytwelve/comments.php:43
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:15 comments.php:24 ../spasalon_pro/comments.php:15
+#: ../spasalon_pro/comments.php:24 ../twentythirteen/comments.php:47
+#: ../twentytwelve/comments.php:44
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:47 ../spasalon_pro/comments.php:47
+msgid "Logged in as "
+msgstr ""
+
+#: comments.php:47 ../spasalon_pro/comments.php:47
+msgid " Log out?"
+msgstr ""
+
+#: contact.php:13 ../spasalon_pro/contact.php:13
+msgid "CONTACT INFO"
+msgstr ""
+
+#: contact.php:15 ../spasalon_pro/contact.php:15
+msgid "View Larger Map"
+msgstr ""
+
+#: contact.php:19 ../spasalon_pro/contact.php:19
+msgid "GET IN TOUCH"
+msgstr ""
+
+#: contact.php:76 ../spasalon_pro/contact.php:76
+msgid "Your Name"
+msgstr ""
+
+#: contact.php:81 ../spasalon_pro/contact.php:81
+msgid "Email*"
+msgstr ""
+
+#: contact.php:86 ../spasalon_pro/contact.php:86
+msgid "Subject"
+msgstr ""
+
+#: contact.php:90 ../spasalon_pro/contact.php:90
+msgid "Your Message"
+msgstr ""
+
+#: contact.php:104 default_products.php:8 default_products.php:13
+#: default_products.php:18 default_products.php:23 default_products.php:28
+#: default_products.php:33 default_products.php:38 default_products.php:43
+#: default_products.php:48 default_products.php:53 default_products.php:58
+#: default_products.php:63 ../spasalon_pro/contact.php:104
+#: ../spasalon_pro/default_products.php:8
+#: ../spasalon_pro/default_products.php:13
+#: ../spasalon_pro/default_products.php:18
+#: ../spasalon_pro/default_products.php:23
+#: ../spasalon_pro/default_products.php:28
+#: ../spasalon_pro/default_products.php:33
+#: ../spasalon_pro/default_products.php:38
+#: ../spasalon_pro/default_products.php:43
+#: ../spasalon_pro/default_products.php:48
+#: ../spasalon_pro/default_products.php:53
+#: ../spasalon_pro/default_products.php:58
+#: ../spasalon_pro/default_products.php:63
+msgid "Spa Salon"
+msgstr ""
+
+#: contact.php:119 ../spasalon_pro/contact.php:119
+msgid "Opening Hours"
+msgstr ""
+
+#: contact.php:131 index-slider.php:30 index-slider.php:80 pink-header.php:25
+#: option_pannel/home.php:49 ../spasalon_pro/contact.php:131
+#: ../spasalon_pro/index-slider.php:30 ../spasalon_pro/index-slider.php:80
+#: ../spasalon_pro/pink-header.php:25
+#: ../spasalon_pro/option_pannel/home.php:49
+msgid "Call us on"
+msgstr ""
+
+#: default_services.php:4 ../spasalon_pro/default_services.php:4
+msgid "Spa Treatment"
+msgstr ""
+
+#: default_services.php:18 ../spasalon_pro/default_services.php:18
+msgid "Detox Treatment"
+msgstr ""
+
+#: default_services.php:32 ../spasalon_pro/default_services.php:32
+msgid "Facial Treatment"
+msgstr ""
+
+#: default_services.php:46 ../spasalon_pro/default_services.php:46
+msgid "Other Treatment"
+msgstr ""
+
+#: functions.php:15 ../spasalon_pro/functions.php:15
+msgid "Page"
+msgstr ""
+
+#: functions.php:133 ../spasalon_pro/functions.php:133
+msgid "Header Menu"
+msgstr ""
+
+#: functions.php:134 ../spasalon_pro/functions.php:134
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:141 ../spasalon_pro/functions.php:141
+msgid " Sidebar"
+msgstr ""
+
+#: functions.php:143 ../spasalon_pro/functions.php:143
+msgid "The primary widget area"
+msgstr ""
+
+#: functions.php:185 functions.php:186 functions.php:187 functions.php:242
+#: ../spasalon_pro/functions.php:185 ../spasalon_pro/functions.php:186
+#: ../spasalon_pro/functions.php:187 ../spasalon_pro/functions.php:242
+msgid "Add New Service"
+msgstr ""
+
+#: functions.php:188 functions.php:217 functions.php:245 functions.php:303
+#: ../spasalon_pro/functions.php:188 ../spasalon_pro/functions.php:217
+#: ../spasalon_pro/functions.php:245 ../spasalon_pro/functions.php:303
+msgid "New Link"
+msgstr ""
+
+#: functions.php:189 ../spasalon_pro/functions.php:189
+msgid "All Featured Services"
+msgstr ""
+
+#: functions.php:190 functions.php:219 functions.php:247 functions.php:305
+#: ../spasalon_pro/functions.php:190 ../spasalon_pro/functions.php:219
+#: ../spasalon_pro/functions.php:247 ../spasalon_pro/functions.php:305
+msgid "View Link"
+msgstr ""
+
+#: functions.php:191 functions.php:220 functions.php:248 functions.php:306
+#: ../spasalon_pro/functions.php:191 ../spasalon_pro/functions.php:220
+#: ../spasalon_pro/functions.php:248 ../spasalon_pro/functions.php:306
+msgid "Search Links"
+msgstr ""
+
+#: functions.php:192 functions.php:221 functions.php:249 functions.php:307
+#: ../spasalon_pro/functions.php:192 ../spasalon_pro/functions.php:221
+#: ../spasalon_pro/functions.php:249 ../spasalon_pro/functions.php:307
+msgid "No Links found"
+msgstr ""
+
+#: functions.php:193 functions.php:222 functions.php:250 functions.php:308
+#: ../spasalon_pro/functions.php:193 ../spasalon_pro/functions.php:222
+#: ../spasalon_pro/functions.php:250 ../spasalon_pro/functions.php:308
+msgid "No Links found in Trash"
+msgstr ""
+
+#: functions.php:214 ../spasalon_pro/functions.php:214
+msgid "Add New "
+msgstr ""
+
+#: functions.php:215 ../spasalon_pro/functions.php:215
+msgid "Enter member name"
+msgstr ""
+
+#: functions.php:216 ../spasalon_pro/functions.php:216
+msgid "Add member name"
+msgstr ""
+
+#: functions.php:218 ../spasalon_pro/functions.php:218
+msgid "All Member"
+msgstr ""
+
+#: functions.php:243 functions.php:244 ../spasalon_pro/functions.php:243
+#: ../spasalon_pro/functions.php:244
+msgid "Add new service"
+msgstr ""
+
+#: functions.php:246 ../spasalon_pro/functions.php:246
+msgid "All Services"
+msgstr ""
+
+#: functions.php:300 ../spasalon_pro/functions.php:300
+msgid "Add New Product"
+msgstr ""
+
+#: functions.php:301 ../spasalon_pro/functions.php:301
+msgid "Enter Product Name"
+msgstr ""
+
+#: functions.php:302 ../spasalon_pro/functions.php:302
+msgid "Enter Product Name "
+msgstr ""
+
+#: functions.php:304 ../spasalon_pro/functions.php:304
+msgid "All Product"
+msgstr ""
+
+#: functions.php:378 functions.php:395 functions.php:408
+#: ../spasalon_pro/functions.php:378 ../spasalon_pro/functions.php:395
+#: ../spasalon_pro/functions.php:408
+msgid "Banner Description"
+msgstr ""
+
+#: functions.php:380 functions.php:397 functions.php:410
+#: ../spasalon_pro/functions.php:380 ../spasalon_pro/functions.php:397
+#: ../spasalon_pro/functions.php:410
+msgid "Banner Heading One"
+msgstr ""
+
+#: functions.php:382 functions.php:399 functions.php:412
+#: ../spasalon_pro/functions.php:382 ../spasalon_pro/functions.php:399
+#: ../spasalon_pro/functions.php:412
+msgid "Banner Heading Two"
+msgstr ""
+
+#: functions.php:391 ../spasalon_pro/functions.php:391
+msgid "Product detail"
+msgstr ""
+
+#: functions.php:393 ../spasalon_pro/functions.php:393
+msgid "Price"
+msgstr ""
+
+#: functions.php:421 ../spasalon_pro/functions.php:421
+msgid "Designation"
+msgstr ""
+
+#: functions.php:425 ../spasalon_pro/functions.php:425
+msgid "Description"
+msgstr ""
+
+#: functions.php:430 ../spasalon_pro/functions.php:430
+msgid "Social Media Setting"
+msgstr ""
+
+#: functions.php:432 ../spasalon_pro/functions.php:432
+msgid "Facebook"
+msgstr ""
+
+#: functions.php:436 ../spasalon_pro/functions.php:436
+msgid "Twitter Url"
+msgstr ""
+
+#: functions.php:442 ../spasalon_pro/functions.php:442
+msgid "Google Url"
+msgstr ""
+
+#: functions.php:510 ../spasalon_pro/functions.php:510
+#: ../twentytwelve/functions.php:353
+msgid "Reply"
+msgstr ""
+
+#: functions.php:534 ../spasalon_pro/functions.php:534
+#: ../twentytwelve/functions.php:344
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: index-slider.php:52 ../spasalon_pro/index-slider.php:52
+msgid "Explore More"
+msgstr ""
+
+#: index-slider.php:73 ../spasalon_pro/index-slider.php:73
+msgid "our"
+msgstr ""
+
+#: index-slider.php:74 ../spasalon_pro/index-slider.php:74
+msgid "refreshed"
+msgstr ""
+
+#: index-slider.php:89 ../spasalon_pro/index-slider.php:89
+msgid "Producing"
+msgstr ""
+
+#: index-slider.php:89 ../spasalon_pro/index-slider.php:89
+msgid "Quality"
+msgstr ""
+
+#: index-slider.php:96 ../spasalon_pro/index-slider.php:96
+msgid "Cool"
+msgstr ""
+
+#: index-slider.php:96 ../spasalon_pro/index-slider.php:96
+msgid "Experience"
+msgstr ""
+
+#: index-slider.php:103 ../spasalon_pro/index-slider.php:103
+msgid "Feel"
+msgstr ""
+
+#: index-slider.php:103 ../spasalon_pro/index-slider.php:103
+msgid "Amazing"
+msgstr ""
+
+#: search.php:7 ../spasalon_pro/search.php:7
+msgid "Search Results for:"
+msgstr ""
+
+#: search.php:28 ../spasalon_pro/search.php:28
+#: ../twentythirteen/content-none.php:12 ../twentytwelve/content-none.php:13
+#: ../twentytwelve/index.php:49 ../twentytwelve/search.php:34
+msgid "Nothing Found"
+msgstr ""
+
+#: search.php:30 ../spasalon_pro/search.php:30 ../twentytwelve/search.php:38
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: single-spa_products.php:29 ../spasalon_pro/single-spa_products.php:29
+msgid "Related Products"
+msgstr ""
+
+#: functions/wpex_framework.php:8
+#: ../spasalon_pro/functions/wpex_framework.php:8
+msgid "Framework location not defined."
+msgstr ""
+
+#: functions/Menu_Walker/default_menu_walker.php:23
+#: option_pannel/option_pannel.php:53
+#: ../spasalon_pro/functions/Menu_Walker/default_menu_walker.php:23
+#: ../spasalon_pro/option_pannel/option_pannel.php:53
+msgid "Home"
+msgstr ""
+
+#: functions/shortcodes/shortcodes.php:50
+#: ../spasalon_pro/functions/shortcodes/shortcodes.php:50
+msgid "Heading Title"
+msgstr ""
+
+#: functions/shortcodes/shortcodes.php:151
+#: ../spasalon_pro/functions/shortcodes/shortcodes.php:151
+msgid "1"
+msgstr ""
+
+#: functions/shortcodes/shortcodes.php:152
+#: ../spasalon_pro/functions/shortcodes/shortcodes.php:152
+msgid "order"
+msgstr ""
+
+#: functions/widgets/spa-recent-posts.php:10
+#: functions/widgets/spa-recent-posts.php:11
+#: ../spasalon_pro/functions/widgets/spa-recent-posts.php:10
+#: ../spasalon_pro/functions/widgets/spa-recent-posts.php:11
+msgid "Spa Recent Posts"
+msgstr ""
+
+#: functions/widgets/spa-recent-posts.php:10
+#: ../spasalon_pro/functions/widgets/spa-recent-posts.php:10
+msgid "The most recent posts on your site"
+msgstr ""
+
+#: functions/widgets/spa-recent-posts.php:95
+#: functions/widgets/spa-recent-products.php:103
+#: functions/widgets/spa-widget-contact.php:57
+#: ../spasalon_pro/functions/widgets/spa-recent-posts.php:95
+#: ../spasalon_pro/functions/widgets/spa-recent-products.php:103
+#: ../spasalon_pro/functions/widgets/spa-widget-contact.php:57
+msgid "Title:"
+msgstr ""
+
+#: functions/widgets/spa-recent-posts.php:100
+#: functions/widgets/spa-recent-products.php:108
+#: ../spasalon_pro/functions/widgets/spa-recent-posts.php:100
+#: ../spasalon_pro/functions/widgets/spa-recent-products.php:108
+msgid "Number of posts to show:"
+msgstr ""
+
+#: functions/widgets/spa-recent-products.php:9
+#: ../spasalon_pro/functions/widgets/spa-recent-products.php:9
+msgid "The most recent products on your site"
+msgstr ""
+
+#: functions/widgets/spa-recent-products.php:10
+#: ../spasalon_pro/functions/widgets/spa-recent-products.php:10
+msgid "Spa Recent Products"
+msgstr ""
+
+#: functions/widgets/spa-widget-contact.php:8
+#: ../spasalon_pro/functions/widgets/spa-widget-contact.php:8
+msgid "A widget that displays the authors contacts "
+msgstr ""
+
+#: functions/widgets/spa-widget-contact.php:12
+#: ../spasalon_pro/functions/widgets/spa-widget-contact.php:12
+msgid "Spa Contact Widget"
+msgstr ""
+
+#: functions/widgets/spa-widget-contact.php:54
+#: ../spasalon_pro/functions/widgets/spa-widget-contact.php:54
+msgid "Contact Us"
+msgstr ""
+
+#: functions/widgets/spa-widget-contact.php:61
+#: ../spasalon_pro/functions/widgets/spa-widget-contact.php:61
+msgid "Your Contact Number"
+msgstr ""
+
+#: functions/widgets/spa-widget-contact.php:65
+#: ../spasalon_pro/functions/widgets/spa-widget-contact.php:65
+msgid "Your  email"
+msgstr ""
+
+#: functions/widgets/spa-widget-contact.php:69
+#: ../spasalon_pro/functions/widgets/spa-widget-contact.php:69
+msgid "Your  city"
+msgstr ""
+
+#: option_pannel/footer_customization.php:1
+#: ../spasalon_pro/option_pannel/footer_customization.php:1
+msgid "Footer Copyrights"
+msgstr ""
+
+#: option_pannel/footer_customization.php:1
+#: option_pannel/general_settings.php:125 option_pannel/home.php:194
+#: option_pannel/homepage_slider.php:145 option_pannel/typography.php:505
+#: ../spasalon_pro/option_pannel/footer_customization.php:1
+#: ../spasalon_pro/option_pannel/general_settings.php:125
+#: ../spasalon_pro/option_pannel/home.php:194
+#: ../spasalon_pro/option_pannel/homepage_slider.php:145
+#: ../spasalon_pro/option_pannel/typography.php:505
+msgid "Save Changes"
+msgstr ""
+
+#: option_pannel/footer_customization.php:1
+#: option_pannel/general_settings.php:126 option_pannel/home.php:195
+#: option_pannel/homepage_slider.php:146 option_pannel/typography.php:506
+#: ../spasalon_pro/option_pannel/footer_customization.php:1
+#: ../spasalon_pro/option_pannel/general_settings.php:126
+#: ../spasalon_pro/option_pannel/home.php:195
+#: ../spasalon_pro/option_pannel/homepage_slider.php:146
+#: ../spasalon_pro/option_pannel/typography.php:506
+msgid "Restore Defaults"
+msgstr ""
+
+#: option_pannel/footer_customization.php:1
+#: option_pannel/general_settings.php:130 option_pannel/home.php:196
+#: option_pannel/homepage_slider.php:147
+#: ../spasalon_pro/option_pannel/footer_customization.php:1
+#: ../spasalon_pro/option_pannel/general_settings.php:130
+#: ../spasalon_pro/option_pannel/home.php:196
+#: ../spasalon_pro/option_pannel/homepage_slider.php:147
+msgid "Data reset sucessfully"
+msgstr ""
+
+#: option_pannel/footer_customization.php:1
+#: option_pannel/general_settings.php:131 option_pannel/home.php:197
+#: option_pannel/homepage_slider.php:148
+#: ../spasalon_pro/option_pannel/footer_customization.php:1
+#: ../spasalon_pro/option_pannel/general_settings.php:131
+#: ../spasalon_pro/option_pannel/home.php:197
+#: ../spasalon_pro/option_pannel/homepage_slider.php:148
+msgid "Data save sucessfully"
+msgstr ""
+
+#: option_pannel/general_settings.php:55
+#: ../spasalon_pro/option_pannel/general_settings.php:55
+msgid "General Settings"
+msgstr ""
+
+#: option_pannel/general_settings.php:56
+#: ../spasalon_pro/option_pannel/general_settings.php:56
+msgid "Custom Logo"
+msgstr ""
+
+#: option_pannel/general_settings.php:69
+#: ../spasalon_pro/option_pannel/general_settings.php:69
+msgid "The placeholder image that will be used as a custom logo"
+msgstr ""
+
+#: option_pannel/general_settings.php:74
+#: ../spasalon_pro/option_pannel/general_settings.php:74
+msgid "Header Logo Height"
+msgstr ""
+
+#: option_pannel/general_settings.php:81 option_pannel/general_settings.php:94
+#: ../spasalon_pro/option_pannel/general_settings.php:81
+#: ../spasalon_pro/option_pannel/general_settings.php:94
+msgid "The width of the header logo image."
+msgstr ""
+
+#: option_pannel/general_settings.php:87
+#: ../spasalon_pro/option_pannel/general_settings.php:87
+msgid "Header Logo width"
+msgstr ""
+
+#: option_pannel/general_settings.php:99
+#: ../spasalon_pro/option_pannel/general_settings.php:99
+msgid "Custom Favicon"
+msgstr ""
+
+#: option_pannel/general_settings.php:107
+#: ../spasalon_pro/option_pannel/general_settings.php:107
+msgid ""
+"The placeholder image that will be used if a featured image isnt specified."
+msgstr ""
+
+#: option_pannel/general_settings.php:111
+#: ../spasalon_pro/option_pannel/general_settings.php:111
+msgid "Add Google Link Here for Goole Map"
+msgstr ""
+
+#: option_pannel/general_settings.php:118
+#: ../spasalon_pro/option_pannel/general_settings.php:118
+msgid "Put Your Google Map Url above"
+msgstr ""
+
+#: option_pannel/general_settings.php:118
+#: ../spasalon_pro/option_pannel/general_settings.php:118
+msgid "To know your Google Map Location Visit URL"
+msgstr ""
+
+#: option_pannel/home.php:13 ../spasalon_pro/option_pannel/home.php:13
+msgid "Sorry, your nonce did not verify."
+msgstr ""
+
+#: option_pannel/home.php:48 ../spasalon_pro/option_pannel/home.php:48
+msgid "Home Page Setting"
+msgstr ""
+
+#: option_pannel/home.php:61 ../spasalon_pro/option_pannel/home.php:61
+msgid "Tagline Title"
+msgstr ""
+
+#: option_pannel/home.php:71 ../spasalon_pro/option_pannel/home.php:71
+msgid "Tagline Content"
+msgstr ""
+
+#: option_pannel/home.php:83 ../spasalon_pro/option_pannel/home.php:83
+msgid "Product Heading Title"
+msgstr ""
+
+#: option_pannel/home.php:95 ../spasalon_pro/option_pannel/home.php:95
+msgid "Product Heading Content"
+msgstr ""
+
+#: option_pannel/home.php:106 ../spasalon_pro/option_pannel/home.php:106
+msgid "Tagline Settings"
+msgstr ""
+
+#: option_pannel/home.php:125 option_pannel/home.php:166
+#: option_pannel/typography.php:90 option_pannel/typography.php:150
+#: option_pannel/typography.php:209 option_pannel/typography.php:265
+#: option_pannel/typography.php:467 ../spasalon_pro/option_pannel/home.php:125
+#: ../spasalon_pro/option_pannel/home.php:166
+#: ../spasalon_pro/option_pannel/typography.php:90
+#: ../spasalon_pro/option_pannel/typography.php:150
+#: ../spasalon_pro/option_pannel/typography.php:209
+#: ../spasalon_pro/option_pannel/typography.php:265
+#: ../spasalon_pro/option_pannel/typography.php:467
+msgid "px"
+msgstr ""
+
+#: option_pannel/home.php:147 ../spasalon_pro/option_pannel/home.php:147
+msgid "Product Heading Settings"
+msgstr ""
+
+#: option_pannel/homepage_slider.php:55
+#: ../spasalon_pro/option_pannel/homepage_slider.php:55
+msgid "Slider Entries"
+msgstr ""
+
+#: option_pannel/homepage_slider.php:61
+#: ../spasalon_pro/option_pannel/homepage_slider.php:61
+msgid "Select a number"
+msgstr ""
+
+#: option_pannel/homepage_slider.php:76
+#: ../spasalon_pro/option_pannel/homepage_slider.php:76
+msgid "Slider Effect"
+msgstr ""
+
+#: option_pannel/homepage_slider.php:83
+#: ../spasalon_pro/option_pannel/homepage_slider.php:83
+msgid "fade"
+msgstr ""
+
+#: option_pannel/homepage_slider.php:84
+#: ../spasalon_pro/option_pannel/homepage_slider.php:84
+msgid "slide"
+msgstr ""
+
+#: option_pannel/homepage_slider.php:92
+#: ../spasalon_pro/option_pannel/homepage_slider.php:92
+msgid "Animation Speed"
+msgstr ""
+
+#: option_pannel/homepage_slider.php:116
+#: ../spasalon_pro/option_pannel/homepage_slider.php:116
+msgid "Auto Slide Interval"
+msgstr ""
+
+#: option_pannel/option_pannel.php:18
+#: ../spasalon_pro/option_pannel/option_pannel.php:18
+msgid "Spa Theme Options"
+msgstr ""
+
+#: option_pannel/option_pannel.php:25
+#: ../spasalon_pro/option_pannel/option_pannel.php:25
+msgid "Tabs"
+msgstr ""
+
+#: option_pannel/option_pannel.php:45
+#: ../spasalon_pro/option_pannel/option_pannel.php:45
+msgid "General"
+msgstr ""
+
+#: option_pannel/option_pannel.php:47 option_pannel/typography.php:68
+#: ../spasalon_pro/option_pannel/option_pannel.php:47
+#: ../spasalon_pro/option_pannel/typography.php:68
+msgid "Typography"
+msgstr ""
+
+#: option_pannel/option_pannel.php:49
+#: ../spasalon_pro/option_pannel/option_pannel.php:49
+msgid "Homepage Slider"
+msgstr ""
+
+#: option_pannel/option_pannel.php:51
+#: ../spasalon_pro/option_pannel/option_pannel.php:51
+msgid "Footer Customization"
+msgstr ""
+
+#: option_pannel/typography.php:69
+#: ../spasalon_pro/option_pannel/typography.php:69
+msgid "Style Menus"
+msgstr ""
+
+#: option_pannel/typography.php:128
+#: ../spasalon_pro/option_pannel/typography.php:128
+msgid "Post Title"
+msgstr ""
+
+#: option_pannel/typography.php:188
+#: ../spasalon_pro/option_pannel/typography.php:188
+msgid "Post Excerpt"
+msgstr ""
+
+#: option_pannel/typography.php:243
+#: ../spasalon_pro/option_pannel/typography.php:243
+msgid "Post Meta"
+msgstr ""
+
+#: option_pannel/typography.php:447
+#: ../spasalon_pro/option_pannel/typography.php:447
+msgid "Sidebar Widgte Title"
+msgstr ""
+
+#: option_pannel/typography.php:507
+#: ../spasalon_pro/option_pannel/typography.php:507
+msgid "Data Reset Successfully"
+msgstr ""
+
+#: option_pannel/typography.php:508
+#: ../spasalon_pro/option_pannel/typography.php:508
+msgid "Data Save Successfully"
+msgstr ""
+
+#: ../twentythirteen/404.php:16
+msgid "Not found"
+msgstr ""
+
+#: ../twentythirteen/404.php:21 ../twentytwelve/404.php:17
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: ../twentythirteen/404.php:22
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: ../twentythirteen/archive.php:29 ../twentytwelve/archive.php:29
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/archive.php:31 ../twentytwelve/archive.php:31
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/archive.php:33 ../twentytwelve/archive.php:33
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/archive.php:35 ../twentytwelve/archive.php:35
+msgid "Archives"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:26 ../twentytwelve/author.php:63
+#: ../twentytwelve/content.php:59
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:30 ../twentytwelve/content.php:63
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/author.php:31
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: ../twentythirteen/category.php:19 ../twentytwelve/category.php:21
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/comments.php:52 ../twentytwelve/comments.php:53
+msgid "Comments are closed."
+msgstr ""
+
+#: ../twentythirteen/content-aside.php:13
+#: ../twentythirteen/content-audio.php:24
+#: ../twentythirteen/content-gallery.php:24
+#: ../twentythirteen/content-image.php:23
+#: ../twentythirteen/content-link.php:24
+#: ../twentythirteen/content-quote.php:13
+#: ../twentythirteen/content-status.php:13
+#: ../twentythirteen/content-video.php:23 ../twentythirteen/content.php:41
+#: ../twentytwelve/content-aside.php:15 ../twentytwelve/content-image.php:13
+#: ../twentytwelve/content-link.php:14 ../twentytwelve/content-quote.php:13
+#: ../twentytwelve/content-status.php:31 ../twentytwelve/content.php:41
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/content-aside.php:20
+#: ../twentythirteen/content-aside.php:28
+#: ../twentythirteen/content-audio.php:31
+#: ../twentythirteen/content-chat.php:29
+#: ../twentythirteen/content-gallery.php:39
+#: ../twentythirteen/content-image.php:35
+#: ../twentythirteen/content-link.php:19
+#: ../twentythirteen/content-quote.php:25
+#: ../twentythirteen/content-status.php:19
+#: ../twentythirteen/content-video.php:35 ../twentythirteen/content.php:31
+#: ../twentythirteen/image.php:44 ../twentythirteen/page.php:39
+#: ../twentytwelve/content-aside.php:26 ../twentytwelve/content-image.php:26
+#: ../twentytwelve/content-link.php:24 ../twentytwelve/content-page.php:24
+#: ../twentytwelve/content-quote.php:23 ../twentytwelve/content-status.php:40
+#: ../twentytwelve/content.php:48 ../twentytwelve/functions.php:349
+#: ../twentytwelve/image.php:37
+msgid "Edit"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:49
+msgid "One comment so far"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:49
+#, php-format
+msgid "View all % comments"
+msgstr ""
+
+#: ../twentythirteen/content-none.php:18
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../twentythirteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+
+#: ../twentythirteen/footer.php:19 ../twentytwelve/footer.php:16
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../twentythirteen/footer.php:19 ../twentytwelve/footer.php:16
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:97
+msgid "Navigation Menu"
+msgstr ""
+
+#: ../twentythirteen/functions.php:220 ../twentytwelve/functions.php:215
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:235
+msgid "Main Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:237
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: ../twentythirteen/functions.php:245
+msgid "Secondary Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:247
+msgid "Appears on posts and pages in the sidebar."
+msgstr ""
+
+#: ../twentythirteen/functions.php:272
+msgid "Posts navigation"
+msgstr ""
+
+#: ../twentythirteen/functions.php:276 ../twentytwelve/functions.php:289
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: ../twentythirteen/functions.php:280 ../twentytwelve/functions.php:290
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/functions.php:308 ../twentytwelve/functions.php:288
+#: ../twentytwelve/single.php:20
+msgid "Post navigation"
+msgstr ""
+
+#: ../twentythirteen/functions.php:332
+msgid "Sticky"
+msgstr ""
+
+#: ../twentythirteen/functions.php:338 ../twentythirteen/functions.php:344
+#: ../twentytwelve/functions.php:376 ../twentytwelve/functions.php:379
+msgid ", "
+msgstr ""
+
+#: ../twentythirteen/functions.php:353 ../twentytwelve/functions.php:390
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:379 ../twentytwelve/content-aside.php:20
+#: ../twentytwelve/content-link.php:18 ../twentytwelve/content-quote.php:17
+#: ../twentytwelve/content-status.php:15
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../twentythirteen/header.php:43 ../twentytwelve/header.php:43
+msgid "Menu"
+msgstr ""
+
+#: ../twentythirteen/header.php:44 ../twentytwelve/header.php:44
+msgid "Skip to content"
+msgstr ""
+
+#: ../twentythirteen/image.php:22
+#, php-format
+msgid ""
+"<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" "
+"rel=\"gallery\">%5$s</a></span>"
+msgstr ""
+
+#: ../twentythirteen/image.php:39
+msgid "Full resolution"
+msgstr ""
+
+#: ../twentythirteen/image.php:51
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
+
+#: ../twentythirteen/image.php:52
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/search.php:18 ../twentytwelve/search.php:18
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../twentythirteen/tag.php:21 ../twentytwelve/tag.php:21
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/taxonomy-post_format.php:23
+#, php-format
+msgid "%s Archives"
+msgstr ""
+
+#: ../twentythirteen/inc/back-compat.php:41
+#: ../twentythirteen/inc/back-compat.php:53
+#: ../twentythirteen/inc/back-compat.php:68
+#, php-format
+msgid ""
+"Twenty Thirteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentytwelve/author.php:32
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:37 ../twentytwelve/content.php:30
+msgid "Leave a reply"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:37 ../twentytwelve/content.php:30
+msgid "1 Reply"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:37 ../twentytwelve/content.php:30
+msgid "% Replies"
+msgstr ""
+
+#: ../twentytwelve/content-link.php:12
+msgid "Link"
+msgstr ""
+
+#: ../twentytwelve/content-none.php:17 ../twentytwelve/index.php:53
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: ../twentytwelve/content.php:16
+msgid "Featured post"
+msgstr ""
+
+#: ../twentytwelve/functions.php:64
+msgid "Primary Menu"
+msgstr ""
+
+#: ../twentytwelve/functions.php:244
+msgid "Main Sidebar"
+msgstr ""
+
+#: ../twentytwelve/functions.php:246
+msgid ""
+"Appears on posts and pages except the optional Front Page template, which "
+"has its own widgets"
+msgstr ""
+
+#: ../twentytwelve/functions.php:254
+msgid "First Front Page Widget Area"
+msgstr ""
+
+#: ../twentytwelve/functions.php:256 ../twentytwelve/functions.php:266
+msgid ""
+"Appears when using the optional Front Page template with a page set as "
+"Static Front Page"
+msgstr ""
+
+#: ../twentytwelve/functions.php:264
+msgid "Second Front Page Widget Area"
+msgstr ""
+
+#: ../twentytwelve/functions.php:317
+msgid "Pingback:"
+msgstr ""
+
+#: ../twentytwelve/functions.php:317
+msgid "(Edit)"
+msgstr ""
+
+#: ../twentytwelve/functions.php:332
+msgid "Post author"
+msgstr ""
+
+#: ../twentytwelve/functions.php:338
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../twentytwelve/functions.php:396
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: ../twentytwelve/functions.php:398
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: ../twentytwelve/functions.php:400
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: ../twentytwelve/image.php:26
+#, php-format
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+
+#: ../twentytwelve/image.php:41
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../twentytwelve/image.php:42
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../twentytwelve/index.php:38
+msgid "No posts to display"
+msgstr ""
+
+#: ../twentytwelve/index.php:42
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""

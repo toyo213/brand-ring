@@ -1,0 +1,2457 @@
+/*!
+* Theme Name: SpaSalon Pro 
+* Theme URI: http://webriti.com/demo/wp/spasalon
+* Description: A theme for SPA SALON and BEAUTY SALON type of business that uses multiple nav menus, right-sidebar,Featured Slider and Custom post layouts. 
+It has a pixel-perfect design that is great for any blogger who wants a new look for their site.
+* Version: 1.8.4
+* Author: Webriti
+* Author URI: http://www.webriti.com
+* Tags: Pink,white,full-width-template, threaded-comments, ,right-sidebar, .
+* License: GNU General Public License v2.0
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*
+* Copyright (c) 2013 Webriti. All rights reserved.
+* http://www.webriti.com
+*/
+/* Add additional stylesheets below
+-------------------------------------------------- */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-smooth: always;
+    font-family: "Trebuchet MS","Arial","Helvetica","Verdana","sans-serif";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 20px;
+    margin: 0px;
+}
+
+/* Css for Index Page goes here
+-------------------------------------------------- ----------------------------------------------------------------------------------*/
+#slider-Pink {
+    margin-top: 15px;
+    width: auto;
+    margin-left: 25px;
+}
+
+.logo-img {
+    height: 60px;
+}
+/* Menus Drop Shadow */
+#main_shadow {
+    box-shadow: 5px 1px 3px #E8ECEE;
+    -moz-box-shadow: 5px 1px 3px #E8ECEE;
+    -webkit-box-shadow: 5px 1px 3px #E8ECEE;
+}
+
+.home_service {
+    font-family: roboto;
+    font-size: 16px;
+    margin-bottom: 20.1px;
+}
+
+.home_service_img {
+    display: block;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.home_service_para p {
+	color:#626668;
+    font-family: roboto;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.spacer {
+    margin-bottom: 115px;
+}
+
+
+/* Flexslider Thumbnails */
+.flex_thumbnail {
+    bottom: 120px;
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.flex_thumbnail p {
+    font-family: MyriadPro;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin: 0px 20px;
+}
+
+.flex_thumbnail h4 {
+    font-family: Raleway-Medium;
+    font-size: 21px;
+    text-transform: uppercase;
+    margin: 0px 20px;
+}
+
+.flex_btn {
+    display: block;
+    *display: block;
+    padding: 4px 23px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    font-size: 13px;
+    line-height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 0px;
+    *border: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    font-family: Raleway-Sbold;
+    position: relative;
+    top: 40%;
+}
+
+/* Products Thumbnail css here for Home Page----------------------------------------------------------------------------------Shahid */
+
+.home_product_img {
+    height: 236px;
+    width: 100%;
+}
+
+.home_products_bg h3 {
+    font-family: roboto-bold;
+    font-size: 16px;
+    margin: 0px;
+    line-height: 21px;
+    padding: 17px 20px 0;
+}
+
+.home_products_bg li {
+    margin-bottom: 0px;
+}
+
+.home_products_bg p {
+    font-family: roboto;
+    font-size: 13px;
+    padding: 5px 20px 0;
+}
+/* Pinkstrip Container Css -----------------------------------------------------------------------------------------------------*/
+
+    /* Large desktop */
+@media (min-width: 1025px) {
+
+    .pink-container {
+        bottom: 0px;
+        left: 0;
+        padding-top: 20px;
+        padding-bottom: 0px;
+        padding-left: 20px;
+        padding-right: 0px;
+        position: relative;
+        right: 0;
+        margin: auto;
+    }
+
+    .pink-container h1 {
+        line-height: 1.25;
+        margin: 0;
+    }
+
+    .pink_title {
+        margin-top: 3px;
+        margin-bottom: 20px;
+    }
+
+    .pink-container p {
+        font-family: roboto;
+        font-size: 13px;
+        padding-left: 30px;
+        line-height: 21px;
+    }
+
+    .pink_title  dt {
+        font-family: Raleway-Light;
+        font-size: 21px;
+        text-transform: uppercase;
+    }
+
+    .pink-head {
+        font-family: Raleway-Xbold;
+        font-size: 36px;
+    }
+
+    .spa_tag {
+        bottom: 8px;
+        height: 105px;
+        position: relative;
+        float: right;
+        width: 170px;
+        display: block;
+        margin-right: 20px;
+    }
+
+    .spa_tag span {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: Raleway-Medium;
+        height: 40px;
+        left: 18px;
+        line-height: 20px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        top: 48px;
+        width: 135px;
+    }
+
+    .spa_tag span p {
+        font-size: 18px;
+        font-family: Raleway-Sbold;
+        border: 0px;
+        padding: 0px;
+    }
+}   
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+ 
+
+    .pink-container {
+        display: none;
+    }
+
+    .slidesDescription {
+        display: none;
+    }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+ 
+    .pink-container {
+        display: none;
+    }
+
+    .slidesDescription {
+        display: none;
+    }
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+ 
+    .pink-container {
+        display: none;
+    }
+
+    .slidesDescription {
+        display: none;
+    }
+}
+
+  
+	
+	
+	
+
+/*service one and two column css------------------------------------------------------------------------------------------------------------------------*/
+.services-two-heading,.services-one-heading {
+    font-size: 24px;
+    margin-bottom: 35px;
+    margin-top: 0px;
+    padding-left: 0px;
+    font-family: roboto;
+    padding-bottom: 20px;
+    font-weight: normal;
+}
+
+.service-media-heading {
+    font-family: roboto;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.services-content {
+    font-family: roboto;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.service_two_img {
+    height: 87px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.service_one_img {
+  /* width:245px;
+  height:240px; */
+    width: 150px;
+    height: 87px;
+    margin-right: 15px;
+}
+
+.service-btn {
+    display: block;
+    font-family: roboto;
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+.service-1c {
+    min-height: 205px;
+}
+
+.service-1c-xpt {
+    margin-top: -27px;
+}
+
+.service-1c-xpt:first-child {
+    margin-top: 40px;
+}
+
+.shortcode-service-heading:first-child {
+    margin-top: 5px;
+}
+
+.service-1c-xpt:last-child {
+    margin-bottom: -96px;
+}
+
+.service-2c-xpt {
+    /* margin-top: -76px; */
+}
+
+.service-2c-xpt:first-child {
+    margin-top: 40px;
+}
+
+
+
+/*About Us Styles--------------------------------------------------------------------------------------------------------*/
+#aboutus-section {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 0px;
+}
+
+.aboutus-head {
+    margin-bottom: 35px;
+    font-size: 24px;
+    line-height: 25px;
+    margin-top: 50px;
+    font-family: roboto;
+    font-weight: normal;
+}
+
+.aboutus-team-img {
+    margin-right: 17px;
+    border-radius: 500px 500px 500px 500px;
+    display: block;
+    height: 180px;
+    width: 180px;
+    -webkit-border-radius: 500px 500px 500px 500px;
+    -moz-border-radius: 500px 500px 500px 500px;
+    border-radius: 500px 500px 500px 500px;
+}
+
+.aboutus-media-heading {
+    font-size: 18px;
+    margin: 0 0 15px;
+    font-family: roboto;
+}
+
+.about-circle-img {
+    -webkit-border-radius: 500px 500px 500px 500px;
+    -moz-border-radius: 500px 500px 500px 500px;
+    border-radius: 500px 500px 500px 500px;
+    margin-right: 0px;
+    margin-top: 35px;
+    height: 360px;
+    width: 360px;
+}
+
+.aboutus-alink {
+    font-family: roboto;
+    font-size: 14px;
+}
+
+.media > .about-pull-left {
+    float: left;
+}
+
+.abouus-service-img {
+    width: 260px;
+    height: 160px;
+    margin-right: 25px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.ourteamheading {
+    margin-top: 0px;
+    margin-bottom: 57px;
+    font-size: 24px;
+    font-family: roboto;
+}
+
+#our-team {
+    margin-bottom: 1.5%;
+    margin-left: 0px;
+}
+
+.designation {
+    display: block;
+    margin: 0 0 10px;
+    font-family: roboto;
+}
+
+.contact-icons {
+    float: left;
+    margin-bottom: 25px;
+    margin-top: 0;
+    width: 100%;
+}
+
+a.facebook {
+    float: left;
+    height: 26px;
+    margin-right: 7px;
+    width: 26px;
+}
+
+a.twitter {
+    float: left;
+    height: 26px;
+    margin-right: 7px;
+    width: 26px;
+}
+
+a.google {
+    float: left;
+    height: 26px;
+    margin-right: 7px;
+    width: 26px;
+}
+
+#about-service-head {
+    font-size: 27px;
+    line-height: 20px;
+    margin-bottom: 3.5%;
+    font-family: roboto;
+}
+
+#aboutus-service-sections {
+    margin-bottom: 0px;
+    margin-left: 0;
+    margin-top: 30px;
+}
+
+.aboutus_content p {
+    font-size: 13px;
+    font-family: roboto;
+}
+
+.about-team-head {
+    font-size: 24px;
+    font-family: roboto;
+    margin-bottom: 0px;
+}
+
+.aboutus-service-head {
+    font-size: 18px;
+    font-family: roboto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+
+
+  
+
+ 
+/* Css include here for Products template ------------------------------------------------------------------------------------*/
+.spa-products-btn {
+    font-family: roboto;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 600;
+    padding-left: 15px;
+}
+
+.spa-Products {
+    position: relative;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 1;
+    height: auto;
+    display: inline-block;
+}
+
+.spa-products-detail {
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 1;
+    height: auto;
+}
+
+.spa-products-heading {
+    font-size: 19px;
+    margin-bottom: 0px;
+    margin-top: 50px;
+    line-height: 20px;
+    padding-bottom: 0;
+    font-family: roboto;
+    font-weight: normal;
+}
+
+.spa-products-thumbnail {
+    display: inline-block;
+    height: 375px;
+    margin: 20px 0;
+    padding: 0px;
+    width: 232px;
+    position: relative;
+    float: left;
+}
+
+.spa-products-img {
+    padding: 0;
+    width: 100%;
+    height: 63%;
+}
+
+.spa-products-btn {
+    font-family: roboto;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 15px;
+}
+
+.spa-thumbnail h4, .spa-products-thumbnail h4, .spa-products-detail h4, .spa-products-details-thumbnail h4 {
+    font-family: roboto;
+    padding-left: 7%;
+    margin-top: 7%;
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+.spa-thumbnail p, .spa-products-thumbnail p, .spa-products-detail p, .spa-products-details-thumbnail p {
+    padding-left: 15px;
+    margin-bottom: 8%;
+    padding-right: 10px;
+}
+
+.spa-products-thumbnail p {
+    overflow: hidden;
+    height: 12px;
+    margin-bottom: 0px;
+    font-family: roboto;
+}
+
+/*Product Detail Page CSS-----------------------------------------------------------------------------------------------------------------------*/
+#main-content {
+    margin-top: 60px;
+}
+
+#media-article {
+    display: block;
+    margin-bottom: 75px;
+}
+
+.heading-related-products {
+    font-size: 18px;
+    line-height: 20px;
+    font-family: roboto;
+    font-weight: normal;
+}
+
+.sidebar-widget-heading {
+    font-size: 18px;
+    line-height: 20px;
+    font-family: roboto;
+}
+.tagcloud a{
+	background-color: #ffffff;
+    border: 1px solid #F22853;
+    color: #626668;
+    display: inline-block;
+    font-size: 13px !important;
+    line-height: 20px;
+    margin: 2px 3px 7px;
+    padding: 5px 15px;
+	transition: all 0.3s ease 0s;
+}
+.tagcloud a:hover{
+	background-color: #F22853;
+    border: 1px solid #F22853;
+    color: #ffffff !important;
+}
+.tagcloud a:active{
+	background-color: #F22853;
+    border: 1px solid #F22853;
+    color: #ffffff !important;
+}
+.product-detail-img {
+    display: block;
+    margin-right: 10px;
+    width: 320px;
+    height: 300px;
+}
+
+.spa-productsdetail-img {
+    height: 240px;
+    padding: 0;
+    width: 235px;
+    float: left;
+    line-height: 20px;
+    margin: 20px 0;
+    padding: 0;
+    position: relative;
+}
+
+.media-heading {
+    font-family: roboto;
+    font-size: 24px;
+    line-height: 21px;
+}
+
+.product-content p {
+    margin-top: 30px;
+    font-size: 13px;
+    line-height: 20px;
+    font-family: roboto;
+}
+
+.price-tag {
+    font-family: roboto;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 25px;
+}
+
+.Product-detail-heading {
+    font-size: 24px;
+    line-height: 21px;
+    font-family: roboto;
+    margin-bottom: 0;
+    margin-top: 6px;
+    padding-bottom: 15px;
+    font-weight: normal;
+} 
+
+
+/*contact css-------------------------------------------------------------------------------------------------------------*/
+.contact-header {
+    font-size: 24px;
+    font-family: roboto;
+    line-height: 20px;
+    font-weight: normal;
+    margin-bottom: 32px;
+    margin-top: 52px;
+    padding-bottom: 0;
+}
+
+.contact-header-getin {
+    line-height: 20px;
+    font-size: 24px;
+    font-family: roboto;
+    padding-bottom: 0px;
+    font-weight: normal;
+    margin-top: 60px;
+}
+
+#contact-section {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    padding-top: 31px;
+}
+
+.contact-add {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 20px;
+    font-family: roboto;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.address-detail {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#phone {
+    border-radius: 0 0 0 0;
+    margin-top: 65px;
+    padding: 20px 80px;
+}
+
+.phone-no {
+    font-family: Raleway-Medium;
+    font-size: 48px;
+    line-height: 45px;
+}
+
+.phone-icon {
+    display: block;
+    float: left;
+    height: 45px;
+    margin-right: 20px;
+    width: 60px;
+}
+
+.call-us {
+    bottom: 33px;
+    font-family: roboto;
+    font-size: 24px;
+    left: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 60px;
+    position: relative;
+}
+
+#contact-container {
+    border: 0px;
+    display: block;
+    margin-bottom: 0px;
+}
+
+.form_name {
+    font-family: roboto;
+    font-size: 14px;
+}
+
+.contact-input-fields {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    line-height: 20px;
+    min-height: 48px;
+    text-align: left;
+    width: 400px;
+}
+
+.contact-form-submit {
+    font-family: roboto;
+    display: inline-block;
+    margin-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 150px !important;
+    height: 48px;
+    font-size: 20px;
+    border: 0px;
+}
+
+
+/* blog template  Css ------------------------------------------------------------------------------------------------------------------*/
+/*Responsive Video CSS */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#main-content {
+    margin-top: 0px;
+    padding: 0px 40px 15px 0px;
+}
+
+#blog-media {
+    margin-bottom: 40px;
+}
+
+.blog_detail_head {
+    font-size: 24px;
+    font-family: roboto;
+    line-height: 20px;
+    margin: 0px 0px 30px;
+    font-weight: normal;
+}
+
+.blog-icon-media {
+    float: left;
+    margin-right: 10px;
+    position: relative;
+    width: 165px;
+}
+
+.blog-icons {
+    list-style: none outside none;
+    margin-left: 0;
+    width: 150px;
+    font-family: roboto;
+}
+
+.blog-icons li {
+    float: left;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    width: 150px;
+}
+
+.blog-icon-media {
+    float: left;
+    position: relative;
+    width: 165px;
+    margin-right: 10px;
+}
+
+.blog-img {
+    display: block;
+    margin-bottom: 10px;
+    height: 87px;
+    width: 150px;
+}
+
+.blog-heading {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 25px;
+    margin: 5px 0 15px;
+    font-family: roboto;
+}
+
+.blog_content p {
+    font-family: roboto;
+    line-height: 24px;
+    font-size: 13px;
+}
+
+.blog-readmore {
+    display: block;
+    font-family: roboto;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+/* Sidebar    -------------------------------------------------------------------------------------------------*/
+._blank {
+    height: 50px;
+}
+
+#widget-title {
+    border-radius: 0 0 0 0;
+    margin-bottom: 27px;
+    padding-left: 15px;
+    padding-right: 10px;
+    margin-left: 0px;
+}
+
+.spa-widget-title {
+    font-family: roboto;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 30px;
+}
+
+.sidebar-thumb {
+	/* margin-bottom: 22px; */
+    margin-left: 0px;
+    padding-bottom: 22px;
+}
+
+.sidebar-thumb p {
+    font-family: roboto;
+    font-size: 13px;
+    margin: 0 0 2px;
+}
+
+.sidebar-thumb a {
+    font-family: roboto;
+    font-size: 13px;
+}
+
+.sidebar-thumb a:hover {
+    font-family: roboto;
+    font-size: 13px;
+}
+
+.sidebar-img {
+    width: 65px;
+    height: 39px;
+}
+
+.sidebar-phone {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    padding: 0 10px 10px 37px;
+    width: 80%;
+    font-family: roboto;
+    font-size: 16px;
+}
+
+.sidebar-mail {
+    width: 17px;
+    height: 17px;
+}
+
+.sidebar-city {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    padding: 0 10px 10px 37px;
+    width: 80%;
+    font-family: roboto;
+    font-size: 16px;
+}
+
+.sidebar-mail a {
+    display: inline-block;
+    padding: 0 10px 10px 37px;
+    width: 80%;
+    font-family: roboto;
+    font-size: 16px;
+}
+
+.social-icons {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.sidebar-btn {
+    display: inline-block;
+    *display: inline;
+    padding: 10px 35px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    font-family: roboto;
+    vertical-align: middle;
+    cursor: pointer;
+    background-repeat: repeat-x;
+    border: 0px;
+    *border: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.sidebar-btn:hover,
+.sidebar-btn:focus {
+    text-decoration: none;
+}
+
+/*blog post detail ------------------------------------------------------------------------------------------------------------------------------*/
+
+#blog-post-icons {
+    margin-bottom: 20px;
+    margin-right: 15px;
+    margin-top: 0;
+}
+
+.post-title {
+    font-size: 24px;
+    line-height: 20px;
+    font-family: roboto;
+    font-weight: normal;
+    margin: 0px;
+}
+
+.blog-detail-content p {
+    font-size: 14px;
+/*to make better readability*/
+    font-family: roboto;
+    line-height: 24px;
+    margin-top: 0px;
+}
+
+.blog-post-bg {
+    margin: 25px 0;
+    padding: 0 0 25px;
+}
+
+.blog-detail-subheading {
+    font-size: 18px;
+    font-family: roboto;
+    line-height: 20px;
+    font-weight: regural;
+    margin-top: 30px;
+    margin-bottom: 18px;
+}
+
+ul.service-detail-list {
+    margin-left: 15px;
+}
+
+ul.service-detail-list li, .blog-post-list li {
+    font-size: 16px;
+    line-height: 30px;
+    list-style: disc outside none;
+    padding-left: 7px;
+}
+
+ul.service-detail-list li span, .blog-post-list li span {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#blog-detail-comment {
+    margin-bottom: 25px;
+    margin-top: 30px;
+}
+
+.auther-comment-img {
+    width: 70px;
+    height: 70px;
+}
+
+.blog-post-heading {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: roboto;
+    margin: 0 0 10px;
+}
+
+.reply {
+    float: right;
+    font-family: roboto;
+    font-size: 14px;
+}
+
+.blog-comment-content  p {
+    font-family: roboto;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.blog-comment-content {
+    margin-left: 30px;
+}
+
+#reply-title {
+    font-size: 24px;
+    margin-bottom: 22px;
+    margin-top: 60px;
+    padding-top: 15px;
+    font-family: roboto;
+    font-weight: normal;
+}
+
+.blog-form-feild {
+    font-family: roboto;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+#blog-form-post {
+    border: 0 none;
+    border-radius: 2px 2px 2px 2px;
+    display: inline-block;
+    font-family: roboto;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 10px 30px;
+}
+
+.blog-detail-img {
+    width: 770px;
+    height: 450px;
+}
+/* Typography page css here -------------------------------------------------------------*/
+.typography-heading {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 24px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    margin-top: 0px;
+}
+
+.headingh1 {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 36px;
+    margin-top: 0px;
+}
+
+.headingh2 {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 30px;
+    margin-top: 0px;
+    /*margin-bottom: 30px;*/
+}
+
+.headingh3 {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 24px;
+    margin-top: 0px;
+}
+
+.headingh4 {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.headingh5 {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 14px;
+  /*  margin-top: 60px;*/
+    margin-bottom: 0px;
+}
+
+.headingh6 {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 13px;
+  /*  margin-top: 60px;*/
+}
+
+.typography-content p {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 13px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+.block-content p {
+    font-family: roboto;
+    line-height: 20px;
+    font-size: 13px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+.typo-sub-heading {
+    font-family: roboto;
+    line-height: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+ul.arrow1 li {
+    background-position: 0 0.3em;
+    background-repeat: no-repeat;
+    list-style: none outside none;
+    margin-bottom: 9px;
+    margin-left: 0;
+    padding-left: 25px;
+    line-height: 24px;
+    font-size: 13px;
+    font-family: roboto;
+}
+
+#typo {
+    margin-right: 23px;
+}
+
+.typo-para-img {
+    display: block;
+    width: 140px;
+    height: 130px;
+    margin-bottom: 20px;
+}
+
+.typo-bold {
+    font-weight: 600;
+}
+
+#typo-media {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+#typo-arrange {
+    margin-right: 25px;
+    width: 31%;
+}
+
+ul.typolist {
+    margin: 0 10px 25px;
+}
+
+ul.typolist li {
+    list-style: disk;
+    margin-bottom: 9px;
+    margin-left: 5px;
+    padding-left: 8px;
+    line-height: 24px;
+    font-size: 13px;
+    font-family: roboto;
+}
+
+ul.arrow1 li {
+    background-position: 0 0.3em;
+    background-repeat: no-repeat;
+    margin-bottom: 9px;
+    margin-left: 0px;
+    padding-left: 25px;
+    list-style: none;
+}
+
+ul.arrow1 {
+    margin: 0 10px 25px;
+}
+
+ul.typo-integer {
+    margin: 0 15px 18px;
+}
+
+ul.arrow1 a {
+    line-height: 24px;
+    font-size: 13px;
+    font-family: roboto;
+}
+
+ul.typo-integer li {
+    margin-bottom: 9px;
+    margin-left: 5px;
+    padding-left: 0px;
+    list-style: decimal outside none;
+    line-height: 24px;
+    font-size: 13px;
+    font-family: roboto;
+}
+
+.coma {
+    border: 0px;
+    margin: 0 0 20px;
+    padding: 20px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    text-indent: 0px;
+    border-left: 0px;
+}
+
+span.blockquote-pink {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    padding: 2px;
+}
+
+span.blockquote-black {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    padding: 2px;
+}
+
+span.blockquote-pink-large {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+}
+
+span.blockquote-black-large {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+}
+
+.content-blockquote p {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: roboto;
+}
+
+.typo-quote p {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: roboto;
+}
+
+blockquote.arrange {
+    border: 0 none;
+    margin: 0px;
+    padding: 20px 0px;
+    text-indent: 0;
+}
+
+span.first {
+    float: left;
+    font-size: 60px;
+    line-height: 75px;
+    margin-bottom: -0.25em;
+    margin-right: 0.1em;
+}
+
+span.second {
+    float: left;
+    font-size: 60px;
+    line-height: 68px;
+    margin-right: 10px;
+    padding-left: 5px;
+    padding-right: 7px;
+}
+
+.content-object {
+    display: bolck;
+    width: 360px;
+    height: 200px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.typo-img-caption {
+    font-family: roboto;
+    font-size: 21px;
+    line-height: 20px;
+    margin: 0 0 28px 0;
+}
+
+.content-thumb {
+    display: block;
+    padding: 0px 0px 10px;
+    line-height: 20px;
+    border: 0px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.content-thumb > img {
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+}
+
+.content-thumb .caption {
+    padding: 20px 0;
+    float: left;
+}
+
+.content-thumb .caption p {
+    margin-bottom: 30px;
+}
+
+.btn-thumb-red {
+    display: inline-block;
+    *display: inline;
+    padding: 10px 35px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: roboto;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-repeat: repeat-x;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 3px;
+    float: left;
+    border: 0px;
+}
+
+.btn-thumb:hover,
+.btn-thumb:focus,
+.btn-thumb:active {
+    background-repeat: repeat-x;
+}
+
+.btn-thumb-black {
+    display: inline-block;
+    *display: inline;
+    padding: 10px 35px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: roboto;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-repeat: repeat-x;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 3px;
+    float: left;
+    border: 0px;
+}
+
+.btn-thumb1:hover,
+.btn-thumb1:focus,
+.btn-thumb1:active {
+    background-repeat: repeat-x;
+}
+
+/* Column Page css here--------------------------------------------------------------- */
+.column {
+    font-family: roboto;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 25px;
+    margin-bottom: 55px;
+    margin-top: 0;
+}
+
+.column-content p {
+    font-family: roboto;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: justify;
+}
+/* Shortcode Page css here----------------------------------------------------------------------------- */
+.shortcode-head {
+    font-family: roboto;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 25px;
+    margin: 0 0 30px;
+}
+
+.spa-btn {
+    display: inline-block;
+    *display: inline;
+    padding: 4px 27px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    *margin-left: .3em;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    font-family: roboto;
+    vertical-align: middle;
+    cursor: pointer;
+    background-repeat: repeat-x;
+    border: 0px;
+    *border: 0;
+    text-transform: uppercase;
+    font-family: Raleway-Medium;
+}
+
+.btn:hover,
+.btn:focus,
+.pink:hover,
+.pink:focus,
+.green:hover,
+.green:focus,
+.grey:hover,
+.grey:focus,
+.skyblue:hover,
+.skyblue:focus,
+.silver:hover,
+.silver:focus,
+.orange:hover,
+.orange:focus,
+.purple:hover,
+.purple:focus,
+.aqua:hover,
+.aqua:focus,
+.yellow:hover,
+.yellow:focus,
+.red:hover,
+.red:focus {
+    text-decoration: none;
+    background-position: 0 -15px;
+    -webkit-transition: background-position 0.1s linear;
+    -moz-transition: background-position 0.1s linear;
+    -o-transition: background-position 0.1s linear;
+    transition: background-position 0.1s linear;
+}
+
+.spa-btn-large {
+    border-radius: 0px;
+    font-size: 14px;
+    padding: 7px 35px;
+    text-transform: uppercase;
+    font-family: Raleway-Medium;
+}
+
+.btn-mini {
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+.btn-mini {
+    border-radius: 0px;
+    padding: 2px 10px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: Raleway-Medium;
+}
+
+ul.redarrow, ul.arrow, ul.upper {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.redarrow li a, ul.arrow li a, ul.upper li a, ol li a, ul.typolist, ul.arrow1 li a, ul.typo-integer li a {
+    font-family: roboto;
+    line-height: 32px;
+}
+
+ol li {
+    margin-bottom: 9px;
+    padding-left: 5px;
+}
+
+ul.upper li {
+    list-style: upper-roman outside none;
+    margin-bottom: 9px;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+ul.upper li {
+    list-style: upper-roman outside none;
+}
+
+ul.redarrow, ul.arrow, ul.upper {
+    list-style-type: none;
+}
+
+.spa-blockquote {
+    margin: 0 0 20px;
+    padding: 20px;
+}
+
+.spa-blockquote p {
+    font-family: DroidSerifItalic;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.spa-blockquote small {
+    display: block;
+    font-size: 14px;
+    line-height: 29px;
+}
+
+.pagination ul > li > a,
+.pagination ul > li > span {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 15px;
+}
+
+.pager li > a, .pager li > span {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 8px 15px;
+}
+
+.pagi ul > .active > a, .pagi ul > .active > span {
+    cursor: pointer;
+}
+
+.nav-tabs > li > a {
+    font-family: roboto;
+    font-size: 16px;
+}
+
+/*CSS for Fullwidth Page------------------------------------------*/
+.full-width-img {
+    width: 100%;
+    height: 355px;
+}
+
+#comment-img {
+    margin-left: 85px;
+}
+
+.full-subcontent {
+    margin: 25px 0;
+    padding: 0 0 25px;
+}
+
+.fullwidth-content p {
+    font-size: 13px;
+    font-family: roboto;
+    line-height: 20px;
+}
+
+/* servce detail page------------ -------------------------------------------------------------------------------------*/
+/* Pikachoose slider Css here */
+.pikachoose {
+    float: left;
+    margin-bottom: 59px;
+    width: 770px;
+}
+
+.pika-stage {
+    border: 0 none;
+    padding: 0px 0px 40px;
+    position: relative;
+    text-align: center;
+    width: 770px;
+}
+
+.pikachoose a img {
+    height: 450px;
+    width: 770px;
+}
+
+.pika-imgnav a {
+    display: block;
+    position: absolute;
+    text-indent: -5000px;
+    z-index: 3;
+}
+
+.pika-counter {
+    border-radius: 5px 5px 5px 5px;
+    bottom: 45px;
+    font-size: 11px;
+    left: 15px;
+    padding: 3px;
+    position: absolute;
+}
+
+.pika-stage .caption {
+    bottom: 50px;
+    font-size: 11px;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+}
+
+.pika-textnav {
+    bottom: 10px;
+    margin: 10px 0 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+.pika-stage .pika-textnav {
+    width: 725px;
+}
+
+.pika-textnav a.previous {
+    display: block;
+    float: left;
+    width: auto;
+}
+
+.pika-textnav a {
+    font-size: 13px;
+    padding: 4px;
+    text-decoration: none;
+}
+
+.pika-textnav a.next {
+    display: block;
+    float: right;
+    width: auto;
+}
+
+.pika-thumbs {
+    height: 75px;
+    margin-top: 15px;
+    padding: 0 40px;
+}
+
+.pika-thumbs li {
+    cursor: pointer;
+    float: left;
+    height: 65px;
+    list-style-type: none;
+    margin: 10px 5px 0;
+    overflow: hidden;
+    padding: 0px;
+    width: 65px;
+}
+
+.pika-thumbs li .clip {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.pika-thumbs li .clip {
+    text-align: center;
+}
+/* Close of Pikachoose */
+.sidebar-topspacer {
+    margin-top: 50px;
+}
+
+.service-detail-content-head {
+    font-family: roboto;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.service-detail-content {
+    padding-right: 100px;
+}
+
+.service-detail-content p {
+    font-size: 13px;
+    font-family: roboto;
+    line-height: 24px;
+    margin-top: 25px;
+}
+
+.service_detail_head {
+    font-size: 24px;
+    font-family: roboto;
+    line-height: 21px;
+    margin: 0px 0px 30px;
+}
+
+.service-detail-bg {
+    margin: 25px 0;
+    padding: 17px;
+}
+
+.service-detail-heading {
+    line-height: 20px;
+    margin: 0 0 15px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+ul.service-detail-list {
+    margin-left: 15px;
+}
+
+.blog-post-list {
+    margin-left: 0px;
+}
+
+ul.service-detail-list li, .blog-post-list li {
+    font-size: 15px;
+    line-height: 30px;
+    list-style: disc outside none;
+    padding-left: 7px;
+}
+
+ul.service-detail-list li span, .blog-post-list li span {
+    font-family: roboto;
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: normal;
+}
+
+.nav-tabs > li > a {
+    font-family: roboto;
+    font-size: 16px;
+}
+
+.plus {
+    float: left;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-family: arial;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+    line-height: 20px;
+}
+
+.tab-content p {
+    font-family: roboto;
+    line-height: 20px;
+    text-align: left;
+}
+
+/* Main Slider Thumbnails Area------------------------------------------------------------ */
+.slider-thumb-container {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    overflow: hidden;
+    margin: 0px auto;
+    height: 155px;
+    padding-top: 19px;
+    display: block;
+}
+
+.thumb-img-container {
+    height: 155px;
+    width: 31.3%;
+    float: left;
+    margin-left: 1.50%;
+}
+
+.slider-thumb {
+    display: block;
+    height: 155px;
+    width: 100%;
+    padding: 0px;
+}
+
+.flex-thumbnal-area {
+    bottom: 119.8px;
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    z-index: 0;
+}
+
+#flex_carousel li {
+    cursor: pointer;
+}
+
+.flex-thumbnal-area span {
+    font-family: Raleway-Light;
+    font-size: 13px;
+    line-height: 20px;
+    padding-left: 20px;
+    text-transform: uppercase;
+}
+
+.flex-thumbnal-area span h4 {
+    font-family: Raleway-Sbold;
+    font-size: 21px;
+    line-height: 24px;
+    margin-top: 0;
+    padding-left: 20px;
+    text-transform: uppercase;
+}
+
+.flex-btn {
+    border: 0 none;
+    bottom: 0;
+    display: block;
+    font-family: Raleway-Sbold;
+    font-size: 13px;
+    font-weight: 600;
+    height: 34px;
+    line-height: 35px;
+    padding: 0 25px;
+    position: absolute;
+    text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+ 
+    .flexslider .slides > li {
+        height: auto !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1152px) {
+ 
+    .slider-thumb-container {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 1;
+        overflow: hidden;
+        margin: 0px auto;
+        height: 155px;
+        padding-top: 19px;
+        display: block;
+    }
+
+    .flexslider .slides > li {
+        height: auto !important;
+    }
+}
+
+
+
+
+/* Ending Main Slider Thumbnails Area  */
+
+/* Footer Css ------------------------------------------------------------------------------------------------------------------*/
+
+
+footer li a {
+    font-family: roboto;
+    font-size: 13px;
+    margin-right: 15px;
+}
+
+footer li a:hover, footer li a:active {
+    text-decoration: none;
+}
+
+.footer_nav_links {
+    margin: 0px;
+}
+
+.footer_nav_links li {
+    display: inline;
+    line-height: 20px;
+}
+
+footer p {
+    font-family: roboto;
+    font-size: 13px;
+}
+
+footer {
+    /* border-top: 1px solid #e5e5e5; */
+    margin: 0px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.footer_spacer {
+    margin-top: 62px;
+}
+
+.footer-blank {
+    margin-top: 100px;
+}
+
+.service-2c-footer-blank {
+    margin-bottom: -15px;
+}
+
+
+
+/*css for comment---------------------------------- */
+
+.commentlist {
+    margin: 0;
+}
+
+.commentlist li {
+    list-style: none;
+    margin: 0;
+}
+
+.children li.depth-2 {
+    margin: 0 0 0px 75px;
+}
+
+.children li.depth-3 {
+    margin: 0 0 0px 75px;
+}
+
+.children li.depth-4 {
+    margin: 0 0 0px 75px;
+}
+
+.children li.depth-5 {
+    margin: 0 0 0px 75px;
+}
+
+.children li.depth-6 {
+    margin: 0 0 0px 65px;
+}
+
+.children li.depth-7 {
+    margin: 0 0 0px 65px;
+}
+
+.children li.depth-8 {
+    margin: 0 0 0px 65px;
+}
+
+.children li.depth-9 {
+    margin: 0 0 0px 65px;
+}
+
+.children li.depth-10 {
+    margin: 0 0 0px 65px;
+}
+
+.comment-body {
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.comment-details {
+    position: relative;
+    margin-left: 70px;
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.comment-avatar {
+    left: -70px;
+    position: absolute;
+    top: 0px;
+}
+
+.comment-avatar img {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.comment-author .author a:link, .comment-author .author a:visited {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.comment-content {
+    margin-top: 10px;
+}
+
+.comment-reply-link, #cancel-comment-reply-link {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#cancel-comment-reply-link {
+    font-size: 13px;
+}
+
+.commentlist .children {
+    margin: 0;
+}
+
+#comments-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#comments_wrap {
+    margin-top: 15px;
+}
+
+#comments-logged-in {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+#log-out {
+    float: right;
+    margin-top: -56px;
+}
+
+#cancel-comment-reply {
+    float: right;
+    margin-top: 5px;
+}
+
+.contact-icons li {
+    margin-bottom: 5px;
+    font-family: roboto;
+}
+
+.comment-details ul {
+    margin: 0;
+}
+
+.comment-details ul li {
+    font-size: 13px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    list-style: square outside none;
+}
+
+.comment-details ol li {
+    font-size: 13px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    list-style: upper-alpha outside none;
+}
+
+.comment-content ul, .comment-content ol {
+    margin-bottom: 1.625em;
+    margin-left: 50px;
+}
+
+li {
+    line-height: 20px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+.comment-author {
+    font-family: roboto;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 30px;
+    font-weight: 600;
+}
+
+fieldset p {
+    font-family: roboto;
+    font-size: 13px;
+}
+
+.comment-content p {
+    font-family: roboto;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: normal;
+}
+
+.comment-date {
+    font-family: roboto;
+    font-size: 14px;
+    margin-left: 17px;
+}
+
+.comment-date a {
+    font-family: roboto;
+    font-size: 14px;
+    margin-left: 17px;
+}
+
+.comment-date {
+    font-family: roboto;
+    font-size: 14px;
+    margin-left: 17px;
+    font-weight: normal;
+}
+
+.comment-date a {
+    font-family: roboto;
+    font-size: 14px;
+    margin-left: 17px;
+}
+
+
+/* Widget Area Css----------------------------------------------------------- */
+
+#calendar_wrap {
+    float: left;
+    width: 100%;
+}
+
+#wp-calendar caption {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: Raleway-Medium;
+    margin-bottom: 5px;
+}
+
+#wp-calendar .table th, #wp-calendar .table td {
+    font-family: Raleway-Medium;
+}
+
+.table-striped {
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.blog-detail-content h1,
+.blog-detail-content h2,
+.blog-detail-content h3,
+.blog-detail-content h4,
+.blog-detail-content h5,
+.blog-detail-content h6 {
+    font-family: roboto;
+    line-height: 20px;
+    margin-top: 0;
+}
+
+.blog-detail-content h1 {
+    font-size: 36px;
+}
+
+.blog-detail-content h2 {
+    font-size: 30px;
+}
+
+.blog-detail-content h3 {
+    font-size: 24px;
+}
+
+.blog-detail-content h4 {
+    font-size: 18px;
+}
+
+.blog-detail-content h5 {
+    font-size: 14px;
+}
+
+.blog-detail-content h6 {
+    font-size: 13px;
+}
+
+.blog-detail-content ul li {
+    background-position: 0 0.6em;
+    background-repeat: no-repeat;
+    list-style: none outside none;
+    margin-bottom: 9px;
+    margin-left: 0;
+    padding-left: 25px;
+}
+
+.blog-detail-content ol li {
+    font-family: roboto;
+    font-size: 13px;
+    line-height: 24px;
+    list-style: decimal outside none;
+    margin-bottom: 9px;
+    margin-left: 5px;
+    padding-left: 0;
+}
+
+.blog-detail-content strong {
+    font-family: roboto;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.blog-detail-content address {
+    font-family: roboto;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    font-style: italic;
+}
+
+acronym, abbr {
+    cursor: help;
+}
+
+ins {
+    text-decoration: underline;
+}
+
+
+/*According Theme Check Plugin--------------------------------------- */
+.wp-caption {
+    max-width: 100%;
+ /* Keep wide captions from overflowing their container. */
+    padding: 4px;
+}
+
+.wp-caption .wp-caption-text,
+.gallery-caption,
+.entry-caption {
+    font-style: italic;
+    font-size: 13px;
+    font-size: 0.857142857rem;
+    line-height: 2;
+}
+
+article.sticky .featured-post {
+    font-size: 13px;
+    font-size: 0.928571429rem;
+    line-height: 3.692307692;
+    margin-bottom: 24px;
+    margin-bottom: 1.714285714rem;
+    text-align: center;
+}
+
+.comments-area li.bypostauthor cite span {
+    position: absolute;
+    margin-left: 5px;
+    margin-left: 0.357142857rem;
+    padding: 2px 5px;
+    padding: 0.142857143rem 0.357142857rem;
+    font-size: 10px;
+    font-size: 0.714285714rem;
+}
+
+.alignleft {
+    float: left;
+    display: inline;
+    margin-right: 1.625em;
+}
+
+.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.625em;
+}
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*css for image border in custom widget--------------------------------------*/
+#custom-wzrp :last-child {
+    border-bottom: 0px;
+}
+
+#cw-img-border {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/* -------- Blog Icon Backgroud Image --------*/
+.spa-blog-icon {
+    font-family: roboto;
+    list-style: none outside none;
+    margin-left: 0;
+    width: 150px;
+}
+
+.admin-icon {
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    padding: 3px 0 3px 23px;
+    margin: .4em 0;
+}
+
+.calendar-icon {
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    padding: 3px 0 3px 23px;
+    margin: .4em 0;
+}
+
+.blog-comment-icon, .comment-icon{
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    padding: 3px 0 3px 23px;
+    margin: .4em 0;
+}
+
+
+
+
+/*css for widget----------------------------------- */
+
+#sidebar ul li a,.textwidget {
+    font-family: roboto;
+    font-size: 13px;
+}
+
+#sidebar ul li a:hover {
+    font-family: roboto;
+    font-size: 13px;
+}
+
+#sidebar ul,.textwidget {
+    margin-bottom: 25px;
+    margin-left: 0px;
+}
+.textwidget{ color: #626668;}
+.blog-detail-content ul.nav li {
+    background-image: none;
+    margin-bottom: 0px;
+}
+/******created by hari *****/
+.widget_title h2
+{
+	color:#4B453F;
+	font-family: roboto;
+    font-size: 24px;
+}
+.widget_con_detail
+{
+	color:#4B453F;
+	font-family: DroidSerifItalic;
+    font-size: 16px;
+}
+.footer_widget ul,.footer_widget ol{
+	margin-left:0px;
+	color:#4B453F;
+	font-family: roboto;
+    font-size: 13px;
+}
+.footer_widget .textwidget { 
+color:#4B453F;
+	font-family: roboto;
+    font-size: 13px;
+	}
+	
+	
+	/* Woocommerce styles*/
+
+.woocommerce ul.products li.product h3, .woocommerce-page ul.products li.product h3 {
+     font-family: roboto !important;
+    font-size: 16px !important;
+}
+
+.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+    color: #f22853;
+     font-family: roboto;
+    font-size: 16px;
+    font-weight: 600 !important;    
+}
+.woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
+    width: 100px !important;
+	margin-top:16px !important;
+}
+.woocommerce table td{line-height:60px !important;}
+.woocommerce table.shop_table, .woocommerce-page table.shop_table {
+    border-collapse: separate;
+    text-align: center !important;
+}
+
+.woocommerce .woocommerce-error:before, .woocommerce-page .woocommerce-error:before,.woocommerce .woocommerce-message:before, .woocommerce-page .woocommerce-message:before,.woocommerce .woocommerce-message:before, .woocommerce-page .woocommerce-message:before,.woocommerce .woocommerce-info:before, .woocommerce-page .woocommerce-info:before,.woocommerce .woocommerce-info:before, .woocommerce-page .woocommerce-info:before{ background-color:#f22853 !important;}
+
+.woocommerce .woocommerce-error, .woocommerce-page .woocommerce-error,.woocommerce .woocommerce-message, .woocommerce-page .woocommerce-message, .woocommerce .woocommerce-info, .woocommerce-page .woocommerce-info {
+    border-top: 3px solid #f22853 !important;
+}
+div.tab-reviews textbox#comment{color: #555555;}
+
+div.product h1 {
+ font-family: roboto;
+ color: #353c3f;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 21px;
+    margin-bottom: 0;
+    margin-top: 6px !important;
+    padding-bottom: 15px !important;
+}
+div#payment label{display:inline-block;}

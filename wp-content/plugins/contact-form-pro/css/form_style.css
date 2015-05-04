@@ -1,0 +1,184 @@
+/**
+ * Styles for form
+ */
+.cntctfrmpr_contact_form * {
+	text-align: left !important;
+	line-height: normal !important;
+}
+.cntctfrmpr_contact_form p,
+.widget .cntctfrmpr_contact_form p {
+	margin: 0 !important;
+}
+.cntctfrmpr_contact_form .cptch_block label + br,
+.cntctfrmpr_contact_form .cptch_block span + br,
+.cntctfrmpr_contact_form .cptchpr_block label + br,
+.cntctfrmpr_contact_form .cptchpr_block span + br {
+	display: block !important;
+}
+.cntctfrmpr_contact_form .cptch_block br,
+.cntctfrmpr_contact_form .cptchpr_block br {
+	display: none;
+}
+.cntctfrmpr_contact_attachment_extensions {
+	font-size: 10px !important;
+}
+.cntctfrmpr_input_submit {
+	padding: 10px 0 0;
+}
+.cntctfrmpr_contact_form input.cntctfrmpr_contact_submit {
+	cursor: pointer !important;
+	text-align: center !important;
+	margin-bottom: 10px !important;
+}
+.cntctfrmpr_label:first-child {
+	padding: 0;
+}
+.cntctfrmpr_label,
+.cntctfrmpr_checkbox {
+	padding: 5px 0 0;
+}
+.cntctfrmpr_input,
+.cntctfrmpr_select {
+	position: relative;
+}
+.cntctfrmpr_input.cntctfrmpr_tooltip,
+.cntctfrmpr_select.cntctfrmpr_tooltip {
+	min-height: 27px;
+}
+.cntctfrmpr_contact_form.cntctfrmpr_form_tooltips .cntctfrmpr_label,
+.cntctfrmpr_contact_form.cntctfrmpr_form_tooltips .cntctfrmpr_input,
+.cntctfrmpr_contact_form.cntctfrmpr_form_tooltips .cntctfrmpr_select,
+.cntctfrmpr_contact_form.cntctfrmpr_form_tooltips .cntctfrmpr_checkbox {
+	position: relative;
+	padding-right: 40px;
+}
+.cntctfrmpr_input_captcha {
+	float: left;
+	margin: 20px 0;
+}
+.cntctfrmpr_input_captcha .cptch_block,
+.cntctfrmpr_input_captcha .cptchpr_block {
+	float: left;
+}
+.cntctfrmpr_input_captcha .cptch_block ~ .gglcptch,
+.cntctfrmpr_input_captcha .cptchpr_block ~ .gglcptch {
+	padding: 20px 0 0;
+}
+.cntctfrmpr_contact_form .gglcptch #recaptcha_widget_div {
+	width: 320px !important;
+}
+.cntctfrmpr_contact_form div {
+	clear: both;
+}
+.cntctfrmpr_error_text {
+	margin: 5px 0;
+}
+.cntctfrmpr_hidden {
+	display: none;
+}
+.cntctfrmpr_clear {
+	clear: both;
+}
+.cntctfrmpr_label,
+.cntctfrmpr_input,
+.cntctfrmpr_select,
+.cntctfrmpr_checkbox {
+   max-width: 320px;
+}
+.cntctfrmpr_contact_form input[type="text"],
+.cntctfrmpr_contact_form input[type="file"],
+.cntctfrmpr_contact_form select,
+.cntctfrmpr_contact_form textarea,
+.widget .cntctfrmpr_contact_form input[type="text"],
+.widget .cntctfrmpr_contact_form input[type="file"],
+.widget .cntctfrmpr_contact_form select,
+.widget .cntctfrmpr_contact_form textarea {
+	width: 100%;
+	margin: 0 !important;
+	box-sizing: border-box;
+}
+.cntctfrmpr_contact_location,
+.cntctfrmpr_contact_department {
+	height: auto;
+}
+.cntctfrmpr_contact_form div .cptch_block,
+.cntctfrmpr_contact_form div .cptchpr_block {
+	float: left;
+}
+.cntctfrmpr_help_box {
+	background-image: url("../images/tooltip_icons.png");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	float: left;
+	height: 27px;
+	width: 27px;
+	position: relative;
+	clear: none !important;
+	top: 0;
+	right: 0;
+}
+.cntctfrmpr_hide_tooltip.cntctfrmpr_help_box, 
+.cntctfrmpr_show_tooltip.cntctfrmpr_help_box {
+	position: absolute;
+}
+.cntctfrmpr_hide_tooltip .cntctfrmpr_hidden_help_text {
+	display: none;
+}
+.cntctfrmpr_show_tooltip .cntctfrmpr_hidden_help_text {
+	display: block;
+}
+.cntctfrmpr_hidden_help_text {
+	color: #000000;
+	font-size: 12px !important;
+	background: #f4f4f4;
+	border: 1px solid #DCDCDC;
+	border-radius: 4px;
+	left: 100%;
+	margin: 0 0 0 13px;
+	padding: 5px 10px;
+	position: absolute;
+	width: 260px;
+	z-index: 5;
+	box-sizing: border-box;
+	display: none;
+}
+.cntctfrmpr_help_box:hover .cntctfrmpr_hidden_help_text {
+	display: block;
+}
+.cntctfrmpr_hidden_help_text:before {
+	content: url("../images/help-left.png");
+	left: -10px;
+	position: absolute;
+	top: 7px;
+}
+.cntctfrmpr_hidden_help_text.cntctfrmpr_hidden_help_text_down {
+	top: 40px;
+	left: 27px;
+	width: 200px;
+	margin: 0 0 0 -200px;
+}
+.cntctfrmpr_input_captcha .cntctfrmpr_hidden_help_text.cntctfrmpr_hidden_help_text_down {
+	top: 40px;
+	left: 27px;
+	width: 120px;
+	margin: 0 0 0 -120px;
+}
+.cntctfrmpr_hidden_help_text_down:before {
+	content: url("../images/help-top.png");
+	right: 5px;
+	left: auto;
+	position: absolute;
+	top: -12px;
+}
+.cntctfrmpr_hidden_help_text p {
+	margin: 0;
+}
+.cntctfrmpr_hidden_help_text img {
+	position: relative !important;
+	margin: 0 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+.cntctfrmpr_help_box_error {
+	background-position: 0 -27px;
+}
