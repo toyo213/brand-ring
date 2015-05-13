@@ -1,10 +1,10 @@
-=== Contact Form Multi Pro ===
+=== Contact Form Multi Pro by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: attachment, contact, contcat, conact, cnotact, contact button, contact form, contact form add-on, contact form parameters, contact form plugin, contact me, contacts, contacts form plugin, copy, feedback, feedback form, form, multiple contact forms, request, send, send copy, several contact forms, shortcode, text
 Requires at least: 3.1
-Tested up to: 4.1.1
-Stable tag: 1.0.7
+Tested up to: 4.2.1
+Stable tag: 1.0.8
 License: Proprietary
 License URI: http://bestwebsoft.com/end-user-license-agreement/
 
@@ -17,6 +17,8 @@ Contact Form Multi Pro makes it possible to create and implement multiple contac
 
 http://www.youtube.com/watch?v=BlmKUo9QQ5Y
 
+<a href="https://docs.google.com/document/d/1IqXIdfSsGPiRm6vM0G0BTwcOdJo1vTS1fatSVnyYOZA/edit" target="_blank">View a PDF version of Step-by-step Instruction on Contact Form Multi Pro Purchase, Installation, Configuration</a>
+
 <a href="http://www.youtube.com/watch?v=msD6J_oSLNQ" target="_blank">Video instruction on Installation</a>
 
 <a href="http://bestwebsoft.com/products/contact-form/?k=a375f81dc261915e207928347701c70c" target="_blank">Contact Form Pro</a>
@@ -24,11 +26,14 @@ http://www.youtube.com/watch?v=BlmKUo9QQ5Y
 = Features =
 
 Contact Form Multi
-	* Ability to add an unlimited number of contact forms.
-	* Ability to select different settings for each contact form.
+
+* Ability to add an unlimited number of contact forms.
+* Ability to select different settings for each contact form.
+
 Contact Form Multi Pro
-	+ Compatibility with Contact Form Pro - Ability to select different extra settings for each contact form.
-	+ The answer to the question from support within one business day (<a href="https://bestwebsoft.zendesk.com/entries/25561503-Information-for-our-customers" target="_blank">More info</a>)
+
++ Compatibility with Contact Form Pro - Ability to select different extra settings for each contact form.
++ The answer to the question from support within one business day (<a href="https://bestwebsoft.zendesk.com/entries/25561503" target="_blank">More info</a>)
 
 = Translation =
 
@@ -75,11 +80,12 @@ http://www.youtube.com/watch?v=msD6J_oSLNQ
 
 = How can I add a contact form to my site? =
 
-Please insert the shortcode [contact_form id=] to a post or page.
+Please insert the shortcode [contact_form id=you_form_id] to a post or page.
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
@@ -92,6 +98,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 3. The Contact Form Pro plugin appearance tab with a newly created contact form.
 
 == Changelog ==
+
+= V1.0.8 - 05.05.2015 =
+* Update : We updated all functionality for Wordpress 4.2.1.
 
 = V1.0.7 - 02.03.2015 =
 * Update : We updated all functionality for new design of Conact Form plugin settings page.
@@ -125,6 +134,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: The ability to change the settings of the forms was added.
 
 == Upgrade Notice ==
+
+= V1.0.8 =
+We updated all functionality for Wordpress 4.2.1.
 
 = V1.0.7 =
 We updated all functionality for new design of Conact Form plugin settings page. We updated all functionality for Wordpress 4.1.1.

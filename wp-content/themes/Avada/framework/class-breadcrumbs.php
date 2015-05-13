@@ -156,7 +156,7 @@
 			) {
 				$this->html_markup .= $this->get_bbpress_main_archive_page();
 			}			
-			
+						
 			// Single Posts and Pages (of all post types)
 			if ( is_singular() ) {
 				// If the post type of the current post has an archive link, display the archive breadcrumb
@@ -372,6 +372,7 @@
 				if ( $term_parent ) {
 					// Get space separated string of term tree in slugs
 					$term_tree = get_ancestors( $terms[0]->term_id, $taxonomy );
+					$term_tree = array_reverse( $term_tree );
 					$term_tree[] = get_term( $terms[0]->term_id, $taxonomy );
 					
 					// Loop through the term tree
@@ -424,7 +425,7 @@
 			// Loop through the ids to get the full tree
 			foreach ( $post_ancestor_ids as $post_ancestor_id ) {
 				$post_ancestor = get_post( $post_ancestor_id );
-				$ancestors_markup .= $this->get_single_breadcrumb_markup( $post_ancestor->post_title, get_page_link( $post_ancestor->ID ) );
+				$ancestors_markup .= $this->get_single_breadcrumb_markup( $post_ancestor->post_title, get_permalink( $post_ancestor->ID ) );
 			}
 
 			return $ancestors_markup;
@@ -445,7 +446,7 @@
 				 is_taxonomy_hierarchical( $term->taxonomy )
 			) {
 				$term_ancestors = get_ancestors( $term->term_id, $term->taxonomy );
-				
+				$term_ancestors = array_reverse( $term_ancestors );
 				// Loop through ancestors to get the full tree
 				foreach ( $term_ancestors as $term_ancestor ) {
 					$term_object = get_term( $term_ancestor, $term->taxonomy );
@@ -463,19 +464,31 @@
 		 */			
 		private function get_post_type_archive( $linked = TRUE ) {
 			global $wp_query;
-		
-			$post_type = $wp_query->query['post_type'];
+
+			$post_type = $wp_query->query_vars['post_type'];
 			$post_type_object = get_post_type_object( $post_type );
 			$link = '';
 
 			// Check if we have a post type object
 			if ( is_object( $post_type_object ) ) {
 
-				// Woocommerce; archive name should be same as shop page name
+				// Woocommerce: archive name should be same as shop page name
 				if ( $post_type == 'product' &&
 					 $woocommerce_shop_page = $this->get_woocommerce_shop_page( $linked ) 
 				) {
 					return $woocommerce_shop_page;
+				}
+
+				// bbPress: make sure that the Forums slug and link are correct
+				if ( class_exists( 'bbPress' ) &&
+					 $post_type == 'topic' 
+				) {
+					$archive_title = bbp_get_forum_archive_title();
+					if ( $linked ) {
+						$link = get_post_type_archive_link( bbp_get_forum_post_type() );
+					}
+
+					return $this->get_single_breadcrumb_markup( $archive_title, $link );
 				}
 
 				// Default case
@@ -499,7 +512,7 @@
 			if ( $linked ) {
 				$link = get_post_type_archive_link( $post_type );
 			}
-				
+			
 			return $this->get_single_breadcrumb_markup( $archive_title, $link );
 		}		
 		

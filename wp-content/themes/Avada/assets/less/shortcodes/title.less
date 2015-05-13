@@ -68,6 +68,14 @@
 		width: 100%;
 		border-bottom: @title-border-width solid @title-border-color;
 		
+		&.sep-dashed {
+			border-bottom-style: dashed;
+		}
+
+		&.sep-dotted {
+			border-bottom-style: dotted;
+		}		
+		
 		.title-heading-right {
 			float: right;
 			margin: 0;
@@ -104,14 +112,6 @@
 			border-bottom-style: dotted;
 			border-top-style: dotted;
 		}		
-	}
-	
-	&.sep-dashed {
-		border-bottom-style: dashed;
-	}
-
-	&.sep-dotted {
-		border-bottom-style: dotted;
 	}
 }
 

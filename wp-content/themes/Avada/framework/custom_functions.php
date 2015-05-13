@@ -302,9 +302,9 @@ if( ! function_exists( 'avada_wooslider' ) ) {
 			}
 
 			if( isset( $slider_settings['slider_content_width'] ) && $slider_settings['slider_content_width'] != '' ) {
-				$max_width = sprintf( 'max-width: %s;', $slider_settings['slider_content_width'] );
+				$content_max_width = sprintf( 'max-width: %s;', $slider_settings['slider_content_width'] );
 			} else {
-				$max_width = '';
+				$content_max_width = '';
 			}
 
 			$args				= array(
@@ -448,7 +448,7 @@ if( ! function_exists( 'avada_wooslider' ) ) {
 							?>
 							<li data-mute="<?php echo $data_mute; ?>" data-loop="<?php echo $data_loop; ?>" data-autoplay="<?php echo $data_autoplay; ?>">
 								<div class="slide-content-container slide-content-<?php if ( isset( $metadata['pyre_content_alignment'][0] ) && $metadata['pyre_content_alignment'][0] ) { echo $metadata['pyre_content_alignment'][0]; } ?>" style="display: none;">
-									<div class="slide-content" style="<?php echo $max_width; ?>">
+									<div class="slide-content" style="<?php echo $content_max_width; ?>">
 										<?php if( isset ( $metadata['pyre_heading'][0] ) && $metadata['pyre_heading'][0] ): ?>
 										<div class="heading <?php if($heading_bg): echo 'with-bg'; endif; ?>"><h2 style="<?php echo $heading_bg; ?><?php echo $heading_color; ?><?php echo $heading_font_size; ?>"><?php echo do_shortcode( $metadata['pyre_heading'][0] ); ?></h2></div>
 										<?php endif; ?>
@@ -632,8 +632,15 @@ if( ! function_exists( 'avada_get_page_title_bar_contents' ) ) {
 					$subtitle = '';
 				}
 			}
-		}		
-		
+		} else {
+			if( $smof_data['page_title_bar'] != 'hide' ) {
+				if( $page_title_text == 'no' ) {
+					$title = '';
+					$subtitle = '';
+				}				
+			}
+		}
+
 		return array( $title, $subtitle, $secondary_content );
 	}
 }
@@ -787,29 +794,27 @@ if( ! function_exists( 'avada_featured_images_lightbox' ) ) {
 	function avada_featured_images_lightbox( $post_id ) {
 		global $smof_data; 
 		$html = $video = $featured_images = '';
+
+		if( get_post_meta( $post_id, 'pyre_video_url', true ) ) {
+			$video = sprintf( '<a href="%s" class="iLightbox[gallery%s]"></a>', get_post_meta( $post_id, 'pyre_video_url', true ), $post_id );
+		}
 		
-			
-				if( get_post_meta( $post_id, 'pyre_video', true ) ) {
-					$video = sprintf( 'a href="%s" class="iLightbox[gallery%s]"></a>', get_post_meta( $post_id, 'pyre_video', true ), $post_id );
-				}
-				
-				$i = 2;
-				
-				while( $i <= $smof_data['posts_slideshow_number'] ):
-					$attachment_new_id = kd_mfi_get_featured_image_id( 'featured-image-'.$i, get_post_type( $post_id ) );
-					if( $attachment_new_id ) {
-						$attachment_image = wp_get_attachment_image_src($attachment_new_id, 'full');
-						$full_image = wp_get_attachment_image_src($attachment_new_id, 'full');
-						$attachment_data = wp_get_attachment_metadata($attachment_new_id);
-						$featured_images .= sprintf( '<a href="%s" rel="iLightbox[gallery%s]" title="%s"></a>', $full_image[0],
-						 $post_id, get_post_field( 'post_excerpt', $attachment_new_id ), $attachment_image[0], get_post_meta( $attachment_new_id, 
-						 '_wp_attachment_image_alt', true ) );
-					}
-					$i++; 
-					endwhile;
-					$html .= sprintf( '<div class="fusion-portfolio-gallery-hidden">%s%s</div>', $video, $featured_images );
-			
+		$i = 2;
 		
+		while( $i <= $smof_data['posts_slideshow_number'] ):
+			$attachment_new_id = kd_mfi_get_featured_image_id( 'featured-image-'.$i, get_post_type( $post_id ) );
+			if( $attachment_new_id ) {
+				$attachment_image = wp_get_attachment_image_src($attachment_new_id, 'full');
+				$full_image = wp_get_attachment_image_src($attachment_new_id, 'full');
+				$attachment_data = wp_get_attachment_metadata($attachment_new_id);
+				$featured_images .= sprintf( '<a href="%s" rel="iLightbox[gallery%s]" title="%s"></a>', $full_image[0],
+				 $post_id, get_post_field( 'post_excerpt', $attachment_new_id ), $attachment_image[0], get_post_meta( $attachment_new_id, 
+				 '_wp_attachment_image_alt', true ) );
+			}
+			$i++; 
+		endwhile;
+		$html .= sprintf( '<div class="fusion-portfolio-gallery-hidden">%s%s</div>', $video, $featured_images );
+
 		return $html;
 	}
 		

@@ -60,19 +60,14 @@ $theme_fusion_url = 'https://theme-fusion.com/';
 					<td data-export-label="WP Memory Limit"><?php _e( 'WP Memory Limit', 'Avada' ); ?>:</td>
 					<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum amount of memory (RAM) that your site can use at one time.', 'Avada'  ) . '">[?]</a>'; ?></td>
 					<td><?php
-						$server_memory = 0;
-						if( function_exists( 'ini_get' ) ) {
-							$server_memory = $this->let_to_num( ini_get( 'memory_limit') );
-						}
 						$memory = $this->let_to_num( WP_MEMORY_LIMIT );
-
-						if( $server_memory > $memory ) {
-							$memory = $server_memory;
-						}
-						if ( $memory < 134217728 ) {
-							echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 128MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'Avada' ), size_format( $memory ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
+						if ( $memory < 128000000 ) {
+							echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least <strong>128MB</strong>. <br /> To import classic demo data, <strong>256MB</strong> of memory limit is required. <br /> Please define memory limit in <strong>wp-config.php</strong> file. To learn how, see: <a href="%s" target="_blank">Increasing memory allocated to PHP.</a>', 'Avada' ), size_format( $memory ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
 						} else {
 							echo '<mark class="yes">' . size_format( $memory ) . '</mark>';
+							if ( $memory < 256000000 ) {
+								echo '<br /><mark class="error">' . __( 'Your current memory limit is sufficient, but if you need to import classic demo content, the required memory limit is <strong>256MB.</strong>', 'Avada' ) . '</mark>';
+							}
 						}
 					?></td>
 				</tr>
@@ -119,9 +114,12 @@ $theme_fusion_url = 'https://theme-fusion.com/';
 							$time_limit = ini_get('max_execution_time');
 
 							if ( $time_limit < 180 && $time_limit != 0 ) {
-								echo '<mark class="error">' . sprintf( __( '%s - We recommend setting max execution time to at least 180. See: <a href="%s" target="_blank">Increasing max execution to PHP</a>', 'Avada' ), $time_limit, 'http://codex.wordpress.org/Common_WordPress_Errors#Maximum_execution_time_exceeded' ) . '</mark>';
+								echo '<mark class="error">' . sprintf( __( '%s - We recommend setting max execution time to at least 180. <br /> To import classic demo content, <strong>300</strong> seconds of max execution time is required.<br />See: <a href="%s" target="_blank">Increasing max execution to PHP</a>', 'Avada' ), $time_limit, 'http://codex.wordpress.org/Common_WordPress_Errors#Maximum_execution_time_exceeded' ) . '</mark>';
 							} else {
 								echo '<mark class="yes">' . $time_limit . '</mark>';
+								if ( $time_limit < 300 && $time_limit != 0 ) {
+									echo '<br /><mark class="error">' . __( 'Current time limit is sufficient, but if you need import classic demo content, the required time is <strong>300</strong>.', 'Avada' ) . '</mark>';
+								}
 							}
 						?></td>
 					</tr>
@@ -140,16 +138,18 @@ $theme_fusion_url = 'https://theme-fusion.com/';
 
 						$max_items = max( $menu_items_count );
 						if( ! fusion_get_theme_option( 'disable_megamenu' ) ) {
-							$required_input_vars = $max_items * 5;
+							$required_input_vars = $max_items * 20;
 						} else {
 							$required_input_vars = ini_get('max_input_vars');
 						}
 						?>
 						<td><?php
 							$max_input_vars = ini_get('max_input_vars');
+							$required_input_vars = $required_input_vars + ( 500 + 1000 );
+							// 1000 = theme options
 
 							if ( $max_input_vars < $required_input_vars ) {
-								echo '<mark class="error">' . sprintf( __( '%s - Max input vars limitation will truncate POST data such as menus. See: <a href="%s" target="_blank">Increasing max input vars limit.</a>', 'Avada' ), $max_input_vars, 'http://sevenspark.com/docs/ubermenu-3/faqs/menu-item-limit' ) . '</mark>';
+								echo '<mark class="error">' . sprintf( __( '%s - Recommended Value: %s.<br />Max input vars limitation will truncate POST data such as menus. See: <a href="%s" target="_blank">Increasing max input vars limit.</a>', 'Avada' ), $max_input_vars, '<strong>' . ( $required_input_vars + ( 500 + 1000 ) ) . '</strong>', 'http://sevenspark.com/docs/ubermenu-3/faqs/menu-item-limit' ) . '</mark>';
 							} else {
 								echo '<mark class="yes">' . $max_input_vars . '</mark>';
 							}
@@ -161,7 +161,76 @@ $theme_fusion_url = 'https://theme-fusion.com/';
 		If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'Avada'  ) . '">[?]</a>'; ?></td>
 						<td><?php echo extension_loaded( 'suhosin' ) ? '&#10004;' : '&ndash;'; ?></td>
 					</tr>
+					<?php if( extension_loaded( 'suhosin' ) ): ?>
+					<tr>
+						<td data-export-label="Suhosin Post Max Vars"><?php _e( 'Suhosin Post Max Vars', 'Avada' ); ?>:</td>
+						<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'Avada'  ) . '">[?]</a>'; ?></td>
+						<?php
+						$registered_navs = get_nav_menu_locations();
+						$menu_items_count = array( "0" => "0" );
+						foreach( $registered_navs as $handle => $registered_nav ) {
+							$menu = wp_get_nav_menu_object( $registered_nav );
+							if( $menu ) {
+								$menu_items_count[] = $menu->count;
+							}
+						}
+
+						$max_items = max( $menu_items_count );
+						if( ! fusion_get_theme_option( 'disable_megamenu' ) ) {
+							$required_input_vars = $max_items * 20;
+						} else {
+							$required_input_vars = ini_get( 'suhosin.post.max_vars' );
+						}
+						?>
+						<td><?php
+							$max_input_vars = ini_get( 'suhosin.post.max_vars' );
+							$required_input_vars = $required_input_vars + ( 500 + 1000 );
+
+							if ( $max_input_vars < $required_input_vars ) {
+								echo '<mark class="error">' . sprintf( __( '%s - Recommended Value: %s.<br />Max input vars limitation will truncate POST data such as menus. See: <a href="%s" target="_blank">Increasing max input vars limit.</a>', 'Avada' ), $max_input_vars, '<strong>' . ( $required_input_vars + ( 500 + 1000 ) ) . '</strong>', 'http://sevenspark.com/docs/ubermenu-3/faqs/menu-item-limit' ) . '</mark>';
+							} else {
+								echo '<mark class="yes">' . $max_input_vars . '</mark>';
+							}
+						?></td>
+					</tr>
+					<tr>
+						<td data-export-label="Suhosin Request Max Vars"><?php _e( 'Suhosin Request Max Vars', 'Avada' ); ?>:</td>
+						<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'Avada'  ) . '">[?]</a>'; ?></td>
+						<?php
+						$registered_navs = get_nav_menu_locations();
+						$menu_items_count = array( "0" => "0" );
+						foreach( $registered_navs as $handle => $registered_nav ) {
+							$menu = wp_get_nav_menu_object( $registered_nav );
+							if( $menu ) {
+								$menu_items_count[] = $menu->count;
+							}
+						}
+
+						$max_items = max( $menu_items_count );
+						if( ! fusion_get_theme_option( 'disable_megamenu' ) ) {
+							$required_input_vars = $max_items * 20;
+						} else {
+							$required_input_vars = ini_get( 'suhosin.request.max_vars' );
+						}
+						?>
+						<td><?php
+							$max_input_vars = ini_get( 'suhosin.request.max_vars' );
+							$required_input_vars = $required_input_vars + ( 500 + 1000 );
+
+							if ( $max_input_vars < $required_input_vars ) {
+								echo '<mark class="error">' . sprintf( __( '%s - Recommended Value: %s.<br />Max input vars limitation will truncate POST data such as menus. See: <a href="%s" target="_blank">Increasing max input vars limit.</a>', 'Avada' ), $max_input_vars, '<strong>' . ( $required_input_vars + ( 500 + 1000 ) ) . '</strong>', 'http://sevenspark.com/docs/ubermenu-3/faqs/menu-item-limit' ) . '</mark>';
+							} else {
+								echo '<mark class="yes">' . $max_input_vars . '</mark>';
+							}
+						?></td>
+					</tr>
+					<?php endif; ?>
 				<?php endif; ?>
+				<tr>
+					<td data-export-label="ZipArchive"><?php _e( 'ZipArchive', 'Avada' ); ?>:</td>
+					<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'ZipArchive is required for importing demos. They are used to import and export zip files specifically for sliders.', 'Avada'  ) . '">[?]</a>'; ?></td>
+					<td><?php echo class_exists( 'ZipArchive' ) ? '<mark class="yes">&#10004;</mark>' : '<mark class="error">ZipArchive is not installed on your server, but is required if you need to import demo content.</mark>'; ?></td>
+				</tr>
 				<tr>
 					<td data-export-label="MySQL Version"><?php _e( 'MySQL Version', 'Avada' ); ?>:</td>
 					<td class="help"><?php echo '<a href="#" class="help_tip" data-tip="' . esc_attr__( 'The version of MySQL installed on your hosting server.', 'Avada'  ) . '">[?]</a>'; ?></td>

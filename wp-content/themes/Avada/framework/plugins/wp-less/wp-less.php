@@ -218,7 +218,7 @@ if ( ! class_exists( 'avada_wp_less' ) ) {
 
 			// restore original url scheme
 			$url = set_url_scheme( $url, $src_scheme );
-			$url = add_query_arg( 'ver', $less_cache[ 'updated' ], $url );
+			$url = esc_url( add_query_arg( 'ver', $less_cache[ 'updated' ], $url ) );
 
 			if( get_option( 'avada_less_cache_reset' ) == 'true' || get_option( 'avada_less_cache_reset' ) == '' ) {
 				// Purge W3 Total Cache

@@ -35,11 +35,11 @@
 		padding: 0;
 		
 		.fusion-carousel-item-wrapper {
-		display: inline-block;
-		visibility: hidden;
-		vertical-align: middle;
-		width: 100%;
-		line-height: normal;
+			display: inline-block;
+			visibility: hidden;
+			vertical-align: middle;
+			width: 100%;
+			line-height: normal;
 		}
 
 		.fusion-image-wrapper {
@@ -124,98 +124,40 @@
 			}
 		}			
 	}
-
-	&.fusion-carousel-small {
-		.es-carousel {
-			padding-left: 13px;
-
-			ul {
-				li {
-					margin-right: 13px;
-
-					.fusion-image-wrapper {
-						height: 118px;
-						width: 159px;
-						line-height: 118px;
-					}
-
-					img {
-						max-height: 115px;
-						border: 1px solid @default-border-color;
-					}
-				}
-			}
-		}
-	}
-
-	&.fusion-carousel-large {
-		ul {
-			li {
-				//margin-right: 44px;
-				//height: 100%;
-
-				.fusion-image-wrapper {
-					//height: 138px;
-					//width: 180px;
-					//line-height: 138px;
-
-					.image-extras-content {
-						line-height: normal;
-					}
-				}
-			}
-		}
-	}	
-
-	.simple-products-slider-variable &, .picture-size-auto & {
-		.es-carousel {
-			padding-left: 13px;
-
-			ul {
-				li {
-					margin-right: 13px;
-
-					.fusion-image-wrapper {
-						height: auto;
-						width: 159px;
-						line-height: auto;
-					}
-
-					img {
-						max-height: none;
-						border: 1px solid @default-border-color;
-					}
-				}
-			}
-		}
-	}
-
-	.picture-size-auto &.fusion-carousel-large {
-		.es-carousel {
-			padding-left: 44px;
-
-			ul {
-				li {
-					//margin-right: 44px;
-					height: 100%;
-
-					.fusion-image-wrapper {
-						//height: auto;
-						//width: 180px;
-						//line-height: 138px;
-						
-						.image-extras-content {
-							line-height: initial;
-						}
-					}
-				}
-			}
-		}
-	}	
 }
 
 .fusion-carousel-border {
 	img {
 		border: 1px solid @default-border-color;
+	}
+}
+
+.fusion-image-carousel-fixed {
+	.fusion-carousel {
+		.fusion-carousel-wrapper {
+			height: 115px !important;
+		}
+	
+		.fusion-carousel-holder {
+			line-height: 115px !important;
+		}
+	
+		.fusion-carousel-item-wrapper {
+			text-align: center;
+		}
+	
+		.fusion-image-wrapper {
+			display: inline;
+			vertical: align: middle;
+			
+			a {
+				display: block;
+			}
+		
+			img {
+				max-height: 115px;
+				width: auto;
+			}
+		}
 	}
 }

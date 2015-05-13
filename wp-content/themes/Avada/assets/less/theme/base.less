@@ -282,17 +282,20 @@ fieldset {
 }
 
 #main h2 {
-	font: 18px/20px 'MuseoSlab500Regular', arial, helvetica, sans-serif;
+	font-family: 'MuseoSlab500Regular', arial, helvetica, sans-serif;
 }
 h2 {
 	color: #333;
 	margin: 0 0 20px;
     &.entry-title {
-        font: 18px/20px 'MuseoSlab500Regular', arial, helvetica, sans-serif;
+        font-family: 'MuseoSlab500Regular', arial, helvetica, sans-serif;
+        margin-top: 0;
+        margin-bottom: 28px;
     }
-	
 }
-
+.avada-myaccount-data h2 {
+	margin-top: 0px;
+}
 #main .columns h2 {
 	margin: 0;
 	line-height: 35px;
@@ -517,7 +520,7 @@ h2 {
 	margin-bottom: 40px;
 }
 #main .post h2 {
-	font: 18px 'MuseoSlab500Regular', arial, helvetica, sans-serif;
+	font-family: 'MuseoSlab500Regular', arial, helvetica, sans-serif;
 	color: #333333;
 	padding-bottom: 0;
 }
@@ -1980,10 +1983,6 @@ body #wrapper .gomapMarker {
 }
 #lang_sel li ul li a {
 	padding: 10px;
-}
-/* Google Recaptcha Hack */
-iframe[src="about:blank"] {
-	display: none;
 }
 
 .blog-shortcode h3.timeline-title {

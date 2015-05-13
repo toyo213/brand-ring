@@ -9,6 +9,7 @@ class Avada_Init {
         add_action( 'after_setup_theme', array( $this, 'add_theme_supports' ), 10 );
         add_action( 'after_setup_theme', array( $this, 'register_nav_menus' ) );
         add_action( 'after_setup_theme', array( $this, 'add_image_size' ) );
+        add_action( 'after_setup_theme', array( $this, 'migrate' ) );
         add_action( 'wp', array( $this, 'set_theme_version' ) );
         // Allow shortcodes in widget text
         add_filter( 'widget_text', 'do_shortcode' );
@@ -47,6 +48,12 @@ class Avada_Init {
 		if ( function_exists( 'wp_get_theme' ) ) {
 			$theme_obj = wp_get_theme();
 			$theme_version = $theme_obj->get( 'Version' );
+
+			if( $theme_obj->parent_theme ) {
+				$template_dir = basename( get_template_directory() );
+				$theme_obj = wp_get_theme( $template_dir );
+				$theme_version = $theme_obj->get( 'Version' );
+			}
 
 			update_option( 'avada_theme_version', $theme_version );
 		}
@@ -91,8 +98,39 @@ class Avada_Init {
          add_image_size( 'portfolio-six', 147, 118, true );
          add_image_size( 'recent-posts', 700, 441, true );
          add_image_size( 'recent-works-thumbnail', 66, 66, true );
-
      }
+
+	/**
+	 * Migrate script to decode theme options
+	 */
+    function migrate() {
+    	if ( get_option( 'avada_38_migrate' ) != 'done' ) {
+	     	$theme_version = get_option( 'avada_theme_version' );
+
+	    	if( $theme_version == '1.0.0' ) { // child theme check failure
+	    		$this->set_theme_version();
+	    	}
+
+	    	$theme_version = get_option( 'avada_theme_version' );
+
+    		if ( version_compare( $theme_version, '3.8', '>=' ) && version_compare( $theme_version, '3.8.5', '<' ) ) {
+    			$smof_data_to_decode = get_option( 'Avada_options' );
+
+				$encoded_field_names = array( 'google_analytics', 'space_head', 'space_body', 'custom_css' );
+
+				foreach ( $encoded_field_names as $field_name ) {
+					$decoded_field_value = rawurldecode( $smof_data_to_decode[ $field_name ] );
+
+					if ( $decoded_field_value ) {
+						$smof_data_to_decode[ $field_name ] = $decoded_field_value;
+					}
+				}
+
+				update_option( 'Avada_options', $smof_data_to_decode );
+				update_option( 'avada_38_migrate', 'done' );
+    		}
+    	}
+    }
 
 	/**
 	 * Register navigation menus

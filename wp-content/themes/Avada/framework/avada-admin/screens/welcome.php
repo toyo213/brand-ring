@@ -5,7 +5,7 @@ if($avada_theme->parent_theme) {
     $avada_theme = wp_get_theme($template_dir);
 }
 $avada_version = $avada_theme->get( 'Version' );
-$avada_options = get_option( 'Avada_options' );
+$avada_options = get_option( 'Avada_Key' );
 $registration_complete = false;
 $tf_username = isset( $avada_options[ 'tf_username' ] ) ? $avada_options[ 'tf_username' ] : '';
 $tf_api = isset( $avada_options[ 'tf_api' ] ) ? $avada_options[ 'tf_api' ] : '';

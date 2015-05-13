@@ -1,10 +1,10 @@
 /*
 Theme Name: Avada
-Description: A business, portfolio and blog theme.
+Description: The #1 selling theme of all time that allows you to build virtually any design style.
 Author: ThemeFusion
 Theme URI: http://theme-fusion.com/avada/
 Author URI: http://themeforest.net/user/ThemeFusion
-Version: 3.8.3
+Version: 3.8.4
 License: Themeforest Split Licence
 License URI: -
 Text Domain: Avada
@@ -1558,14 +1558,19 @@ fieldset {
   margin: 0 0 23px;
 }
 #main h2 {
-  font: 18px/20px 'MuseoSlab500Regular', arial, helvetica, sans-serif;
+  font-family: 'MuseoSlab500Regular', arial, helvetica, sans-serif;
 }
 h2 {
   color: #333;
   margin: 0 0 20px;
 }
 h2.entry-title {
-  font: 18px/20px 'MuseoSlab500Regular', arial, helvetica, sans-serif;
+  font-family: 'MuseoSlab500Regular', arial, helvetica, sans-serif;
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+.avada-myaccount-data h2 {
+  margin-top: 0px;
 }
 #main .columns h2 {
   margin: 0;
@@ -1788,7 +1793,7 @@ h2.entry-title {
   margin-bottom: 40px;
 }
 #main .post h2 {
-  font: 18px 'MuseoSlab500Regular', arial, helvetica, sans-serif;
+  font-family: 'MuseoSlab500Regular', arial, helvetica, sans-serif;
   color: #333333;
   padding-bottom: 0;
 }
@@ -3159,10 +3164,6 @@ body #wrapper .gomapMarker {
 #lang_sel li ul li a {
   padding: 10px;
 }
-/* Google Recaptcha Hack */
-iframe[src="about:blank"] {
-  display: none;
-}
 .blog-shortcode h3.timeline-title {
   color: #747474;
   font-size: 13px;
@@ -4284,7 +4285,7 @@ body.admin-bar #wrapper #slidingbar-area {
   font-size: 12px;
   line-height: 15px;
 }
-#slidingbar-area ul li a {
+#slidingbar-area ul li > a {
   padding: 12px 0;
   border-bottom: 1px solid #282a2b;
   display: block;
@@ -4554,7 +4555,7 @@ Table of Contents
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100.1%;
   line-height: normal;
   text-align: center;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #aad75d), color-stop(1, #d1e990));
@@ -4952,6 +4953,9 @@ blockquote *:last-child {
 .sidebar .avada-select-parent select {
   min-width: initial;
 }
+.ua-ie .select-arrow {
+  display: none;
+}
 /* WP Calendar Widget */
 #slidingbar .widget_calendar table,
 .sidebar .widget_calendar table,
@@ -5056,6 +5060,8 @@ Table of Contents
 .fusion-header {
   padding-left: 30px;
   padding-right: 30px;
+}
+.fusion-header-backface {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -5167,7 +5173,7 @@ Table of Contents
 .fusion-secondary-main-menu .search-table {
   width: 100%;
 }
-.fusion-secondary-main-menu .searchform {
+.fusion-secondary-main-menu .fusion-main-menu .searchform {
   display: none;
   float: none;
   padding: 5px 0px;
@@ -5176,6 +5182,13 @@ Table of Contents
 .fusion-secondary-main-menu .fusion-main-menu .searchform {
   display: block;
   padding: 0;
+}
+.fusion-secondary-main-menu .fusion-secondary-menu-search {
+  display: none;
+  padding: 5px 0px;
+}
+.fusion-secondary-main-menu .fusion-secondary-menu-search .searchform {
+  margin-left: 0;
 }
 .fusion-header-v5 .fusion-main-menu {
   text-align: center;
@@ -6108,6 +6121,9 @@ body.side-header-right.rtl #side-header .login-box {
   margin-left: -18px;
   margin-right: 2px;
 }
+.fusion-mobile-nav-holder li.fusion-mobile-nav-item .submenu-languages li a:before {
+  content: none;
+}
 .fusion-mobile-nav-holder .fusion-megamenu-icon {
   display: none;
 }
@@ -6168,6 +6184,7 @@ body.side-header-right.rtl #side-header .login-box {
 }
 .fusion-mobile-nav-item .iclflag {
   vertical-align: middle;
+  margin-right: 5px;
 }
 .fusion-mobile-menu-icons {
   display: none;
@@ -6411,11 +6428,13 @@ Table of Contents
 }
 /* General blog elements that are also used outside blog */
 .fusion-blog-archive .entry-title {
+  margin-top: 0;
   margin-bottom: 5px;
 }
 /* Mixed layout styles */
 .fusion-blog-layout-large .entry-title,
 .fusion-blog-layout-medium .entry-title {
+  margin-top: 0;
   margin-bottom: 25px;
 }
 .single-post .fusion-post-slideshow,
@@ -6425,6 +6444,7 @@ Table of Contents
 }
 .fusion-blog-layout-large-alternate .entry-title,
 .fusion-blog-layout-medium-alternate .entry-title {
+  margin-top: 0;
   margin-bottom: 5px;
 }
 .fusion-blog-layout-large-alternate .fusion-post-content-container,
@@ -6438,7 +6458,6 @@ Table of Contents
 }
 .fusion-blog-layout-medium .fusion-post-slideshow,
 .fusion-blog-layout-medium-alternate .fusion-post-slideshow {
-  /* overflow: hidden; */
   float: left;
   margin-right: 25px;
   width: 320px;
@@ -6487,6 +6506,9 @@ Table of Contents
 }
 .fusion-blog-layout-medium-alternate .has-post-thumbnail .fusion-post-content {
   margin-left: 436px;
+}
+.fusion-blog-layout-medium-alternate.fusion-blog-no-images .fusion-post-content {
+  margin-left: 99px;
 }
 /* Grid layout */
 .fusion-blog-layout-grid .fusion-post-grid {
@@ -6605,7 +6627,8 @@ Table of Contents
 .fusion-portfolio-two .fusion-portfolio-post {
   width: 50%;
 }
-.fusion-portfolio-three .fusion-portfolio-post {
+.fusion-portfolio-three .fusion-portfolio-post,
+.fusion-portfolio-grid > .fusion-portfolio-wrapper .fusion-portfolio-post {
   width: 33.33%;
 }
 .fusion-portfolio-four .fusion-portfolio-post {
@@ -6675,8 +6698,8 @@ Table of Contents
 .fusion-portfolio-one-nontext .fusion-image-wrapper {
   float: left;
   margin: 0 25px 15px 0;
-  width: 540px;
-  height: 272px;
+  max-width: 540px;
+  width: 100%;
 }
 .fusion-portfolio-one-nontext .fusion-portfolio-content {
   margin-top: 0;
@@ -6915,8 +6938,10 @@ Table of Contents
   width: 100%;
   height: auto;
   visibility: visible;
-  position: relative;
+  position: static;
   top: 0%;
+  z-index: 1;
+  backface-visibility: hidden;
 }
 .tfs-slider .overlay {
   position: absolute;
@@ -7542,6 +7567,7 @@ Table of Contents
 }
 .fusion-button,
 .wpcf7-submit,
+.gform_wrapper .gform_button,
 .woocommerce .checkout #place_order {
   display: inline-block;
   position: relative;
@@ -7563,20 +7589,24 @@ Table of Contents
 }
 .fusion-button:before,
 .wpcf7-submit:before,
+.gform_wrapper .gform_button:before,
 .woocommerce .checkout #place_order:before,
 .fusion-button:after,
 .wpcf7-submit:after,
+.gform_wrapper .gform_button:after,
 .woocommerce .checkout #place_order:after {
   content: " ";
   display: table;
 }
 .fusion-button:after,
 .wpcf7-submit:after,
+.gform_wrapper .gform_button:after,
 .woocommerce .checkout #place_order:after {
   clear: both;
 }
 .fusion-button:hover,
 .wpcf7-submit:hover,
+.gform_wrapper .gform_button:hover,
 .woocommerce .checkout #place_order:hover {
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
@@ -7586,6 +7616,7 @@ Table of Contents
 }
 .fusion-button:focus,
 .wpcf7-submit:focus,
+.gform_wrapper .gform_button:focus,
 .woocommerce .checkout #place_order:focus {
   outline: 0;
 }
@@ -9524,9 +9555,6 @@ button.fusion-button.button-3d:active {
   color: #fff;
   text-align: center;
 }
-.fusion-checklist .fusion-li-item-content {
-  display: inline;
-}
 .fusion-clients-slider {
   margin-bottom: 55px;
   height: auto;
@@ -10028,6 +10056,9 @@ button.fusion-button.button-3d:active {
   position: relative;
   margin-top: 10px;
 }
+.page .post-slideshow {
+  margin-bottom: 30px;
+}
 .fusion-flip-boxes {
   margin-bottom: 25px;
 }
@@ -10130,6 +10161,9 @@ button.fusion-button.button-3d:active {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  /* fix reversed -moz-background-clip: border;
+		-webkit-background-clip: border-box;
+		background-clip: border-box; */
 }
 .fusion-flip-box .flip-box-circle i {
   display: table-cell;
@@ -10140,6 +10174,7 @@ button.fusion-button.button-3d:active {
   font-size: 60px;
 }
 .fusion-flip-box .flip-box-heading {
+  margin-top: 0;
   margin-bottom: 15px;
 }
 .fusion-flip-box .flip-box-heading.without-text {
@@ -10284,11 +10319,13 @@ button.fusion-button.button-3d:active {
 }
 .hundred-percent-fullwidth {
   overflow: hidden;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
 }
 .hundred-percent-fullwidth .fusion-row {
   max-width: none !important;
+}
+#main .fullwidth-box .fusion-row {
+  padding-left: 0;
+  padding-right: 0;
 }
 .ua-safari .fullwidth-box.faded-background .fullwidth-faded {
   -webkit-transform: translate3d(0, 0, 0);
@@ -10456,54 +10493,28 @@ button.fusion-button.button-3d:active {
 .fusion-carousel .fusion-carousel-nav .fusion-nav-next:before {
   content: '\f105';
 }
-.fusion-carousel.fusion-carousel-small .es-carousel {
-  padding-left: 13px;
-}
-.fusion-carousel.fusion-carousel-small .es-carousel ul li {
-  margin-right: 13px;
-}
-.fusion-carousel.fusion-carousel-small .es-carousel ul li .fusion-image-wrapper {
-  height: 118px;
-  width: 159px;
-  line-height: 118px;
-}
-.fusion-carousel.fusion-carousel-small .es-carousel ul li img {
-  max-height: 115px;
-  border: 1px solid #e9eaee;
-}
-.fusion-carousel.fusion-carousel-large ul li .fusion-image-wrapper .image-extras-content {
-  line-height: normal;
-}
-.simple-products-slider-variable .fusion-carousel .es-carousel,
-.picture-size-auto .fusion-carousel .es-carousel {
-  padding-left: 13px;
-}
-.simple-products-slider-variable .fusion-carousel .es-carousel ul li,
-.picture-size-auto .fusion-carousel .es-carousel ul li {
-  margin-right: 13px;
-}
-.simple-products-slider-variable .fusion-carousel .es-carousel ul li .fusion-image-wrapper,
-.picture-size-auto .fusion-carousel .es-carousel ul li .fusion-image-wrapper {
-  height: auto;
-  width: 159px;
-  line-height: auto;
-}
-.simple-products-slider-variable .fusion-carousel .es-carousel ul li img,
-.picture-size-auto .fusion-carousel .es-carousel ul li img {
-  max-height: none;
-  border: 1px solid #e9eaee;
-}
-.picture-size-auto .fusion-carousel.fusion-carousel-large .es-carousel {
-  padding-left: 44px;
-}
-.picture-size-auto .fusion-carousel.fusion-carousel-large .es-carousel ul li {
-  height: 100%;
-}
-.picture-size-auto .fusion-carousel.fusion-carousel-large .es-carousel ul li .fusion-image-wrapper .image-extras-content {
-  line-height: initial;
-}
 .fusion-carousel-border img {
   border: 1px solid #e9eaee;
+}
+.fusion-image-carousel-fixed .fusion-carousel .fusion-carousel-wrapper {
+  height: 115px !important;
+}
+.fusion-image-carousel-fixed .fusion-carousel .fusion-carousel-holder {
+  line-height: 115px !important;
+}
+.fusion-image-carousel-fixed .fusion-carousel .fusion-carousel-item-wrapper {
+  text-align: center;
+}
+.fusion-image-carousel-fixed .fusion-carousel .fusion-image-wrapper {
+  display: inline;
+  vertical: align: middle;
+}
+.fusion-image-carousel-fixed .fusion-carousel .fusion-image-wrapper a {
+  display: block;
+}
+.fusion-image-carousel-fixed .fusion-carousel .fusion-image-wrapper img {
+  max-height: 115px;
+  width: auto;
 }
 .fusion-layout-column {
   position: relative;
@@ -10592,7 +10603,7 @@ button.fusion-button.button-3d:active {
   margin-right: 0;
 }
 .fusion-equal-height-columns .fusion-column-wrapper {
-  overflow: auto;
+  overflow: hidden;
 }
 .fusion-equal-height-columns .fusion-column-table {
   display: table;
@@ -11036,6 +11047,11 @@ button.fusion-button.button-3d:active {
 .fusion-recent-works-grid-with-excerpts {
   margin-bottom: 0;
 }
+.fusion-recent-works-carousel-fixed.fusion-carousel .fusion-image-wrapper,
+.fusion-recent-works-carousel-fixed.fusion-carousel .fusion-image-wrapper img {
+  max-height: 115px;
+  width: auto;
+}
 .fusion-section-separator {
   position: relative;
 }
@@ -11089,7 +11105,7 @@ button.fusion-button.button-3d:active {
   border-width: 29px 29px 0 29px;
 }
 .fusion-section-separator .divider-candy-arrow.top {
-  top: -29px;
+  bottom: 0;
   border-width: 0 29px 29px;
 }
 .fusion-section-separator .section-separator-icon {
@@ -11770,6 +11786,7 @@ table {
 .fusion-testimonials.clean .testimonial-thumbnail {
   margin: 0 auto 25px auto;
   width: 150px;
+  text-align: center;
 }
 .fusion-testimonials.clean .doe:before {
   line-height: 100px;
@@ -11900,6 +11917,12 @@ table {
   width: 100%;
   border-bottom: 1px solid #e7e6e6;
 }
+.fusion-title.sep-underline.sep-dashed {
+  border-bottom-style: dashed;
+}
+.fusion-title.sep-underline.sep-dotted {
+  border-bottom-style: dotted;
+}
 .fusion-title.sep-underline .title-heading-right {
   float: right;
   margin: 0;
@@ -11930,12 +11953,6 @@ table {
 .fusion-title .title-sep.sep-dotted {
   border-bottom-style: dotted;
   border-top-style: dotted;
-}
-.fusion-title.sep-dashed {
-  border-bottom-style: dashed;
-}
-.fusion-title.sep-dotted {
-  border-bottom-style: dotted;
 }
 .border-below-title {
   display: block;
@@ -12047,6 +12064,9 @@ table {
 .fusion-woo-featured-products-slider {
   position: relative;
   margin-bottom: 25px;
+}
+.fusion-woo-featured-products-slider .fusion-carousel-wrapper {
+  overflow: hidden;
 }
 .fusion-woo-featured-products-slider .fusion-rollover-content .price {
   margin-top: 3px;

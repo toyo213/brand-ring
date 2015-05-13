@@ -71,45 +71,47 @@ jQuery( window ).load(
     function() {
         jQuery( window ).resize(
             function() {
-                jQuery( '.crossfade-resized' ).each(
-                    function() {
-                        jQuery(this ).css('height', '');
-                        fusionResizeCrossfadeImages( jQuery( this ) );
-                    }
-                );
+				jQuery( '.crossfade-images' ).each(
+					function() {
+						fusion_resize_crossfade_images_container( jQuery( this ) );
+						fusionResizeCrossfadeImages( jQuery( this ) );
+					}
+				);
             }
         );
         function fusionResizeCrossfadeImages( $parent ) {
-            var $height = $parent.outerHeight();
-            var $biggest_height = 0;
+            var $parent_height = $parent.height();
+
             $parent.find( 'img' ).each(
                 function() {
-                    $img_height = jQuery( this ).outerHeight();
-                    if ( $img_height > $biggest_height ) {
-                        $biggest_height = $img_height;
-                    }
-                    if ($img_height < $height) {
-                        jQuery( this ).css( 'margin-top', (($height - $img_height) / 2) + "px" );
+					$img_height = jQuery( this ).height();
+
+                    if ( $img_height < $parent_height ) {
+                        jQuery( this ).css( 'margin-top', ( ( $parent_height - $img_height ) / 2 )  + "px" );
                     }
                 }
             );
-
-            if ( $height < $biggest_height ) {
-                $parent.css( 'height', $biggest_height );
-                $parent.find( 'img' ).each(
-                    function() {
-                        $img_height = jQuery( this ).height();
-                        if ( $img_height < $biggest_height ) {
-                            jQuery( this ).css( 'margin-top', (($biggest_height - $img_height) / 2) + "px" );
-                            $parent.addClass( 'crossfade-resized' );
-                        }
-                    }
-                );
-            }
         }
+
+        function fusion_resize_crossfade_images_container( $container ) {
+			var $biggest_height = 0;
+
+ 			$container.find( 'img' ).each(
+				function() {
+					$img_height = jQuery( this ).height();
+
+                    if ( $img_height > $biggest_height ) {
+                        $biggest_height = $img_height;
+                    }
+				}
+			);
+
+			$container.css( 'height', $biggest_height );
+		}
 
         jQuery( '.crossfade-images' ).each(
             function() {
+                fusion_resize_crossfade_images_container( jQuery( this ) );
                 fusionResizeCrossfadeImages( jQuery( this ) );
             }
         );

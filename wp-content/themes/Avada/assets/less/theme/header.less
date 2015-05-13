@@ -30,7 +30,9 @@ Table of Contents
 .fusion-header {
 	padding-left: 30px;
 	padding-right: 30px;
+}
 
+.fusion-header-backface {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
@@ -157,7 +159,7 @@ Table of Contents
 		width: 100%;
 	}
 
-	.searchform {
+	.fusion-main-menu .searchform {
 		display: none;
 		float: none;
 		padding: 5px 0px;
@@ -167,6 +169,13 @@ Table of Contents
 	.fusion-main-menu .searchform {
 		display: block;
 		padding: 0;
+	}
+
+	.fusion-secondary-menu-search {
+		display: none;
+		padding: 5px 0px;
+
+		.searchform { margin-left: 0; }
 	}
 }
 
@@ -1233,6 +1242,11 @@ body.side-header-right {
 			margin-right: 2px;
 		}
 	}
+	
+	li.fusion-mobile-nav-item .submenu-languages li a:before {
+		content: none;
+	}
+	
 
 	.fusion-megamenu-icon {
 		display: none;
@@ -1304,6 +1318,7 @@ body.side-header-right {
 	
 	.iclflag {
 		vertical-align: middle;
+		margin-right: 5px;
 	}	
 }
 

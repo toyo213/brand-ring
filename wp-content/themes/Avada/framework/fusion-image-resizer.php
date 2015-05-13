@@ -23,7 +23,6 @@ if ( ! class_exists( 'Fusion_Image_Resizer' ) ) {
 			$image = wp_get_attachment_image_src( $img['id'], 'full' );
 
 			$img['url'] = $image[0];
-
 			$img['width'] = $image[1];
 			$img['height'] = $image[2];
 
@@ -34,6 +33,7 @@ if ( ! class_exists( 'Fusion_Image_Resizer' ) ) {
 
 			$defaults = array(
 				"url"       => "",
+				"path"		=> "",
 				"width"     => "",
 				"height"    => "",
 				"crop"      => true,
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Fusion_Image_Resizer' ) ) {
 				$results['retina'] = self::_resize( $settings['url'], $settings['width'], $settings['height'], $settings['crop'], true );
 			}
 
-			return self::_resize( $settings['url'], $settings['width'], $settings['height'], $settings['crop'], false, $settings['quality'] );
+			return self::_resize( $settings['url'], $settings['path'], $settings['width'], $settings['height'], $settings['crop'], false, $settings['quality'] );
 		}
 
 		/**
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Fusion_Image_Resizer' ) ) {
 		 *
 		 * @return array   An array containing the resized image URL, width, height and file type.
 		 */
-		public static function _resize( $url, $width = NULL, $height = NULL, $crop = true, $retina = false, $quality = false ) {
+		public static function _resize( $url, $path, $width = NULL, $height = NULL, $crop = true, $retina = false, $quality = false ) {
 			global $wpdb;
 
 			if ( empty( $url ) ) {
@@ -72,6 +72,10 @@ if ( ! class_exists( 'Fusion_Image_Resizer' ) ) {
 			// Get the image file path
 			$file_path = parse_url( $url );
 			$file_path = $_SERVER['DOCUMENT_ROOT'] . $file_path['path'];
+
+			if( $path ) {
+				$file_path = $path;
+			}
 
 			// Load Wordpress Image Editor
 			$editor = wp_get_image_editor( $file_path );

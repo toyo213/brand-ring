@@ -22,18 +22,18 @@ $this->select(	'page_title_100_width',
 				array('default' => __('Default', 'Avada'), 'yes' => __('Yes', 'Avada'), 'no' => __('No', 'Avada')),
 				__('Choose to set the page title content to 100% of the browser width. Select "No" for site width. Only works with wide layout mode.', 'Avada')
 			);
-
-$this->text(	'page_title_custom_text',
+			
+$this->textarea('page_title_custom_text',
 				__('Page Title Bar Custom Text', 'Avada'),
 				__('Insert custom text for the page title bar.', 'Avada')
-			);
+			);			
 
 $this->text(	'page_title_text_size',
 				__('Page Title Bar Text Size', 'Avada'),
 				__('In pixels, default is 18px.', 'Avada')
 			);
 
-$this->text(	'page_title_custom_subheader',
+$this->textarea('page_title_custom_subheader',
 				__('Page Title Bar Custom Subheader Text', 'Avada'),
 				__('Insert custom subhead text for the page title bar.', 'Avada')
 			);

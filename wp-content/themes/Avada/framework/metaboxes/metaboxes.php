@@ -167,7 +167,7 @@ class PyreThemeFrameworkMetaboxes {
 				}
 			$html .= '</div>';
 			$html .= '<div class="pyre_field">';
-				$html .= '<input type="text" id="pyre_' . $id . '" name="pyre_' . $id . '" value="' . htmlentities( get_post_meta($post->ID, 'pyre_' . $id, true) ) . '" />';
+				$html .= '<input type="text" id="pyre_' . $id . '" name="pyre_' . $id . '" value="' . get_post_meta($post->ID, 'pyre_' . $id, true) . '" />';
 			$html .= '</div>';
 		$html .= '</div>';
 
@@ -264,8 +264,14 @@ class PyreThemeFrameworkMetaboxes {
 			$html .= '</div>';
 			$html .= '<div class="pyre_field">';
 				$rows = 10;
-				if ( $id == 'heading' || $id == 'caption' ) {
+				if ( $id == 'heading' || 
+					 $id == 'caption' 
+				) {
 					$rows = 5;
+				} else if ( $id == 'page_title_custom_text' ||
+							$id == 'page_title_custom_subheader'
+				) {
+					$rows = 1;
 				}
 				$html .= '<textarea cols="120" rows="' . $rows . '" id="pyre_' . $id . '" name="pyre_' . $id . '">' . $value . '</textarea>';
 			$html .= '</div>';

@@ -311,6 +311,10 @@
 	background: #f5f5f5;
 }
 
+.rtl .pyre_metabox_tabs {
+	float: right;
+}
+
 .pyre_metabox_tabs li {
 	margin: 0;
 	padding: 0;
@@ -339,6 +343,10 @@
 	box-sizing: border-box;
 	padding: 30px;
 	padding-bottom: 10px;
+}
+
+.rtl .pyre_metabox {
+	float: right;
 }
 
 .pyre_metabox_field {
@@ -421,6 +429,13 @@
 	line-height: 32px;
 }
 
+.rtl .pyre_field .fusion-shortcodes-arrow {
+	right: auto;
+	left: 1px;
+	border-left: 0;
+	border-right: 1px solid #d9d9d9;
+}
+
 .pyre_field select {
 	appearance: none;
 	-webkit-appearance: none;
@@ -453,6 +468,12 @@
 
 .pyre_field textarea {
 	margin: 0;
+}
+
+#pyre_tab_pagetitlebar #pyre_page_title_custom_text,
+#pyre_tab_pagetitlebar #pyre_page_title_custom_subheader { 
+	padding: 7px 15px;
+	resize: none;
 }
 
 .pyre_metabox_tabs a {

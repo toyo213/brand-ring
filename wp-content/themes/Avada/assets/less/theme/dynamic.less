@@ -75,10 +75,6 @@ html, body, html body.custom-background, .woocommerce-tabs > .tabs .active a { b
 		margin-left: -30px;
 		margin-right: -30px;
 	}
-	/* for full width container with 100% interior checked */
-	.width-100 .hundred-percent-fullwidth {
-		padding-left: 0px !important; padding-right: 0px !important;
-	}
 
 	& when (@responsive = 1) {
 		@media only screen and (max-width: 800px ) {
@@ -96,10 +92,6 @@ html, body, html body.custom-background, .woocommerce-tabs > .tabs .active a { b
 		.width-100 .fullwidth-box, .width-100 .fusion-section-separator {
 			margin-left: -30px !important;
 			margin-right: -30px !important;
-		}
-		/* for full width container with 100% interior checked */
-		.width-100 .hundred-percent-fullwidth {
-			padding-left: 0px !important; padding-right: 0px !important;
 		}
 	}
 }
@@ -806,7 +798,8 @@ body, #nav ul li ul li a, #sticky-nav ul li ul li a,
 	.woocommerce-success-message .msg,.product-title, .cart-empty,
 	.main-flex .slide-content h2, .main-flex .slide-content h3,
 	.fusion-modal .modal-title, .popover .popover-title,
-	.fusion-flip-box .flip-box-heading-back{
+	.fusion-flip-box .flip-box-heading-back,
+	.fusion-header-tagline{
 		font-family: @headings-font;
 	}
 }
@@ -835,7 +828,8 @@ table th,
 .woocommerce-success-message .msg,.product-title, .cart-empty,
 .main-flex .slide-content h2, .main-flex .slide-content h3,
 .fusion-modal .modal-title, .popover .popover-title,
-.fusion-flip-box .flip-box-heading-back{
+.fusion-flip-box .flip-box-heading-back,
+.fusion-header-tagline{
 	font-weight: @font-weight-headings;
 }
 
@@ -926,12 +920,12 @@ body,.sidebar .slide-excerpt h2, .fusion-footer-widget-area .slide-excerpt h2,#s
 	line-height: @h1-line-height * 1px;
 }
 
-#wrapper .post-content h2,#wrapper .fusion-title h2,#wrapper #main .post-content .fusion-title h2,#wrapper .title h2,#wrapper #main .post-content .title h2,#wrapper  #main .post h2, #wrapper  #main .post h2, #wrapper .woocommerce .checkout h3, #main .fusion-portfolio h2 {
+#wrapper .post-content h2,#wrapper .fusion-title h2,#wrapper #main .post-content .fusion-title h2,#wrapper .title h2,#wrapper #main .post-content .title h2,#wrapper  #main .post h2, #wrapper  #main .post h2, #wrapper .woocommerce .checkout h3, #main .fusion-portfolio h2, h2.entry-title {
 	font-size: @h2-font-size * 1px;
 	line-height: round((@h2-font-size * 1.5) * 1px);
 }
 
-#wrapper .post-content h2,#wrapper .fusion-title h2,#wrapper #main .post-content .fusion-title h2,#wrapper .title h2,#wrapper #main .post-content .title h2,#wrapper #main .post h2, #wrapper  .woocommerce .checkout h3, .cart-empty{
+#wrapper .post-content h2,#wrapper .fusion-title h2,#wrapper #main .post-content .fusion-title h2,#wrapper .title h2,#wrapper #main .post-content .title h2,#wrapper #main .post h2, #wrapper  .woocommerce .checkout h3, .cart-empty, #main .fusion-portfolio h2, h2.entry-title{
 	line-height: @h2-line-height * 1px;
 }
 
@@ -948,7 +942,7 @@ p.demo_store,.fusion-modal .modal-title { font-size: @h3-font-size * 1px; }
 
 .post-content h4, .fusion-portfolio-post .fusion-portfolio-content h4, 
 .fusion-rollover .fusion-rollover-content .fusion-rollover-title,
-.fusion-person .person-author-wrapper .person-name, .fusion-person .person-author-wrapper .person-title, .fusion-carousel-title,
+.fusion-person .person-author-wrapper .person-name, .fusion-person .person-author-wrapper .person-title, .fusion-carousel-title
 {
 	font-size: @h4-font-size * 1px;
 	line-height: round((@h4-font-size * 1.5) * 1px);
@@ -961,9 +955,9 @@ p.demo_store,.fusion-modal .modal-title { font-size: @h3-font-size * 1px; }
 .fusion-tabs .nav-tabs > li .fusion-tab-heading
 {font-size: @h4-font-size * 1px;}
 
-.post-content h4, #reviews #comments > h2,
-.fusion-sharing-box h4,
-.fusion-person .person-author-wrapper .person-name, .fusion-person .person-author-wrapper .person-title {
+.post-content h4, #reviews #comments > h2, .fusion-portfolio-post .fusion-portfolio-content h4, 
+.fusion-sharing-box h4, .fusion-rollover-content .fusion-rollover-title,
+.fusion-person .person-author-wrapper .person-name, .fusion-person .person-author-wrapper .person-title, .fusion-carousel-title {
 	line-height: @h4-line-height * 1px;
 }
 
@@ -1125,7 +1119,7 @@ body #toTop:before {color:#fff;}
 
 .sb-toggle-wrapper .sb-toggle:after{ color: @slidingbar-toggle-icon-color; }
 
-#slidingbar-area .widget_categories li a, #slidingbar-area li.recentcomments, #slidingbar-area ul li a, #slidingbar-area .product_list_widget li, #slidingbar-area .widget_recent_entries ul li {border-bottom: 1px solid @slidingbar-divider-color;}
+#slidingbar-area .widget_categories li a, #slidingbar-area li.recentcomments, #slidingbar-area ul li a, #slidingbar-area .product_list_widget li, #slidingbar-area .widget_recent_entries ul li {border-bottom-color: @slidingbar-divider-color;}
 #slidingbar-area .tagcloud a, 
 #wrapper #slidingbar-area .fusion-tabs-widget .tab-holder, 
 #wrapper #slidingbar-area .fusion-tabs-widget .tab-holder .news-list li,
@@ -1514,7 +1508,9 @@ body .sidebar .fusion-tabs-widget .tab-hold .tabs li.active a, body .sidebar .fu
 
 .button.default, .fusion-button-default,
 .woocommerce .checkout #place_order,
-.wpcf7-form input[type="submit"], .wpcf7-submit {
+.wpcf7-form input[type="submit"], .wpcf7-submit,
+.fusion-body #main .gform_wrapper .gform_button,
+.fusion-body #main .gform_wrapper .gform_footer .gform_button {
 	& when (@button-size = small) {
 		.button-dimensions( 32px, 20px, 9px, 14px, 12px );
 		
@@ -1883,18 +1879,18 @@ body .sidebar .fusion-tabs-widget .tab-hold .tabs li.active a, body .sidebar .fu
 /* Headings
 ================================================================================================= */
 
-h1 { margin-top: @h1-top-margin * 1em; margin-bottom: @h1-bottom-margin * 1em; }
-h2 { margin-top: @h2-top-margin * 1em; margin-bottom: @h2-bottom-margin * 1em; }
-h3 { margin-top: @h3-top-margin * 1em; margin-bottom: @h3-bottom-margin * 1em; }
-h4 { margin-top: @h4-top-margin * 1em; margin-bottom: @h4-bottom-margin * 1em; }
-h5 { margin-top: @h5-top-margin * 1em; margin-bottom: @h5-bottom-margin * 1em; }
-h6 { margin-top: @h6-top-margin * 1em; margin-bottom: @h6-bottom-margin * 1em; }
+h1, .fusion-title-size-one { margin-top: @h1-top-margin * 1em; margin-bottom: @h1-bottom-margin * 1em; }
+h2, .fusion-title-size-two { margin-top: @h2-top-margin * 1em; margin-bottom: @h2-bottom-margin * 1em; }
+h3, .fusion-title-size-three { margin-top: @h3-top-margin * 1em; margin-bottom: @h3-bottom-margin * 1em; }
+h4, .fusion-title-size-four { margin-top: @h4-top-margin * 1em; margin-bottom: @h4-bottom-margin * 1em; }
+h5, .fusion-title-size-five { margin-top: @h5-top-margin * 1em; margin-bottom: @h5-bottom-margin * 1em; }
+h6, .fusion-title-size-six { margin-top: @h6-top-margin * 1em; margin-bottom: @h6-bottom-margin * 1em; }
 
 /* Header Styles
 ================================================================================================= */
 
 .fusion-logo {
-	margin: @logo-margin-top @logo-margin-left @logo-margin-bottom @logo-margin-right;
+	margin: @logo-margin-top @logo-margin-right @logo-margin-bottom @logo-margin-left;
 }
 
 & when (@header-shadow = 1) {

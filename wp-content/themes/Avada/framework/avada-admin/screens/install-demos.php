@@ -12,72 +12,19 @@ $theme_fusion_url = 'https://theme-fusion.com/';
 	<h1><?php echo __( "Welcome to Avada!", "Avada" ); ?></h1>
 	
 	<div class="updated error importer-notice importer-notice-1" style="display: none;">
-		<p><?php echo sprintf( __( "We're sorry but the demo data could not import, and it is most likely due to low PHP configurations on your server.<br /><strong>Please fix the problems below, use the <a href='%s'class='thickbox'>Reset WordPress Plugin</a> and try again.</strong>", 'Avada' ), admin_url() . 'plugin-install.php?tab=plugin-information&amp;plugin=wordpress-reset&amp;TB_iframe=true&amp;width=830&amp;height=472' ); ?></p>
-		<ol>
-			<?php
-			$server_memory = 0;
-			if( function_exists( 'ini_get' ) ) {
-				$server_memory = $this->let_to_num( ini_get( 'memory_limit') );
-			}
+		<p><strong><?php echo __( "We're sorry but the demo data could not import. It is most likely due to low PHP configurations on your server. There are two possible solutions.", 'Avada' ); ?></strong></p>
 
-			$memory = $this->let_to_num( WP_MEMORY_LIMIT );
-
-			if( $server_memory > $memory ) {
-				$memory = $server_memory;
-			}
-			if ( $memory < 134217728 ) {
-				echo '<li>' . '<span class="avada-importer-issue">' . __( 'Memory Limit', 'Avada' ) . '</span>' . '<span class="avada-importer-current-value">' . sprintf( __( 'Current Value: <strong>%s</strong>', 'Avada' ), size_format( $memory) ) . '</span>' . '<span class="avada-importer-recommended-value">' . sprintf( __( 'Recommended Value: <strong>%s</strong>', 'Avada' ), '128M' ) . '</span>' . '<span class="avada-importer-fix">' .sprintf( __( 'See: <strong><a href="%s">Increasing memory limit</a></strong>', 'Avada' ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</span>' . '</li>';
-			}
-			?>
-			
-			<?php if ( defined('WP_DEBUG') && WP_DEBUG ) echo '<li>' . '<span class="avada-importer-issue">' . __( 'WP DEBUG', 'Avada' ) . '</span>' . '<span class="avada-importer-current-value">' . sprintf( __( 'Current Value: <strong>%s</strong>', 'Avada' ), 'true' ) . '</span>' . '<span class="avada-importer-recommended-value">' . sprintf( __( 'Recommended Value: <strong>%s</strong>', 'Avada' ), 'false' ) . '</span>' . '<span class="avada-importer-fix">' .sprintf( __( 'See: <strong><a href="%s">Changing WP_DEBUG</a></strong>', 'Avada' ), 'http://codex.wordpress.org/Editing_wp-config.php#Debug' ) . '</span>' . '</li>'; else echo ''; ?>
-			
-			<?php if ( function_exists( 'ini_get' ) ) : ?>
-			<?php
-			$time_limit = ini_get('max_execution_time');
-			if ( $time_limit != 0 && $time_limit < 180 ) {
-				echo '<li>' . '<span class="avada-importer-issue">' . __( 'Max Execution Time', 'Avada' ) . '</span>' . '<span class="avada-importer-current-value">' . sprintf( __( 'Current Value: <strong>%s</strong>', 'Avada' ), $time_limit ) . '</span>' . '<span class="avada-importer-recommended-value">' . sprintf( __( 'Recommended Value: <strong>%s</strong>', 'Avada' ), '180' ) . '</span>' . '<span class="avada-importer-fix">' .sprintf( __( 'See: <strong><a href="%s">Increasing time limit</a></strong>', 'Avada' ), 'http://codex.wordpress.org/Common_WordPress_Errors#Maximum_execution_time_exceeded' ) . '</span>' . '</li>';
-			}
-			?>
-			<?php endif; ?>
-		</ol>
-		<p><a href="<?php echo admin_url( 'admin.php?page=avada-system-status' ); ?>" class="button-primary"><?php _e( 'System Status', 'Avada' ); ?></a></p>
+		<p><strong><?php _e( 'Solution 1:', 'Avada' ); ?></strong> <?php _e( 'Import the demo using alternate method.', 'Avada' ); ?><a href="https://theme-fusion.com/avada-doc/demo-content-info/alternate-demo-method/" class="button-primary" target="_blank" style="margin-left: 10px;"><?php _e( 'Alternate Method', 'Avada' ); ?></a></p>
+		<p><strong><?php _e( 'Solution 2:', 'Avada' ); ?></strong> <?php echo sprintf( __( 'Fix the PHP configurations in the System Status that are reported in <strong style="color: red;">RED</strong>, then use %s, then reimport.', 'Avada' ), '<a href="' . admin_url() . 'plugin-install.php?tab=plugin-information&amp;plugin=wordpress-reset&amp;TB_iframe=true&amp;width=830&amp;height=472' . '">Reset WordPress Plugin</a>' ); ?><a href="<?php echo admin_url( 'admin.php?page=avada-system-status' ); ?>" class="button-primary" target="_blank" style="margin-left: 10px;"><?php _e( 'System Status', 'Avada' ); ?></a></p>
 	</div>
 
 	<div class="updated importer-notice importer-notice-2" style="display: none;"><p><strong><?php echo __( "Demo data successfully imported. Now, please install and run", "Avada" ); ?> <a href="<?php echo admin_url();?>plugin-install.php?tab=plugin-information&amp;plugin=regenerate-thumbnails&amp;TB_iframe=true&amp;width=830&amp;height=472" class="thickbox" title="<?php echo __( "Regenerate Thumbnails", "Avada" ); ?>"><?php echo __( "Regenerate Thumbnails", "Avada" ); ?></a> <?php echo __( "plugin once", "Avada" ); ?>.</strong></p></div>
 	
 	<div class="updated error importer-notice importer-notice-3" style="display: none;">
-		<p><?php echo sprintf( __( "We're sorry but the demo data could not import, and it is most likely due to low PHP configurations on your server.<br /><strong>Please fix the problems below, use the <a href='%s'class='thickbox'>Reset WordPress Plugin</a> and try again.</strong>", 'Avada' ), admin_url() . 'plugin-install.php?tab=plugin-information&amp;plugin=wordpress-reset&amp;TB_iframe=true&amp;width=830&amp;height=472' ); ?></p>
-		<ol>
-			<?php
-			$server_memory = 0;
-			if( function_exists( 'ini_get' ) ) {
-				$server_memory = $this->let_to_num( ini_get( 'memory_limit') );
-			}
+		<p><strong><?php echo __( "We're sorry but the demo data could not import. It is most likely due to low PHP configurations on your server. There are two possible solutions.", 'Avada' ); ?></strong></p>
 
-			$memory = $this->let_to_num( WP_MEMORY_LIMIT );
-
-			if( $server_memory > $memory ) {
-				$memory = $server_memory;
-			}
-
-			if ( $memory < 134217728 ) {
-				echo '<li>' . '<span class="avada-importer-issue">' . __( 'Memory Limit', 'Avada' ) . '</span>' . '<span class="avada-importer-current-value">' . sprintf( __( 'Current Value: <strong>%s</strong>', 'Avada' ), size_format( $memory) ) . '</span>' . '<span class="avada-importer-recommended-value">' . sprintf( __( 'Recommended Value: <strong>%s</strong>', 'Avada' ), '128M' ) . '</span>' . '<span class="avada-importer-fix">' .sprintf( __( 'See: <strong><a href="%s">Increasing memory limit</a></strong>', 'Avada' ), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</span>' . '</li>';
-			}
-			?>
-			
-			<?php if ( defined('WP_DEBUG') && WP_DEBUG ) echo '<li>' . '<span class="avada-importer-issue">' . __( 'WP DEBUG', 'Avada' ) . '</span>' . '<span class="avada-importer-current-value">' . sprintf( __( 'Current Value: <strong>%s</strong>', 'Avada' ), 'true' ) . '</span>' . '<span class="avada-importer-recommended-value">' . sprintf( __( 'Recommended Value: <strong>%s</strong>', 'Avada' ), 'false' ) . '</span>' . '<span class="avada-importer-fix">' .sprintf( __( 'See: <strong><a href="%s">Changing WP_DEBUG</a></strong>', 'Avada' ), 'http://codex.wordpress.org/Editing_wp-config.php#Debug' ) . '</span>' . '</li>'; else echo ''; ?>
-			
-			<?php if ( function_exists( 'ini_get' ) ) : ?>
-			<?php
-			$time_limit = ini_get('max_execution_time');
-			if ( $time_limit != 0 && $time_limit < 180 ) {
-				echo '<li>' . '<span class="avada-importer-issue">' . __( 'Max Execution Time', 'Avada' ) . '</span>' . '<span class="avada-importer-current-value">' . sprintf( __( 'Current Value: <strong>%s</strong>', 'Avada' ), $time_limit ) . '</span>' . '<span class="avada-importer-recommended-value">' . sprintf( __( 'Recommended Value: <strong>%s</strong>', 'Avada' ), '180' ) . '</span>' . '<span class="avada-importer-fix">' .sprintf( __( 'See: <strong><a href="%s">Increasing time limit</a></strong>', 'Avada' ), 'http://codex.wordpress.org/Common_WordPress_Errors#Maximum_execution_time_exceeded' ) . '</span>' . '</li>';
-			}
-			?>
-			<?php endif; ?>
-		</ol>
-		<p><a href="<?php echo admin_url( 'admin.php?page=avada-system-status' ); ?>" class="button-primary"><?php _e( 'System Status', 'Avada' ); ?></a></p>
+		<p><strong><?php _e( 'Solution 1:', 'Avada' ); ?></strong> <?php _e( 'Import the demo using alternate method.', 'Avada' ); ?><a href="https://theme-fusion.com/avada-doc/demo-content-info/alternate-demo-method/" class="button-primary" target="_blank" style="margin-left: 10px;"><?php _e( 'Alternate Method', 'Avada' ); ?></a></p>
+		<p><strong><?php _e( 'Solution 2:', 'Avada' ); ?></strong> <?php echo sprintf( __( 'Fix the PHP configurations in the System Status that are reported in <strong style="color: red;">RED</strong>, then use %s, then reimport.', 'Avada' ), '<a href="' . admin_url() . 'plugin-install.php?tab=plugin-information&amp;plugin=wordpress-reset&amp;TB_iframe=true&amp;width=830&amp;height=472' . '">Reset WordPress Plugin</a>' ); ?><a href="<?php echo admin_url( 'admin.php?page=avada-system-status' ); ?>" class="button-primary" target="_blank" style="margin-left: 10px;"><?php _e( 'System Status', 'Avada' ); ?></a></p>
 	</div>
 	
 	<div class="about-text"><?php echo __( "Avada is now installed and ready to use!  Get ready to build something beautiful. Please register your purchase to get support and automatic theme updates. Read below for additional information. We hope you enjoy it! <a href='//www.youtube.com/embed/dn6g_gJDAIk?rel=0&TB_iframe=true&height=540&width=960' class='thickbox' title='Guided Tour of Avada'>Watch Our Quick Guided Tour!</a>", "Avada" ); ?></div>

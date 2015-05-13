@@ -157,11 +157,17 @@ jQuery(document).ready(function(e) {
 
 	// if clicked on import data button
 	jQuery('.button-install-demo').live('click', function(e) {
-		var confirm = window.confirm('WARNING: Importing demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo.  Please make sure you have the Fusion Core, Layer Slider, Revolution Slider and WooCommerce plugins installed and activated to receive that portion of the content. Clicking this button will replace your current theme options and widgets. It can also take a minute to complete.');
 		var selected_demo = jQuery(this).data('demo-id');
 		var loading_img = jQuery('.preview-'+selected_demo);
 		var disable_preview = jQuery('.preview-all');
 
+		if( selected_demo == 'classic' ) {
+			var confirm = window.confirm('WARNING:\n\nImporting demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. Clicking this option will replace your current theme options and widgets. It can also take a minute to complete.\n\n-----------------------------------------------\n\nAVADA CLASSIC DEMO REQUIREMENTS:\n\n• Memory Limit of 256 MB and max execution time (php time limit) of 300 seconds.\n\n• Fusion Core, Revolution Slider and LayerSlider must be activated for sliders to import.\n\n• Woocommerce must be activated for shop data to import.');
+		} else if( selected_demo == 'cafe' ) {
+			var confirm = window.confirm('WARNING:\n\nImporting demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. Clicking this option will replace your current theme options and widgets. It can also take a minute to complete.\n\n-----------------------------------------------\n\nAVADA ' + selected_demo.toUpperCase() + ' DEMO REQUIREMENTS:\n\n• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.\n\n• Fusion Core must be activated for sliders to import.');
+		} else {
+			var confirm = window.confirm('WARNING:\n\nImporting demo content will give you sliders, pages, posts, theme options, widgets, sidebars and other settings. This will replicate the live demo. Clicking this option will replace your current theme options and widgets. It can also take a minute to complete.\n\n-----------------------------------------------\n\nAVADA ' + selected_demo.toUpperCase() + ' DEMO REQUIREMENTS:\n\n• Memory Limit of 128 MB and max execution time (php time limit) of 180 seconds.\n\n• Fusion Core must be activated for sliders to import.\n\n• Contact Form 7 plugin must be activated for the form to import.');
+		}
 		if(confirm == true) {
 			loading_img.show();
 			disable_preview.show();

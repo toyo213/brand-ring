@@ -67,20 +67,6 @@ if ( ! class_exists( 'Fusion_Recent_Works_Widget' ) ) {
 				$instance['tooltip_pos'] = 'top';
 			}
 
-			if( isset( $instance['icon_color'] ) && $instance['icon_color'] ) {
-				$style .= sprintf( 'color:%s;', $instance['icon_color'] );
-			}
-
-			if( isset ( $instance['boxed_icon'] ) && $instance['boxed_icon'] == 'Yes' && isset( $instance['boxed_color'] ) && $instance['boxed_color'] ) {
-				$style .= sprintf( 'background-color:%s;border-color:%s;padding:10px;', $instance['boxed_color'], $instance['boxed_color'] );
-
-				if( ! isset( $instance['boxed_icon_padding'] ) || $instance['boxed_icon_padding'] == '' ) {
-					$instance['boxed_icon_padding'] = '8px';
-				}
-
-				$style .= sprintf( 'padding:%s;', $instance['boxed_icon_padding'] );
-			}
-
 			if( isset( $instance['boxed_icon'] )  && isset( $instance['boxed_icon_radius'] ) && $instance['boxed_icon'] == 'Yes' &&
 				( $instance['boxed_icon_radius'] || $instance['boxed_icon_radius'] === '0' )
 			) {
@@ -135,9 +121,25 @@ if ( ! class_exists( 'Fusion_Recent_Works_Widget' ) ) {
 					}
 				}
 			}
+
+			$icon_colors = array();
+			$icon_colors_max = 1;
+			if( isset( $instance['icon_color'] ) && $instance['icon_color'] ) {
+				$icon_colors = explode( '|', $instance['icon_color'] );
+				$icon_colors_max = count( $icon_colors );
+			}
+
+			$box_colors = array();
+			$box_colors_max = 1;
+			if( isset( $instance['boxed_color'] ) && $instance['boxed_color'] ) {
+				$box_colors = explode( '|', $instance['boxed_color'] );
+				$box_colors_max = count( $box_colors );
+			}
 			?>
 			<div class="fusion-social-networks<?php echo $add_class; ?>">
 				<?php
+				$icon_color_count = 0;
+				$box_color_count = 0;
 				foreach( $social_networks as $name => $value ):
 					if($instance[$name]):
 						if( $value == 'fb' ) {
@@ -154,15 +156,31 @@ if ( ! class_exists( 'Fusion_Recent_Works_Widget' ) ) {
 							$tooltip = 'Google+';
 						}
 
+						$icon_style = '';
+						$box_style = '';
+
+						if( isset( $icon_colors[ $icon_color_count ] ) && $icon_colors[ $icon_color_count ] ) {
+							$icon_style = sprintf( 'color:%s;', trim( $icon_colors[ $icon_color_count ] ) );
+						} else {
+							$icon_style = sprintf( 'color:%s;', trim( $icon_colors[ ( $icon_colors_max - 1 ) ] ) ); 
+						}
+
+						if( isset ( $instance['boxed_icon'] ) && $instance['boxed_icon'] == 'Yes' && isset( $box_colors[ $box_color_count ] ) && $box_colors[ $box_color_count ] ) {
+							$box_style = sprintf( 'background-color:%s;border-color:%s;', trim( $box_colors[ $box_color_count ] ), trim( $box_colors[ $box_color_count ] ) );
+						} elseif( isset ( $instance['boxed_icon'] ) && $instance['boxed_icon'] == 'Yes' && ( ! isset( $box_colors[ $box_color_count ] ) || ! $box_colors[ $box_color_count ] ) ) {
+							$box_style = sprintf( 'background-color:%s;border-color:%s;', trim( $box_colors[ ( $box_colors_max - 1 ) ] ), trim( $box_colors[ ( $box_colors_max - 1 ) ] ) );
+						}
 					if( strtolower( $instance['tooltip_pos'] ) != 'none' ) {
 						?>
-						<a class="fusion-social-network-icon fusion-tooltip fusion-<?php echo $value; ?> fusion-icon-<?php echo $value; ?>" href="<?php echo $instance[$name]; ?>" data-placement="<?php echo strtolower( $instance['tooltip_pos'] ); ?>" data-title="<?php echo ucwords( $tooltip ); ?>" data-toggle="tooltip" data-original-title="" title="<?php echo ucwords( $tooltip ); ?>" <?php echo $nofollow; ?> target="<?php echo $instance['linktarget']; ?>" style="<?php echo $style; ?>"></a>
+						<a class="fusion-social-network-icon fusion-tooltip fusion-<?php echo $value; ?> fusion-icon-<?php echo $value; ?>" href="<?php echo $instance[$name]; ?>" data-placement="<?php echo strtolower( $instance['tooltip_pos'] ); ?>" data-title="<?php echo ucwords( $tooltip ); ?>" data-toggle="tooltip" data-original-title="" title="<?php echo ucwords( $tooltip ); ?>" <?php echo $nofollow; ?> target="<?php echo $instance['linktarget']; ?>" style="<?php echo $style; ?><?php echo $icon_style; ?><?php echo $box_style; ?>"></a>
 						<?php				
 					} else {
 					?>
-					<a class="fusion-social-network-icon fusion-tooltip fusion-<?php echo $value; ?> fusion-icon-<?php echo $value; ?>" href="<?php echo $instance[$name]; ?>" title="<?php echo ucwords( $tooltip ); ?>" <?php echo $nofollow; ?> target="<?php echo $instance['linktarget']; ?>" style="<?php echo $style; ?>"></a>
+					<a class="fusion-social-network-icon fusion-tooltip fusion-<?php echo $value; ?> fusion-icon-<?php echo $value; ?>" href="<?php echo $instance[$name]; ?>" title="<?php echo ucwords( $tooltip ); ?>" <?php echo $nofollow; ?> target="<?php echo $instance['linktarget']; ?>" style="<?php echo $style; ?><?php echo $icon_style; ?><?php echo $box_style; ?>"></a>
 					<?php
 					}
+					$icon_color_count++;
+					$box_color_count++;
 					endif;
 				endforeach;
 				?>

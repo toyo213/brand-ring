@@ -445,16 +445,7 @@ jQuery(document).ready(function($){
 		// Avada edit
 		$('#of_form :input[name][name!="security"][name!="of_reset"][name!="google_analytics"][name!="space_head"][name!="space_body"][name!="custom_css"]').val().replace(/\%22/g, "'");
 
-		var serializedReturn = $('#of_form :input[name][name!="security"][name!="of_reset"][name!="google_analytics"][name!="space_head"][name!="space_body"][name!="custom_css"]').serialize();
-
-		// Do the encoding for the script textareas
-		$( 'textarea[name="google_analytics"], textarea[name="space_head"], textarea[name="space_body"], textarea[name="custom_css"]' ).each( function() {
-			var $field_name = $( this )[0].name,
-				$field_value = $( this ).val(),
-				$encoded_field_value = encodeURIComponent( encodeURIComponent( $field_value ) );
-
-			serializedReturn += '&' + $field_name + '=' + $encoded_field_value;
-		});
+		var serializedReturn = $('#of_form :input[name][name!="security"][name!="of_reset"]').serialize();
 
 		// End Avada edit
 
@@ -649,7 +640,7 @@ jQuery(document).ready(function($){
 				var the_font = _selected.replace(/\s+/g, '+');
 
 				//add reference to google font family
-				$('head').append('<link href="http://fonts.googleapis.com/css?family='+ the_font +'" rel="stylesheet" type="text/css" class="'+ _linkclass +'">');
+				$('head').append('<link href="//fonts.googleapis.com/css?family='+ the_font +'" rel="stylesheet" type="text/css" class="'+ _linkclass +'">');
 
 				//show in the preview box the font
 				$('.'+ _previewer ).css('font-family', _selected +', sans-serif' );

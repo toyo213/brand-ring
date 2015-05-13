@@ -29,3 +29,4 @@
 .search input,.searchform input {padding-left:10px;}
 
 .fusion-body .fusion-header-shadow:after { z-index: 99 !important; }
+.fusion-body.side-header #side-header.header-shadow:after { z-index: 0 !important; }

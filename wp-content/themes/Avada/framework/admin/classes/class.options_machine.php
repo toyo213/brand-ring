@@ -210,11 +210,6 @@ class Options_Machine {
 							$ta_value = $smof_data[$value['id']];
 						} else {
 							$ta_value = stripslashes($smof_data[$value['id']]);
-						}
-						
-						$encoded_field_names = array( 'google_analytics', 'space_head', 'space_body', 'custom_css' );
-						if( isset( $value['id'] ) && in_array( $value['id'], $encoded_field_names ) ) {
-							$ta_value = urldecode( $smof_data[ $value['id'] ] );
 						}						
 						
 						if ( $value['id'] == 'custom_css' ) {

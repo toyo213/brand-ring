@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: attachment, contact, contatc, conact, cnotact, contact button, contact form, contact form plugin, contact me, contacts, contacts form plugin, copy, feedback, feedback form, form, insert the shortcode, post feedback, request, send, send copy, send messages, shortcode, text, web-page feedback
 Requires at least: 3.1
-Tested up to: 4.1.1
-Stable tag: 2.0.1
+Tested up to: 4.2.1
+Stable tag: 2.0.2
 License: Proprietary
 License URI: http://bestwebsoft.com/end-user-license-agreement/
 
@@ -20,26 +20,29 @@ http://www.youtube.com/watch?v=k1wq00ajACo
 
 <a href="https://docs.google.com/document/d/1T9ca4R7s5wFU9AtRfMTxADiM9HV16W9a3bpZqz4BT-k/edit?pli=1" target="_blank">View a PDF version of Step-by-step Instruction on Contact Form Pro Purchase, Installation, Configuration</a>
 
-<a href="http://www.youtube.com/watch?v=IGHiY0-g40Y" target="_blank">View a Video version of Step-by-step Instruction on Contact Form Installation</a>
+<a href="http://www.youtube.com/watch?v=IGHiY0-g40Y" target="_blank">Video instruction on Installation</a>
 
 = Features =
 
 Contact Form
-	* Choose either a custom email address or a standard WordPress address for sending email notifications.
-	* Enable file attachment option to your contact form.
-	* Enable "Send me a copy" option for the user who fills out the contact form.
-	* Easily adapt label text for each field up to you.
-	* Download and activate Captcha plugin to provide security and protect your site from spam attacks.
+
+* Choose either a custom email address or a standard WordPress address for sending email notifications.
+* Enable file attachment option to your contact form.
+* Enable "Send me a copy" option for the user who fills out the contact form.
+* Easily adapt label text for each field up to you.
+* Download and activate Captcha plugin to provide security and protect your site from spam attacks.
+
 Contact Form Pro
-	+ Customize your form styles easily without CSS knowledge and preview output result on the fly.
-	+ Change placeholder text for each field.
-	+ Add tooltip option for each field.
-	+ Customize input validation, edit and preview output result of errors on the fly.
-	+ Ability to add field "Reply-to" with user email to the email header.
-	+ Ability to add SelectBox to the contact form with the title Department, where the message will arrive.
-	+ Ability to add Custom SelectBox, Agreement and Optional checkbox.
-	+ Ability to substitute "name" and "email" fields with User's data for logged-in users, as well as to hide and make these data disabled for editing.
-	+ The answer to the question from support within one business day (<a href="https://bestwebsoft.zendesk.com/entries/25561503-Information-for-our-customers" target="_blank">More info</a>)
+
++ Customize your form styles easily without CSS knowledge and preview output result on the fly.
++ Change placeholder text for each field.
++ Add tooltip option for each field.
++ Customize input validation, edit and preview output result of errors on the fly.
++ Ability to add field "Reply-to" with user email to the email header.
++ Ability to add SelectBox to the contact form with the title Department, where the message will arrive.
++ Ability to add Custom SelectBox, Agreement and Optional checkbox.
++ Ability to substitute "name" and "email" fields with User's data for logged-in users, as well as to hide and make these data disabled for editing.
++ The answer to the question from support within one business day (<a href="https://bestwebsoft.zendesk.com/entries/25561503" target="_blank">More info</a>)
 
 = Recommended Plugins =
 
@@ -143,6 +146,7 @@ Note: If the Contact Form sends letters, but you don't receive them, you can ins
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
@@ -164,6 +168,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 12. The example of Contact Form Pro Plugin usage on client's site.
 
 == Changelog ==
+
+= V2.0.2 - 04.05.2015 =
+* Update : We updated all functionality for wordpress 4.2.1.
+* Update : The French language file is updated.
 
 = V2.0.1 - 26.03.2015 =
 * Bugfix : Error with option name when Contact Form Multi plugin is activated was fixed.
@@ -370,6 +378,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : You can use JavaScript for the form validation with highlighting option
 
 == Upgrade Notice ==
+
+= V2.0.2 =
+We updated all functionality for wordpress 4.2.1. The French language file is updated.
 
 = V2.0.1 =
 Error with option name when Contact Form Multi plugin is activated was fixed. Plugin performance was improved. BWS plugins section was updated.

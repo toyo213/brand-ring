@@ -19,6 +19,10 @@ if ($theme_info->parent_theme) {
 ?>
 <?php echo '.' . $theme_info->get( 'Name' ) . "_" . str_replace( '.', '', $theme_info->get( 'Version' ) ); ?>{color:green;}
 
+<?php if( ( $isiPad && $smof_data['ipad_potrait'] ) || ! $smof_data['responsive'] ): ?>
+.ua-mobile #wrapper{width: 100% !important; overflow: hidden !important;}
+<?php endif; ?>
+	
 <?php
 if ( $smof_data['header_position'] == 'Top' ) {
   $side_header_width = 0;
@@ -102,8 +106,8 @@ if ( $smof_data['header_position'] == 'Top' ) {
 
 <?php if ( ! $smof_data['smooth_scrolling'] ): ?>
 	@media only screen and ( min-width: 800px  ) {
-		body{padding-right: 9px;}
-		#slidingbar-area{right: 9px;}
+		.no-overflow-y body{padding-right: 9px;}
+		.no-overflow-y #slidingbar-area{right: 9px;}
 	}
 <?php endif; ?>
 
@@ -121,18 +125,6 @@ html, body, html body.custom-background, .woocommerce-tabs > .tabs .active a { b
 <?php if ( ! $site_width_percent ): ?>
 	.fusion-secondary-header, .sticky-header .sticky-shadow, .tfs-slider .slide-content, .header-v4 #small-nav, .header-v5 #small-nav, .fusion-footer-copyright-area, .fusion-footer-widget-area, #slidingbar, .fusion-page-title-bar{ padding-left: 30px; padding-right: 30px; }		
 	#main { padding-left: 30px; padding-right: 30px; }
-	.width-100 .fullwidth-box, .width-100 .fusion-section-separator {
-		padding-left: 30px;
-		padding-right: 30px;
-	}
-	.width-100 .fullwidth-box, .width-100 .fusion-section-separator {
-		margin-left: -30px;
-		margin-right: -30px;
-	}
-	/* for full width container with 100% interior checked */
-	.width-100 .hundred-percent-fullwidth {
-		padding-left: 0px !important; padding-right: 0px !important;
-	}
 
 	<?php if ( $smof_data['responsive'] ): ?>
 		@media only screen and (max-width: 800px ) {
@@ -150,10 +142,6 @@ html, body, html body.custom-background, .woocommerce-tabs > .tabs .active a { b
 		.width-100 .fullwidth-box, .width-100 .fusion-section-separator {
 			margin-left: -30px !important;
 			margin-right: -30px !important;
-		}
-		/* for full width container with 100% interior checked */
-		.width-100 .hundred-percent-fullwidth {
-			padding-left: 0px !important; padding-right: 0px !important;
 		}
 	}
 <?php endif; ?>
@@ -953,7 +941,8 @@ body, #nav ul li ul li a, #sticky-nav ul li ul li a,
 	.woocommerce-success-message .msg,.product-title, .cart-empty,
 	.main-flex .slide-content h2, .main-flex .slide-content h3,
 	.fusion-modal .modal-title, .popover .popover-title,
-	.fusion-flip-box .flip-box-heading-back{
+	.fusion-flip-box .flip-box-heading-back,
+	.fusion-header-tagline{
 		font-family: <?php echo $headings_font; ?>;
 	}
 <?php endif; ?>
@@ -982,7 +971,8 @@ table th,
 .woocommerce-success-message .msg,.product-title, .cart-empty,
 .main-flex .slide-content h2, .main-flex .slide-content h3,
 .fusion-modal .modal-title, .popover .popover-title,
-.fusion-flip-box .flip-box-heading-back{
+.fusion-flip-box .flip-box-heading-back,
+.fusion-header-tagline{
 	font-weight: <?php echo $smof_data['font_weight_headings']; ?>;
 }
 
@@ -1077,12 +1067,12 @@ body,.sidebar .slide-excerpt h2, .fusion-footer-widget-area .slide-excerpt h2,#s
 	line-height: <?php echo $smof_data['h1_font_lh']; ?>px;
 }
 
-#wrapper .post-content h2,#wrapper .fusion-title h2,#wrapper #main .post-content .fusion-title h2,#wrapper .title h2,#wrapper #main .post-content .title h2,#wrapper  #main .post h2, #wrapper  #main .post h2, #wrapper .woocommerce .checkout h3, #main .fusion-portfolio h2 {
+#wrapper .post-content h2,#wrapper .fusion-title h2,#wrapper #main .post-content .fusion-title h2,#wrapper .title h2,#wrapper #main .post-content .title h2,#wrapper  #main .post h2, #wrapper  #main .post h2, #wrapper .woocommerce .checkout h3, #main .fusion-portfolio h2, h2.entry-title {
 	font-size: <?php echo $smof_data['h2_font_size']; ?>px;
 	line-height: <?php echo round( $smof_data['h2_font_lh'] * 1.5 ); ?>px;
 }
 
-#wrapper .post-content h2,#wrapper .fusion-title h2,#wrapper #main .post-content .fusion-title h2,#wrapper .title h2,#wrapper #main .post-content .title h2,#wrapper #main .post h2, #wrapper  .woocommerce .checkout h3, .cart-empty{
+#wrapper .post-content h2,#wrapper .fusion-title h2,#wrapper #main .post-content .fusion-title h2,#wrapper .title h2,#wrapper #main .post-content .title h2,#wrapper #main .post h2, #wrapper  .woocommerce .checkout h3, .cart-empty, #main .fusion-portfolio h2, h2.entry-title{
 	line-height: <?php echo $smof_data['h2_font_lh']; ?>px;
 }
 
@@ -1099,7 +1089,7 @@ p.demo_store,.fusion-modal .modal-title { font-size: <?php echo $smof_data['h3_f
 
 .post-content h4, .fusion-portfolio-post .fusion-portfolio-content h4, 
 .fusion-rollover .fusion-rollover-content .fusion-rollover-title,
-.fusion-person .person-author-wrapper .person-name, .fusion-person .person-author-wrapper .person-title, .fusion-carousel-title,
+.fusion-person .person-author-wrapper .person-name, .fusion-person .person-author-wrapper .person-title, .fusion-carousel-title
 {
 	font-size: <?php echo $smof_data['h4_font_size']; ?>px;
 	line-height: <?php echo round( $smof_data['h4_font_lh'] * 1.5 ); ?>px;
@@ -1112,9 +1102,10 @@ p.demo_store,.fusion-modal .modal-title { font-size: <?php echo $smof_data['h3_f
 .fusion-tabs .nav-tabs > li .fusion-tab-heading
 {font-size: <?php echo $smof_data['h4_font_size']; ?>px;}
 
-.post-content h4, #reviews #comments > h2,
-.fusion-sharing-box h4,
-.fusion-person .person-author-wrapper .person-name, .fusion-person .person-author-wrapper .person-title {
+.post-content h4, .fusion-portfolio-post .fusion-portfolio-content h4, 
+.fusion-rollover .fusion-rollover-content .fusion-rollover-title,
+.fusion-person .person-author-wrapper .person-name, .fusion-person .person-author-wrapper .person-title, .fusion-carousel-title
+{
 	line-height: <?php echo $smof_data['h4_font_lh']; ?>px;
 }
 
@@ -1283,7 +1274,7 @@ body #toTop:before {color:#fff;}
 .sb-toggle-wrapper .sb-toggle:after{ color: <?php echo $smof_data['slidingbar_toggle_icon_color']; ?>; }
 
 #slidingbar-area .widget_categories li a, #slidingbar-area li.recentcomments, #slidingbar-area ul li a, #slidingbar-area .product_list_widget li, #slidingbar-area .widget_recent_entries ul li 
-{border-bottom: 1px solid <?php echo $smof_data['slidingbar_toggle_icon_color']; ?>;}
+{border-bottom-color: <?php echo $smof_data['slidingbar_toggle_icon_color']; ?>;}
 
 #slidingbar-area .tagcloud a, 
 #wrapper #slidingbar-area .fusion-tabs-widget .tab-holder, 
@@ -1320,8 +1311,10 @@ input.s,input.s .placeholder,#comment-input input,#comment-textarea textarea,#co
 .avada-select .select2-container .select2-choice, .avada-select .select2-container .select2-choice2,
 select,
 #bbpress-forums .bbp-search-form #bbp_search,.bbp-reply-form input#bbp_topic_tags,.bbp-topic-form input#bbp_topic_title, .bbp-topic-form input#bbp_topic_tags, .bbp-topic-form select#bbp_stick_topic_select, .bbp-topic-form select#bbp_topic_status_select,#bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content,.bbp-login-form input,
-.main-nav-search-form input,.search-page-search-form input,.chzn-container-single .chzn-single,.chzn-container .chzn-drop,.avada-select-parent select, #wrapper .search-table .search-field input,
-input#s::-webkit-input-placeholder,#comment-input input::-webkit-input-placeholder,.post-password-form .password::-webkit-input-placeholder,#comment-textarea textarea::-webkit-input-placeholder,.comment-form-comment textarea::-webkit-input-placeholder,.input-text::-webkit-input-placeholder,
+.main-nav-search-form input,.search-page-search-form input,.chzn-container-single .chzn-single,.chzn-container .chzn-drop,.avada-select-parent select, #wrapper .search-table .search-field input
+{color: <?php echo $smof_data['form_text_color']; ?>;}
+input#s::-webkit-input-placeholder,#comment-input input::-webkit-input-placeholder,.post-password-form .password::-webkit-input-placeholder,#comment-textarea textarea::-webkit-input-placeholder,.comment-form-comment textarea::-webkit-input-placeholder,.input-text::-webkit-input-placeholder
+{color: <?php echo $smof_data['form_text_color']; ?>;}
 input#s:-moz-placeholder,#comment-input input:-moz-placeholder,.post-password-form .password::-moz-input-placeholder,#comment-textarea textarea:-moz-placeholder,.comment-form-comment textarea:-moz-placeholder,.input-text:-moz-placeholder,
 input#s:-ms-input-placeholder,#comment-input input:-ms-input-placeholder,.post-password-form .password::-ms-input-placeholder,#comment-textarea textarea:-moz-placeholder,.comment-form-comment textarea:-ms-input-placeholder,.input-text:-ms-input-placeholder
 {color: <?php echo $smof_data['form_text_color']; ?>;}
@@ -1459,6 +1452,11 @@ endif; ?>
 }
 <?php endif; ?>
 
+#main .sidebar{
+	background-color: <?php echo $smof_data['sidebar_bg_color']; ?>;
+	padding: <?php echo $smof_data['sidebar_padding']; ?>;
+}
+
 .fusion-accordian .panel-title a .fa-fusion-box{background-color: <?php echo $smof_data['accordian_inactive_color']; ?>;}
 
 .progress-bar-content{background-color: <?php echo $smof_data['counter_filled_color']; ?>;border-color: <?php echo $smof_data['counter_filled_color']; ?>;}
@@ -1508,7 +1506,7 @@ body .sidebar .fusion-tabs-widget .tab-hold .tabs li.active a, body .sidebar .fu
 .fusion-blog-layout-timeline .post .flexslider,.fusion-blog-layout-timeline .fusion-timeline-date
 {border-color: <?php echo $smof_data['timeline_color']; ?>;}
 
-.fusion-blog-layout-timeline  .fusion-timeline-circle,.fusion-blog-layout-timeline .fusion-timeline-date,.fusion-blog-timeline-layout .fusion-timeline-circle,.fusion-blog-timeline-layout .fusion-timeline-date{background-color: <?php echo $smof_data['timeline_color']; ?>;}
+.fusion-blog-layout-timeline .fusion-timeline-circle,.fusion-blog-layout-timeline .fusion-timeline-date,.fusion-blog-timeline-layout .fusion-timeline-circle,.fusion-blog-timeline-layout .fusion-timeline-date{background-color: <?php echo $smof_data['timeline_color']; ?>;}
 .fusion-timeline-icon,.fusion-timeline-arrow:before,.fusion-blog-timeline-layout .fusion-timeline-icon,.fusion-blog-timeline-layout .fusion-timeline-arrow:before{color: <?php echo $smof_data['timeline_color']; ?>;}
 
 #bbpress-forums li.bbp-header,
@@ -1733,7 +1731,10 @@ $button_size = strtolower( $smof_data['button_size'] );
 .fusion-button-default,
 .woocommerce .checkout #place_order,
 .wpcf7-form input[type="submit"],
-.wpcf7-submit {
+.wpcf7-submit,
+.fusion-body #main .gform_wrapper .gform_button,
+.fusion-body #main .gform_wrapper .gform_footer .gform_button
+{
   <?php if( $button_size == 'small' ): ?>
   padding: 9px 20px;
   line-height: 14px;
@@ -2249,12 +2250,12 @@ $button_size = strtolower( $smof_data['button_size'] );
 /* Headings
 ================================================================================================= */
 
-h1 { margin-top: <?php echo $smof_data['h1_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h1_bottom_margin']; ?>em; }
-h2 { margin-top: <?php echo $smof_data['h2_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h2_bottom_margin']; ?>em; }
-h3 { margin-top: <?php echo $smof_data['h3_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h3_bottom_margin']; ?>em; }
-h4 { margin-top: <?php echo $smof_data['h4_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h4_bottom_margin']; ?>em; }
-h5 { margin-top: <?php echo $smof_data['h5_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h5_bottom_margin']; ?>em; }
-h6 { margin-top: <?php echo $smof_data['h6_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h6_bottom_margin']; ?>em; }
+h1, .fusion-title-size-one { margin-top: <?php echo $smof_data['h1_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h1_bottom_margin']; ?>em; }
+h2, .fusion-title-size-two { margin-top: <?php echo $smof_data['h2_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h2_bottom_margin']; ?>em; }
+h3, .fusion-title-size-three { margin-top: <?php echo $smof_data['h3_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h3_bottom_margin']; ?>em; }
+h4, .fusion-title-size-four { margin-top: <?php echo $smof_data['h4_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h4_bottom_margin']; ?>em; }
+h5, .fusion-title-size-five { margin-top: <?php echo $smof_data['h5_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h5_bottom_margin']; ?>em; }
+h6, .fusion-title-size-six { margin-top: <?php echo $smof_data['h6_top_margin']; ?>em; margin-bottom: <?php echo $smof_data['h6_bottom_margin']; ?>em; }
 
 
 <?php
@@ -2264,7 +2265,10 @@ h6 { margin-top: <?php echo $smof_data['h6_top_margin']; ?>em; margin-bottom: <?
 /* Header Styles
 ================================================================================================= */
 .fusion-logo {
-  margin: <?php echo $smof_data['margin_logo_top']; ?> <?php echo $smof_data['margin_logo_left']; ?> <?php echo $smof_data['margin_logo_bottom']; ?> <?php echo $smof_data['margin_logo_right']; ?>;
+  margin-top: <?php echo $smof_data['margin_logo_top']; ?>;
+  margin-right: <?php echo $smof_data['margin_logo_right']; ?>;
+  margin-bottom: <?php echo $smof_data['margin_logo_bottom']; ?>;
+  margin-left: <?php echo $smof_data['margin_logo_left']; ?>;
 }
 <?php if( $smof_data['header_shadow'] ): ?>
 .fusion-header-shadow:after {
@@ -2422,7 +2426,7 @@ body.side-header-left #side-header .fusion-main-menu .fusion-custom-menu-item-co
   font-weight: <?php echo $smof_data['font_weight_menu'];?>;
   font-size: <?php echo $smof_data['nav_font_size']; ?>px;
   color: <?php echo $smof_data['menu_first_color']; ?>;
-  letter-spacing: <?php echo $smof_data['menu_font_ls']; ?>;
+  letter-spacing: <?php echo $smof_data['menu_font_ls']; ?>px;
 }
 .fusion-main-menu > ul > li > a:hover {
   color: <?php echo $smof_data['menu_hover_first_color']; ?>;
@@ -2962,9 +2966,6 @@ Table of Contents
   #side-header .fusion-logo {
     margin: 0;
   }
-  #side-header.fusion-mobile-menu-design-classic .fusion-logo a {
-    display: inline-block;
-  }
   #side-header.fusion-mobile-menu-design-classic .fusion-main-menu-container .fusion-mobile-nav-holder {
     display: block;
     margin-top: 20px;
@@ -3399,10 +3400,6 @@ Table of Contents
   .fusion-is-sticky .fusion-mobile-menu-design-modern.fusion-header-v5.fusion-sticky-menu-1 .fusion-mobile-nav-holder {
     display: none;
   }
-  .fusion-mobile-menu-design-classic .fusion-logo a,
-  .fusion-mobile-menu-design-modern .fusion-logo a {
-    display: inline-block;
-  }
   .fusion-mobile-menu-design-classic .fusion-mobile-nav-item,
   .fusion-mobile-menu-design-modern .fusion-mobile-nav-item,
   .fusion-mobile-menu-design-classic .fusion-mobile-selector,
@@ -3512,6 +3509,11 @@ Table of Contents
       height: auto;
     <?php endif; ?>
   }
+  
+	.fusion-page-title-row {
+		height: auto;
+	}  
+  
   .fusion-page-title-bar-left .fusion-page-title-captions,
   .fusion-page-title-bar-right .fusion-page-title-captions,
   .fusion-page-title-bar-left .fusion-page-title-secondary,
@@ -3678,14 +3680,6 @@ Table of Contents
   }
   .coupon .button {
     margin-top: 20px;
-  }
-  .tfs-slider .slide-content {
-    position: absolute !important;
-    top: 50% !important;
-    left: 0 !important;
-    width: 100% !important;
-    z-index: 1 !important;
-    margin-left: 0 !important;
   }
 }
 @media only screen and (max-width: <?php echo ( $side_header_width + 900 ) . 'px'; ?>) {
@@ -4237,16 +4231,6 @@ Table of Contents
   .rtl.no-mobile-slidingbar.mobile-logo-pos-right .mobile-menu-icons {
     margin-left: 0;
   }
-  <?php if( $smof_data['typography_responsive'] ): ?>
-  .tfs-slider .slide-content-container h2 {
-    font-size: 21px !important;
-    line-height: 21px !important;
-  }
-  .tfs-slider .slide-content-container h3 {
-    font-size: 11px !important;
-    line-height: 11px !important;
-  }
-  <?php endif; ?>
   .tfs-slider .slide-content-container .btn {
     min-height: 0 !important;
     padding-left: 30px;
@@ -5668,23 +5652,21 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'Trident/7.0; rv:11.0') !== false):
 	#wrapper .gf_browser_ie.gform_wrapper .button,
 	#wrapper .gf_browser_ie.gform_wrapper .gform_footer input.button{ padding: 0 20px; }
 }
-
-<?php if($site_width_percent):
+<?php
 $hundredp_padding = $smof_data['hundredp_padding'];
 $hundredp_padding_int = (int) $hundredp_padding;
 if( get_post_meta( $c_pageID, 'pyre_hundredp_padding', true ) ) {
 	$hundredp_padding = get_post_meta( $c_pageID, 'pyre_hundredp_padding', true );
 	$hundredp_padding_int = (int) $hundredp_padding;		
 }
+if($site_width_percent):
 ?>
-
 .fusion-secondary-header, .header-v4 #small-nav, .header-v5 #small-nav, #main { padding-left: 0px; padding-right: 0px; }
-#slidingbar .fusion-row, .tfs-slider .slide-content, #main .fusion-row, .fusion-page-title-bar, .fusion-header { padding-left: <?php echo $hundredp_padding; ?>; padding-right: <?php echo $hundredp_padding; ?>; }
-.fullwidth-box .fusion-row { padding-left: <?php echo $hundredp_padding_int; ?>px; padding-right: <?php echo $hundredp_padding_int; ?>px; }
-.fullwidth-box .fusion-row .fusion-full-width-sep { margin-left: -<?php echo $hundredp_padding_int; ?>px; margin-right: -<?php echo $hundredp_padding_int; ?>px; }
-.width-100 > .fusion-row { padding-left: 0; padding-right: 0; }
-
+#slidingbar .fusion-row, #sliders-container .tfs-slider .slide-content, #main .fusion-row, .fusion-page-title-bar, .fusion-header, .fusion-footer-widget-area, .fusion-footer-copyright-area, .fusion-secondary-header .fusion-row { padding-left: <?php echo $hundredp_padding; ?>; padding-right: <?php echo $hundredp_padding; ?>; }
+.fullwidth-box, .fullwidth-box .fusion-row .fusion-full-width-sep { margin-left: -<?php echo $hundredp_padding_int; ?>px; margin-right: -<?php echo $hundredp_padding_int; ?>px; }
+#main.width-100 > .fusion-row { padding-left: 0; padding-right: 0; }
 <?php endif; ?>
+
 <?php if($smof_data['layout'] == 'Boxed'): ?>
 html, body {
 	<?php if(get_post_meta($c_pageID, 'pyre_page_bg_color', true)): ?>
@@ -5882,10 +5864,10 @@ html { background: none; }
 
 <?php if( $smof_data['mobile_nav_padding'] ): ?>
 @media only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait){
-	#nav > ul > li, #sticky-nav > ul > li { padding-right: <?php echo $smof_data['mobile_nav_padding']; ?>px; }
+	.fusion-main-menu > ul > li{ padding-right: <?php echo $smof_data['mobile_nav_padding']; ?>px; }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape){
-	#nav > ul > li, #sticky-nav > ul > li { padding-right: <?php echo $smof_data['mobile_nav_padding']; ?>px; }
+	.fusion-main-menu > ul > li{ padding-right: <?php echo $smof_data['mobile_nav_padding']; ?>px; }
 }
 <?php endif; ?>
 
@@ -6333,7 +6315,7 @@ html, body, #wrapper {
 }
 <?php endif; ?>
 
-<?php if ( ( $smof_data['page_title_bar'] == 'content_only' && get_post_meta( $c_pageID, 'pyre_page_title', true ) == 'default' ) || get_post_meta( $c_pageID, 'pyre_page_title', true ) == 'yes_without_bar' ): ?>
+<?php if ( ( $smof_data['page_title_bar'] == 'content_only' && ( get_post_meta( $c_pageID, 'pyre_page_title', true ) == 'default' || ! get_post_meta( $c_pageID, 'pyre_page_title', true ) ) ) || get_post_meta( $c_pageID, 'pyre_page_title', true ) == 'yes_without_bar' ): ?>
 .fusion-page-title-bar {
 	background: none;
 	border: none;

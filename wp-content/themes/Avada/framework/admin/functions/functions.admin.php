@@ -85,22 +85,6 @@ function of_get_options($key = null, $data = null) {
 		$data = get_option(OPTIONS);
 	}
 	
-	// Do the decoding for script fields
-	$encoded_field_names = array( 'google_analytics', 'space_head', 'space_body', 'custom_css' );
-
-	foreach ( $encoded_field_names as $field_name ) {
-		$decoded_field_value = rawurldecode( $data[ $field_name ] );
-
-		if ( $decoded_field_value ) {
-		
-			if ( $field_name == 'custom_css' ) {
-				$decoded_field_value = str_replace( "image/svg xml", "image/svg+xml", $decoded_field_value );
-			}
-		
-			$data[ $field_name ] = $decoded_field_value;
-		}
-	}
-	
 	// Backwards compatibility for page title bar
 	if ( is_array( $data ) &&
 		 array_key_exists( 'page_title_bar', $data )

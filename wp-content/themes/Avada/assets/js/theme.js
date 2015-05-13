@@ -13,6 +13,7 @@ var generate_carousel = function() {
 				$item_margin = ( jQuery( this ).attr( 'data-itemmargin' ) ) ? parseInt( jQuery( this ).data( 'itemmargin' ) ) : 44,
 				$item_min_width = ( jQuery( this ).attr( 'data-itemwidth' ) ) ? parseInt( jQuery( this ).data( 'itemwidth' ) )  + $item_margin : 180 + $item_margin,
 				$carousel_width = jQuery( this ).width(),
+				$carousel_height = ( jQuery ( this ).parent().hasClass( 'fusion-image-carousel' ) && $image_size == 'fixed' ) ? '115px' : 'variable',
 				$max_number_of_items = Math.floor( $carousel_width / $item_min_width );
 
 			// Shift the wrapping positioning container $item_margin to the left
@@ -30,7 +31,7 @@ var generate_carousel = function() {
 				infinite: true,
 				responsive: true,
 				centerVertically: $center_vertically,
-				height: 'variable',
+				height: $carousel_height,
 				width: '100%',
 				auto: {
 					play: $autoplay
@@ -319,7 +320,7 @@ function onPlayerReady(slide) {
 	};
 
 	// Recalculate carousel elements
-	jQuery.fn.fusion_recaclulate_carousel = function() {
+	jQuery.fn.fusion_recalculate_carousel = function() {
 		jQuery( this ).not( '.fusion-woo-featured-products-slider' ).each( function() {
 			var $carousel = jQuery( this ),
 				$image_size = jQuery( this ).data( 'imagesize' );
@@ -336,6 +337,12 @@ function onPlayerReady(slide) {
 					$carousel.find( '.fusion-placeholder-image' ).each( function() {
 						jQuery( this ).css(	'height', jQuery( this ).parents( '.fusion-carousel-item' ).siblings().first().find( 'img').height() );
 					});
+					if( jQuery( $carousel ).parents( '.fusion-image-carousel' ).length >= 1 ) {
+						$carousel.find( '.fusion-image-wrapper' ).each( function() {
+							jQuery( this ).css(	'height', jQuery( this ).parents( '.fusion-carousel-item' ).siblings().first().find( 'img').height() );
+							jQuery( this ).css(	'width', '100%' );
+						});
+					}
 				}
 			}, 5 );
 		});
@@ -704,7 +711,7 @@ function onPlayerReady(slide) {
 	// Set the bg image dimensions of an empty column as data attributes
 	jQuery.fn.fusion_set_bg_img_dims = function() {
 		jQuery( this ).each( function() {
-			if ( ! jQuery.trim( jQuery( this ).html() ) ) {
+			if ( ! jQuery.trim( jQuery( this ).html() ) && jQuery( this ).data( 'bg-url' ) ) {
 				// For background image we need to setup the image object to get the natural heights
 				var $background_image = new Image();
 				$background_image.src = jQuery( this ).data( 'bg-url' );
@@ -834,11 +841,6 @@ function onPlayerReady(slide) {
 		setTimeout( function() {
 			var $wrapper_height = ( $footer.css( 'position' ) == 'fixed' ) ? jQuery( '#wrapper' ).outerHeight() : jQuery( '#wrapper' ).outerHeight() - $footer.outerHeight();
 
-
-
-
-
-
 			// On desktops and on iPads enable parallax footer effect
 			if ( $footer.outerHeight() < jQuery( window ).height() && $wrapper_height > jQuery( window ).height() && ( js_local_vars.header_position == 'Top' || ( js_local_vars.header_position != 'Top' && jQuery( window ).height() > jQuery( '.side-header-wrapper' ).height() ) ) && ( Modernizr.mq( 'only screen and (min-width:' + ( 800 + parseInt( js_local_vars.side_header_width ) ) + 'px)' ) || Modernizr.mq( 'only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait)' ) ) ) {
 				$footer.css( {
@@ -847,6 +849,16 @@ function onPlayerReady(slide) {
 					'padding': ''
 				});
 				jQuery( '#main' ).css( 'margin-bottom', $footer.outerHeight() );
+
+				if( jQuery('.tfs-slider').length >= 1 && jQuery('.tfs-slider').data('parallax') == 1 && $footer.hasClass('fusion-footer-parallax') ) {
+					var $slider_height = jQuery('.tfs-slider').parents('#sliders-container').outerHeight();
+					var $footer_height = $footer.outerHeight();
+					if( $slider_height > $footer_height ) {
+						jQuery( '#main' ).css('min-height', $slider_height + 100 );
+					} else if( $footer_height > $slider_height ) {
+						jQuery( '#main' ).css('min-height', $footer_height + 100 );
+					}
+				}
 			// On mobiles the footer will be static
 			} else {
 				$footer.css( {
@@ -859,7 +871,6 @@ function onPlayerReady(slide) {
 		}, 1 );
 	};
 
-	// Initialize parallax footer
 	jQuery.fn.fusion_calculate_secondary_menu_height = function() {
 		if( jQuery( this ).parent().hasClass( 'fusion-alignleft' ) ) {
 			var $other_content_alignment  = '.fusion-alignright';
@@ -1258,39 +1269,38 @@ jQuery( window ).load( function() { // start window_load_1
 }); // end window_load_1
 
 jQuery(document).ready(function($) { // start document_ready_1
+	// Loop through all headings
+	jQuery( 'h1, h2, h3, h4, h5, h6' ).each(
+		function() {
+
+			// If there are inline styles on the element initially, store information about it in data attribute
+			if ( jQuery( this ).prop( 'style' )['font-size'] ) {
+				jQuery( this ).attr( 'data-inline-fontsize', true );
+			}
+
+			if ( jQuery( this ).prop( 'style' )['font-size'] ) {
+				jQuery( this ).attr( 'data-inline-lineheight', true );
+			}
+
+			// Set the original font size and line height to every heading as data attribute
+			jQuery( this ).attr( 'data-fontsize', parseInt( jQuery( this ).css( 'font-size' ) ) );
+			jQuery( this ).attr( 'data-lineheight', parseInt( jQuery( this ).css( 'line-height' ) ) );
+		}
+	);
+
 	// Setup responsive type for headings if enabled in Theme Options
 	if ( js_local_vars.typography_responsive == 1 ) {
-
-		// Loop through all headings
-		jQuery( 'h1, h2, h3, h4, h5, h6' ).each(
-			function() {
-
-				// If there are inline styles on the element initially, store information about it in data attribute
-				if ( jQuery( this ).prop( 'style' )['font-size'] ) {
-					jQuery( this ).attr( 'data-inline-fontsize', true );
-				}
-
-				if ( jQuery( this ).prop( 'style' )['font-size'] ) {
-					jQuery( this ).attr( 'data-inline-lineheight', true );
-				}
-
-				// Set the original font size and line height to every heading as data attribute
-				jQuery( this ).attr( 'data-fontsize', parseInt( jQuery( this ).css( 'font-size' ) ) );
-				jQuery( this ).attr( 'data-lineheight', parseInt( jQuery( this ).css( 'line-height' ) ) );
-			}
-		);
-
 		// Calculate responsive type values
 		fusion_calculate_responsive_type_values( js_local_vars.typography_sensitivity, js_local_vars.typography_factor, 800, 'h1, h2, h3, h4, h5, h6' );
-
-		jQuery( '.tfs-slider' ).each(function() {
-			fusion_calculate_responsive_type_values( jQuery( this ).data( 'typo_sensitivity' ), jQuery( this ).data( 'typo_factor' ), 800, '.tfs-slider h2, .tfs-slider h3' );
-		});
 	}
+
+	jQuery( '.tfs-slider' ).each(function() {
+		fusion_calculate_responsive_type_values( jQuery( this ).data( 'typo_sensitivity' ), jQuery( this ).data( 'typo_factor' ), 800, '.tfs-slider h2, .tfs-slider h3' );
+	});
 
 	// Carousle resize
 	jQuery(window).on( 'resize', function() {
-		jQuery( '.fusion-carousel' ).fusion_recaclulate_carousel();
+		jQuery( '.fusion-carousel' ).fusion_recalculate_carousel();
 	});
 
 	// Handle parallax footer
@@ -1452,6 +1462,13 @@ jQuery(document).ready(function($) { // start document_ready_1
 					jQuery( this ).reinitialize_google_map();
 				});
 			}
+
+			// Reinitialize carousels
+			if( $slidingbar.find( '.fusion-carousel' ).length ) {
+				generate_carousel();
+			}
+
+			jQuery( '#slidingbar' ).find( '.fusion-carousel' ).fusion_recalculate_carousel();
 
 			// reinitialize testimonial height; only needed for hidden wrappers
 			if ( $slidingbar.find( '.fusion-testimonials' ).length ) {
@@ -1755,20 +1772,20 @@ jQuery(document).ready(function($) { // start document_ready_1
 	});
 
 	if ('ontouchstart' in document.documentElement || navigator.msMaxTouchPoints) {
-		jQuery('.nav-holder .submenu li.menu-item-has-children > a, .order-dropdown > li .current-li').on("click", function (e) {
+		jQuery('.fusion-main-menu li.menu-item-has-children > a, .fusion-secondary-menu li.menu-item-has-children > a, .order-dropdown > li .current-li').on("click", function (e) {
 			var link = jQuery(this);
 			if (link.hasClass('hover')) {
 				link.removeClass("hover");
 				return true;
 			} else {
 				link.addClass("hover");
-				jQuery('.nav-holder li.menu-item-has-children > a, .order-dropdown > li .current-li').not(this).removeClass("hover");
+				jQuery('.fusion-main-menu li.menu-item-has-children > a, .fusion-secondary-menu li.menu-item-has-children > a, .order-dropdown > li .current-li').not(this).removeClass("hover");
 				return false;
 			}
 		});
 
 
-		jQuery('.sub-menu li, .mobile-nav-item li').not('li.menu-item-has-children').on("click", function (e) {
+		jQuery('.sub-menu li, .fusion-mobile-nav-item li').not('li.menu-item-has-children').on("click", function (e) {
 			var link = jQuery(this).find('a').attr('href');
 			window.location = link;
 
@@ -1777,7 +1794,7 @@ jQuery(document).ready(function($) { // start document_ready_1
 	}
 
 	// Touch support for win phone devices
-	jQuery( '#nav li.menu-item-has-children a, .top-menu li.menu-item-has-children a, #sticky-nav li.menu-item-has-children a, .side-nav li.page_item_has_children a' ).each( function() {
+	jQuery( '.fusion-main-menu li.menu-item-has-children a, .fusion-secondary-menu li.menu-item-has-children a, .side-nav li.page_item_has_children a' ).each( function() {
 		jQuery( this ).attr( 'aria-haspopup', 'true' );
 	});
 
@@ -2205,16 +2222,23 @@ jQuery(document).ready(function($) { // start document_ready_1
 		jQuery('.woocommerce #reviews #comments .comment_container').append('<div class="clear"></div>');
 	}
 
+	var $title_sep = js_local_vars.title_style_type.split( ' ' ),
+		$title_sep_class_string = '';
+
+	for ( var i = 0; i < $title_sep.length; i++ ) {
+		$title_sep_class_string += ' sep-' + $title_sep[i];
+	}
+
 	if( jQuery('.woocommerce.single-product .related.products > h2').length ) {
-		jQuery('.woocommerce.single-product .related.products > h2').addClass( 'title-heading-left' );
-		jQuery('.woocommerce.single-product .related.products > h2').wrap( '<div class="fusion-title title"></div>' );
-		jQuery('.woocommerce.single-product .related.products > .title').append( '<div class="title-sep-container"><div class="title-sep sep-double"></div></div>' );
+		jQuery('.woocommerce.single-product .related.products > h2').addClass( 'title-heading-left'  );
+		jQuery('.woocommerce.single-product .related.products > h2').wrap( '<div class="fusion-title title' + $title_sep_class_string + '"></div>' );
+		jQuery('.woocommerce.single-product .related.products > .title').append( '<div class="title-sep-container"><div class="title-sep' + $title_sep_class_string + ' "></div></div>' );
 	}
 
 	if( jQuery('.woocommerce.single-product .upsells.products > h2').length ) {
 		jQuery('.woocommerce.single-product .upsells.products > h2').addClass( 'title-heading-left' );
-		jQuery('.woocommerce.single-product .upsells.products > h2').wrap( '<div class="fusion-title title"></div>' );
-		jQuery('.woocommerce.single-product .upsells.products > .title').append( '<div class="title-sep-container"><div class="title-sep sep-double"></div></div>' );
+		jQuery('.woocommerce.single-product .upsells.products > h2').wrap( '<div class="fusion-title title' + $title_sep_class_string + '"></div>' );
+		jQuery('.woocommerce.single-product .upsells.products > .title').append( '<div class="title-sep-container"><div class="title-sep' + $title_sep_class_string + ' "></div></div>' );
 	}
 
 	if(jQuery('body .sidebar').css('display') == "block") {
@@ -2375,6 +2399,12 @@ jQuery(document).ready(function($) { // start document_ready_1
 		 	jQuery(this).remove();
 		 });
 	}
+
+	// Remove gravity IE specific class
+	jQuery( '.gform_wrapper' ).each( function() {
+		jQuery( this ).removeClass( 'gf_browser_ie' );
+	});
+
 }); // end document_ready_1
 
 jQuery(window).load(function() {
@@ -2382,7 +2412,7 @@ jQuery(window).load(function() {
 	    // Change opacity of page title bar on scrolling
 	    if(js_local_vars.page_title_fading == '1') {
 		    if(js_local_vars.header_position == 'Left' || js_local_vars.header_position == 'Right') {
-		    	jQuery('.fusion-page-title-wrapper').fusion_scroller({type: 'opacity', end_offset: '.entry-title'});
+		    	jQuery('.fusion-page-title-wrapper').fusion_scroller({type: 'opacity', end_offset: '.fusion-page-title-captions > h1'});
 		    } else {
 			    jQuery('.fusion-page-title-wrapper').fusion_scroller({type: 'opacity', offset: 100});
 			}
@@ -2472,6 +2502,12 @@ jQuery(document).ready(function() {
 
 				window.yt_vid_exists = true;
 			}
+		}
+	});
+
+	jQuery('.fusion-fullwidth.video-background').each(function() {
+		if(jQuery(this).find('> div').attr('data-youtube-video-id')) {
+			window.yt_vid_exists = true;
 		}
 	});
 
@@ -2664,7 +2700,7 @@ jQuery(window).load(function() {
 			// Fade in placeholder images
 			var $placeholder_images = jQuery( this ).find( '.fusion-portfolio-post .fusion-placeholder-image' );
 			$placeholder_images.each( function() {
-				jQuery( this ).parents( '.fusion-image-wrapper' ).animate({ opacity: 1 });
+				jQuery( this ).parents( '.fusion-portfolio-content-wrapper, .fusion-image-wrapper' ).animate({ opacity: 1 });
 			});
 
 			// Fade in placeholder images
@@ -2672,7 +2708,7 @@ jQuery(window).load(function() {
 			$videos.each( function() {
 				jQuery( this ).animate({ opacity: 1 });
 			});
-			
+
 			// Portfolio Images Loaded Check
 			window.$portfolio_images_index = 0;
 
@@ -2757,6 +2793,10 @@ jQuery(window).load(function() {
 			wpadminbarHeight = 0;
 			if(jQuery('#wpadminbar').length >= 1) {
 				var wpadminbarHeight = jQuery('#wpadminbar').height();
+			}
+
+			if(jQuery(this_tfslider).parents('#sliders-container').length >= 1 && jQuery(this_tfslider).data('parallax') === 1) {
+				jQuery('.fusion-header').addClass('fusion-header-backface');
 			}
 
 			if(jQuery(this_tfslider).data('full_screen') == 1) {
@@ -3365,7 +3405,7 @@ jQuery(window).load(function() {
 					jQuery(this_tfslider).css('height', sliderHeight);
 					jQuery(this_tfslider).find('.background, .mobile_video_image').css('height', sliderHeight);
 
-					if((cssua.ua.mobile && cssua.ua.mobile != 'ipad') || jQuery(this_tfslider).parents('.post-content').length >= 1) {
+					if(jQuery(this_tfslider).data('full_screen') == 0 && (cssua.ua.mobile && cssua.ua.mobile != 'ipad') || jQuery(this_tfslider).parents('.post-content').length >= 1) {
 						jQuery(this_tfslider).parents('.fusion-slider-container').css('height', 'auto');
 						jQuery(this_tfslider).find('.mobile_video_image').each(function() {
 							var img_url = jQuery('.mobile_video_image').css('background-image').replace('url(', '').replace(')', '');
@@ -4158,6 +4198,9 @@ jQuery( document ).ready( function() {
 			controlNav: 'thumbnails',
 			start: function(slider) {
 				jQuery( slider ).find( '.fusion-slider-loading' ).remove();
+
+				// Remove Loading
+				slider.removeClass('fusion-flexslider-loading');
 			}
 		});
 	}

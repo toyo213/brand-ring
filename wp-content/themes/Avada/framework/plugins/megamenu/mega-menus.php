@@ -699,7 +699,7 @@ if( ! class_exists( 'FusionCoreMegaMenus' ) ) {
 							<span class="item-type"><?php echo esc_html( $item->type_label ); ?></span>
 							<span class="item-order hide-if-js">
 								<a href="<?php
-									echo wp_nonce_url(
+									echo esc_url( wp_nonce_url(
 										add_query_arg(
 											array(
 												'action' => 'move-up-menu-item',
@@ -708,11 +708,11 @@ if( ! class_exists( 'FusionCoreMegaMenus' ) ) {
 											remove_query_arg($removed_args, admin_url( 'nav-menus.php' ) )
 										),
 										'move-menu_item'
-									);
+									) );
 								?>" class="item-move-up"><abbr title="<?php esc_attr_e('Move up', 'Avada'); ?>">&#8593;</abbr></a>
 								|
 								<a href="<?php
-									echo wp_nonce_url(
+									echo esc_url( wp_nonce_url(
 										add_query_arg(
 											array(
 												'action' => 'move-down-menu-item',
@@ -721,11 +721,11 @@ if( ! class_exists( 'FusionCoreMegaMenus' ) ) {
 											remove_query_arg($removed_args, admin_url( 'nav-menus.php' ) )
 										),
 										'move-menu_item'
-									);
+									) );
 								?>" class="item-move-down"><abbr title="<?php esc_attr_e('Move down', 'Avada'); ?>">&#8595;</abbr></a>
 							</span>
 							<a class="item-edit" id="edit-<?php echo $item_id; ?>" title="<?php esc_attr_e('Edit Menu Item', 'Avada'); ?>" href="<?php
-								echo ( isset( $_GET['edit-menu-item'] ) && $item_id == $_GET['edit-menu-item'] ) ? admin_url( 'nav-menus.php' ) : add_query_arg( 'edit-menu-item', $item_id, remove_query_arg( $removed_args, admin_url( 'nav-menus.php#menu-item-settings-' . $item_id ) ) );
+								echo esc_url( ( isset( $_GET['edit-menu-item'] ) && $item_id == $_GET['edit-menu-item'] ) ? admin_url( 'nav-menus.php' ) : add_query_arg( 'edit-menu-item', $item_id, remove_query_arg( $removed_args, admin_url( 'nav-menus.php#menu-item-settings-' . $item_id ) ) ) );
 							?>"><?php _e( 'Edit Menu Item', 'Avada' ); ?></a>
 						</span>
 					</dt>
@@ -782,12 +782,12 @@ if( ! class_exists( 'FusionCoreMegaMenus' ) ) {
 
 					<p class="field-move hide-if-no-js description description-wide">
 						<label>
-							<span><?php _e( 'Move', 'Avada' ); ?></span>
-							<a href="#" class="menus-move-up"><?php _e( 'Up one', 'Avada' ); ?></a>
-							<a href="#" class="menus-move-down"><?php _e( 'Down one', 'Avada' ); ?></a>
-							<a href="#" class="menus-move-left"></a>
-							<a href="#" class="menus-move-right"></a>
-							<a href="#" class="menus-move-top"><?php _e( 'To the top', 'Avada' ); ?></a>
+							<span><?php _e( 'Move' ); ?></span>
+							<a href="#" class="menus-move menus-move-up" data-dir="up"><?php _e( 'Up one' ); ?></a>
+							<a href="#" class="menus-move menus-move-down" data-dir="down"><?php _e( 'Down one' ); ?></a>
+							<a href="#" class="menus-move menus-move-left" data-dir="left"></a>
+							<a href="#" class="menus-move menus-move-right" data-dir="right"></a>
+							<a href="#" class="menus-move menus-move-top" data-dir="top"><?php _e( 'To the top' ); ?></a>
 						</label>
 					</p>
 
@@ -798,7 +798,7 @@ if( ! class_exists( 'FusionCoreMegaMenus' ) ) {
 							</p>
 						<?php endif; ?>
 						<a class="item-delete submitdelete deletion" id="delete-<?php echo $item_id; ?>" href="<?php
-						echo wp_nonce_url(
+						echo esc_url( wp_nonce_url(
 							add_query_arg(
 								array(
 									'action' => 'delete-menu-item',
@@ -807,7 +807,7 @@ if( ! class_exists( 'FusionCoreMegaMenus' ) ) {
 								admin_url( 'nav-menus.php' )
 							),
 							'delete-menu_item_' . $item_id
-						); ?>"><?php _e( 'Remove', 'Avada' ); ?></a> <span class="meta-sep hide-if-no-js"> | </span> <a class="item-cancel submitcancel hide-if-no-js" id="cancel-<?php echo $item_id; ?>" href="<?php echo esc_url( add_query_arg( array( 'edit-menu-item' => $item_id, 'cancel' => time() ), admin_url( 'nav-menus.php' ) ) );
+						) ); ?>"><?php _e( 'Remove', 'Avada' ); ?></a> <span class="meta-sep hide-if-no-js"> | </span> <a class="item-cancel submitcancel hide-if-no-js" id="cancel-<?php echo $item_id; ?>" href="<?php echo esc_url( add_query_arg( array( 'edit-menu-item' => $item_id, 'cancel' => time() ), admin_url( 'nav-menus.php' ) ) );
 							?>#menu-item-settings-<?php echo $item_id; ?>"><?php _e('Cancel', 'Avada' ); ?></a>
 					</div>
 

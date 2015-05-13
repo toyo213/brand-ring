@@ -61,7 +61,7 @@ $avada_lightbox.activate_lightbox = function() {
 	if( Boolean( Number( js_local_vars.lightbox_post_images ) ) ) {
 		jQuery( '.single-post .post-content a, #posts-container .post .post-content a, .fusion-blog-shortcode .post .post-content a' ).has( 'img' ).each(
 			function() {
-				if( String( jQuery( this ).attr( 'rel' ) ).indexOf( 'prettyPhoto' ) === -1 && String( jQuery( this ).attr( 'data-rel' ) ).indexOf( 'prettyPhoto' ) === -1 && String( jQuery( this ).attr( 'rel' ) ).indexOf( 'iLightbox' ) === -1 && String( jQuery( this ).attr( 'data-rel' ) ).indexOf( 'iLightbox' ) === -1 ) {
+				if( String( jQuery( this ).attr( 'rel' ) ).indexOf( 'prettyPhoto' ) === -1 && String( jQuery( this ).attr( 'data-rel' ) ).indexOf( 'prettyPhoto' ) === -1 && String( jQuery( this ).attr( 'rel' ) ).indexOf( 'iLightbox' ) === -1 && String( jQuery( this ).attr( 'data-rel' ) ).indexOf( 'iLightbox' ) === -1 && ! jQuery( this ).hasClass( 'fusion-no-lightbox' ) ) {
 					jQuery( this ).attr( 'data-caption', jQuery( this ).parent().find('p.wp-caption-text').text() );
 					$il_instances.push( jQuery( this ).iLightBox( $avada_lightbox.prepare_options( 'post' ) ) );
 				}
@@ -76,12 +76,17 @@ $avada_lightbox.activate_lightbox = function() {
 $avada_lightbox.set_title_and_caption = function(){
 	jQuery( "a[rel^='prettyPhoto'], a[data-rel^='prettyPhoto']" ).each(function( index ) {
 
-		if( ! jQuery( this ).attr( 'data-caption') ) {
-			jQuery( this ).attr( 'data-caption', jQuery( this ).attr( 'title' ));
+		if ( ! jQuery( this ).attr( 'data-caption' ) ) {
+
+			if ( ! jQuery( this ).attr( 'title' ) ) {
+				jQuery( this ).attr( 'data-caption', jQuery( this ).parents( '.gallery-item' ).find( '.gallery-caption' ).text() );
+			} else {
+				jQuery( this ).attr( 'data-caption', jQuery( this ).attr( 'title' ) );
+			}
 		};
 
-		if( ! jQuery( this ).attr( 'data-title') ) {
-			jQuery( this ).attr( 'data-title', jQuery( this ).find( 'img' ).attr( 'alt' ));
+		if ( ! jQuery( this ).attr( 'data-title' ) ) {
+			jQuery( this ).attr( 'data-title', jQuery( this ).find( 'img' ).attr( 'alt' ) );
 		};
 	});
 };
@@ -96,6 +101,7 @@ $avada_lightbox.prepare_options = function( $link_id ){
 
 	var $ilightbox_args = {
 		skin: js_local_vars.lightbox_skin,
+		smartRecognition: true,
 		show: {
 			title: Boolean( Number( js_local_vars.lightbox_title ) ),
 			speed: $show_speed[js_local_vars.lightbox_animation_speed],

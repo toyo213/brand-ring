@@ -60,10 +60,12 @@
 		}		
 	}
 	?>
-
-	<?php if( $smof_data['responsive'] ): ?>
+	<?php $isiPad = (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad');
+	if($smof_data['responsive']):
+	if(!$isiPad || !$smof_data['ipad_potrait']):
+	?>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<?php endif; ?>
+	<?php endif; endif; ?>
 
 	<?php if($smof_data['favicon']): ?>
 	<link rel="shortcut icon" href="<?php echo $smof_data['favicon']; ?>" type="image/x-icon" />
@@ -155,7 +157,7 @@
 	<script type="text/javascript">
 	/*@cc_on
 		@if (@_jscript_version == 10)
-			document.write('<style type="text/css">.fusion-body .fusion-header-shadow:after {z-index: 99 !important;}.search input,.searchform input {padding-left:10px;} .avada-select-parent .select-arrow,.select-arrow{height:33px;<?php if($smof_data['form_bg_color']): ?>background-color:<?php echo $smof_data['form_bg_color']; ?>;<?php endif; ?>}.search input{padding-left:5px;}header .tagline{margin-top:3px;}.star-rating span:before {letter-spacing: 0;}.avada-select-parent .select-arrow,.gravity-select-parent .select-arrow,.wpcf7-select-parent .select-arrow,.select-arrow{background: #fff;}.star-rating{width: 5.2em;}.star-rating span:before {letter-spacing: 0.1em;}</style>');
+			document.write('<style type="text/css">.fusion-body .fusion-header-shadow:after{z-index: 99 !important;}.fusion-body.side-header #side-header.header-shadow:after{ z-index: 0 !important; }.search input,.searchform input {padding-left:10px;} .avada-select-parent .select-arrow,.select-arrow{height:33px;<?php if($smof_data['form_bg_color']): ?>background-color:<?php echo $smof_data['form_bg_color']; ?>;<?php endif; ?>}.search input{padding-left:5px;}header .tagline{margin-top:3px;}.star-rating span:before {letter-spacing: 0;}.avada-select-parent .select-arrow,.gravity-select-parent .select-arrow,.wpcf7-select-parent .select-arrow,.select-arrow{background: #fff;}.star-rating{width: 5.2em;}.star-rating span:before {letter-spacing: 0.1em;}</style>');
 		@end
 	@*/
 
@@ -630,6 +632,6 @@ $body_classes[] = 'mobile-menu-design-' . $smof_data['mobile_menu_design'];
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3&appId=216286761727505";
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=216286761727505";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>

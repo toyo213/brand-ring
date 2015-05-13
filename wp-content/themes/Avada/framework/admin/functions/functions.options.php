@@ -3678,7 +3678,7 @@ $of_options = array();
 			"type" => "color");
 
 		$of_options[] = array( "name" => __("Main Menu Font Hover Color - First Level", "Avada"),
-			"desc" => __("Controls the main menu hover, hover border & dropdown border color.", "Avada"),
+			"desc" => __("Controls the main menu hover, hover border, dropdown border color & active menu item.", "Avada"),
 			"id" => "menu_hover_first_color",
 			"std" => "#a0ce4e",
 			"type" => "color");
@@ -6484,13 +6484,13 @@ $of_options = array();
 			"type" => "checkbox");
 
 		$of_options[] = array( "name" => __("Show Woocommerce My Account Link in Secondary Menu", "Avada"),
-			"desc" => __("Check the box to show My Account link, uncheck to disable. Please note this will not show with Ubermenu.", "Avada"),
+			"desc" => __("Check the box to show My Account link, uncheck to disable. Only works if a top menu is assigned in header content 1-2.  Not compatible with Ubermenu.", "Avada"),
 			"id" => "woocommerce_acc_link_top_nav",
 			"std" => 1,
 			"type" => "checkbox");
 
 		$of_options[] = array( "name" => __("Show Woocommerce Cart Icon in Secondary Menu", "Avada"),
-			"desc" => __("Check the box to show the Cart icon, uncheck to disable. Please note this will not show with Ubermenu.", "Avada"),
+			"desc" => __("Check the box to show the Cart icon, uncheck to disable. Only works if a top menu is assigned in header content 1-2.  Not compatible with Ubermenu. ", "Avada"),
 			"id" => "woocommerce_cart_link_top_nav",
 			"std" => 1,
 			"type" => "checkbox");

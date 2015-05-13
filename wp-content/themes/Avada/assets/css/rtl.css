@@ -413,6 +413,10 @@ Table of Contents
   margin-right: -6px;
   margin-left: 2px;
 }
+.rtl .fusion-mobile-nav-holder li.fusion-mobile-nav-item .iclflag {
+  margin-left: 5px;
+  margin-right: 0;
+}
 .rtl .fusion-mobile-nav-holder li.fusion-mobile-nav-item li li a {
   padding-right: 40px;
 }

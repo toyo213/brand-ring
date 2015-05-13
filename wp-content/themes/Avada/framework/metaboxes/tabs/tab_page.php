@@ -16,10 +16,7 @@ $this->text(	'hundredp_padding',
 
 $screen = get_current_screen();			
 
-if ( $screen->post_type == 'page' || 
-	 $screen->post_type == 'product'
-) {
-
+if ( $screen->post_type == 'page' ) {
 	$this->select(	'show_first_featured_image',
 					__('Disable First Featured Image', 'Avada'),
 					array('no' => __('No', 'Avada'), 'yes' => __('Yes', 'Avada')),

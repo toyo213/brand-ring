@@ -29,6 +29,10 @@ if ( $smof_data['blog_pagination_type'] == 'Infinite Scroll' ||
 	$container_class .= 'fusion-blog-pagination ';
 }
 
+if ( ! $smof_data['featured_images'] ) {
+	$container_class .= 'fusion-blog-no-images ';
+}
+
 // Add the timeline icon
 if ( $blog_layout == 'timeline' ) {
 	echo '<div class="fusion-timeline-icon"><i class="fusion-icon-bubbles"></i></div>';
@@ -61,7 +65,7 @@ echo sprintf( '<div id="posts-container" class="%sfusion-blog-archive fusion-cle
 		// Set the time stamps for timeline month/year check
 		$alignment_class = '';
 		if( $blog_layout == 'timeline' ) {
-			$post_timestamp = strtotime( $post->post_date );
+			$post_timestamp = get_the_time( 'U' );
 			$post_month = date( 'n', $post_timestamp );
 			$post_year = get_the_date( 'o' );
 			$current_date = get_the_date( 'o-n' );

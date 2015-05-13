@@ -34,13 +34,13 @@ function fusion_importer() {
 				case 'agency':
 					$shop_demo = false;
 					$theme_xml_file = get_template_directory() . '/framework/plugins/importer/agency_demo/avada.xml.gz';
-					$theme_options_file = get_template_directory_uri() . '/framework/plugins/importer/agency_demo/theme_options.txt';
+					$theme_options_file = get_template_directory() . '/framework/plugins/importer/agency_demo/theme_options.txt';
 
 					// Register Custom Sidebars
 					$sidebar_exists = false;
 
 					// Sidebar Widgets File
-					$widgets_file = get_template_directory_uri() . '/framework/plugins/importer/agency_demo/widget_data.json';
+					$widgets_file = get_template_directory() . '/framework/plugins/importer/agency_demo/widget_data.json';
 
 					$layerslider_exists = false;
 					$revslider_exists = false;
@@ -54,13 +54,13 @@ function fusion_importer() {
 				case 'app':
 					$shop_demo = false;
 					$theme_xml_file = get_template_directory() . '/framework/plugins/importer/app_demo/avada.xml.gz';
-					$theme_options_file = get_template_directory_uri() . '/framework/plugins/importer/app_demo/theme_options.txt';
+					$theme_options_file = get_template_directory() . '/framework/plugins/importer/app_demo/theme_options.txt';
 
 					// Register Custom Sidebars
 					$sidebar_exists = false;
 
 					// Sidebar Widgets File
-					$widgets_file = get_template_directory_uri() . '/framework/plugins/importer/app_demo/widget_data.json';
+					$widgets_file = get_template_directory() . '/framework/plugins/importer/app_demo/widget_data.json';
 
 					$layerslider_exists = false;
 					$revslider_exists = false;
@@ -74,13 +74,13 @@ function fusion_importer() {
 				case 'travel':
 					$shop_demo = false;
 					$theme_xml_file = get_template_directory() . '/framework/plugins/importer/travel_demo/avada.xml.gz';
-					$theme_options_file = get_template_directory_uri() . '/framework/plugins/importer/travel_demo/theme_options.txt';
+					$theme_options_file = get_template_directory() . '/framework/plugins/importer/travel_demo/theme_options.txt';
 
 					// Register Custom Sidebars
 					$sidebar_exists = false;
 
 					// Sidebar Widgets File
-					$widgets_file = get_template_directory_uri() . '/framework/plugins/importer/travel_demo/widget_data.json';
+					$widgets_file = get_template_directory() . '/framework/plugins/importer/travel_demo/widget_data.json';
 
 					$layerslider_exists = false;
 					$revslider_exists = false;
@@ -94,13 +94,13 @@ function fusion_importer() {
 				case 'cafe':
 					$shop_demo = false;
 					$theme_xml_file = get_template_directory() . '/framework/plugins/importer/cafe_demo/avada.xml.gz';
-					$theme_options_file = get_template_directory_uri() . '/framework/plugins/importer/cafe_demo/theme_options.txt';
+					$theme_options_file = get_template_directory() . '/framework/plugins/importer/cafe_demo/theme_options.txt';
 
 					// Register Custom Sidebars
 					$sidebar_exists = false;
 
 					// Sidebar Widgets File
-					$widgets_file = get_template_directory_uri() . '/framework/plugins/importer/cafe_demo/widget_data.json';
+					$widgets_file = get_template_directory() . '/framework/plugins/importer/cafe_demo/widget_data.json';
 
 					$layerslider_exists = false;
 					$revslider_exists = false;
@@ -114,13 +114,13 @@ function fusion_importer() {
 				case 'fashion':
 					$shop_demo = false;
 					$theme_xml_file = get_template_directory() . '/framework/plugins/importer/fashion_demo/avada.xml.gz';
-					$theme_options_file = get_template_directory_uri() . '/framework/plugins/importer/fashion_demo/theme_options.txt';
+					$theme_options_file = get_template_directory() . '/framework/plugins/importer/fashion_demo/theme_options.txt';
 
 					// Register Custom Sidebars
 					$sidebar_exists = false;
 
 					// Sidebar Widgets File
-					$widgets_file = get_template_directory_uri() . '/framework/plugins/importer/fashion_demo/widget_data.json';
+					$widgets_file = get_template_directory() . '/framework/plugins/importer/fashion_demo/widget_data.json';
 
 					$layerslider_exists = false;
 					$revslider_exists = false;
@@ -135,7 +135,7 @@ function fusion_importer() {
 					$shop_demo = true;
 					$woo_xml = get_template_directory() . '/framework/plugins/importer/classic_demo/avadawithwoo.xml.gz';
 					$theme_xml_file = get_template_directory() . '/framework/plugins/importer/classic_demo/avadawithoutwoo.xml.gz';
-					$theme_options_file = get_template_directory_uri() . '/framework/plugins/importer/classic_demo/theme_options.txt';
+					$theme_options_file = get_template_directory() . '/framework/plugins/importer/classic_demo/theme_options.txt';
 
 					// Register Custom Sidebars
 					$sidebar_exists = true;
@@ -149,7 +149,7 @@ function fusion_importer() {
 					);
 
 					// Sidebar Widgets File
-					$widgets_file = get_template_directory_uri() . '/framework/plugins/importer/classic_demo/widget_data.json';
+					$widgets_file = get_template_directory() . '/framework/plugins/importer/classic_demo/widget_data.json';
 
 					$layerslider_exists = true;
 					$layer_directory = get_template_directory() . '/framework/plugins/importer/classic_demo/layersliders/';
@@ -262,8 +262,8 @@ function fusion_importer() {
 
 			// Import Theme Options
 			$theme_options_txt = $theme_options_file; // theme options data file
-			$theme_options_txt = wp_remote_get( $theme_options_txt );
-			$smof_data = unserialize( base64_decode( $theme_options_txt['body'])  );
+			$theme_options_txt = file_get_contents( $theme_options_txt );
+			$smof_data = unserialize( base64_decode( $theme_options_txt )  );
 			update_option( OPTIONS, $smof_data ); // update theme options
 
 			// Add sidebar widget areas
@@ -286,8 +286,8 @@ function fusion_importer() {
 			// Add data to widgets
 			if( isset( $widgets_file ) && $widgets_file ) {
 				$widgets_json = $widgets_file; // widgets data file
-				$widgets_json = wp_remote_get( $widgets_json );
-				$widget_data = $widgets_json['body'];
+				$widgets_json = file_get_contents( $widgets_json );
+				$widget_data = $widgets_json;
 				$import_widgets = fusion_import_widget_data( $widget_data );
 			}
 
@@ -798,13 +798,6 @@ function avada_import_fsliders( $zip_file ) {
 	}
 
 	if ( class_exists( 'WP_Importer' ) && class_exists( 'WP_Import' ) ) {
-		$importer = new WP_Import();
-		$xml = $fs_dir . 'sliders.xml';
-		$importer->fetch_attachments = true;
-		ob_start();
-		$importer->import($xml);
-		ob_end_clean();
-
 		$loop = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => -1, 'meta_key' => '_thumbnail_id' ) );
 
 		while( $loop->have_posts() ) { $loop->the_post();

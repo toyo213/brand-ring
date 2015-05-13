@@ -121,7 +121,7 @@ echo sprintf( '<div id="content" class="fusion-faqs" style="%s">', $content_css 
 			echo avada_featured_images_for_pages();
 
 			// Render the content of the faq page
-			echo '<div class="fusion-post-content">';		
+			echo '<div class="post-content">';		
 				the_content();
 				avada_link_pages();
 			echo '</div>';

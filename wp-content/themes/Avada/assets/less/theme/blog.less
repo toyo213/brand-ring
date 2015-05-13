@@ -123,6 +123,7 @@ Table of Contents
 /* General blog elements that are also used outside blog */
 .fusion-blog-archive {
 	.entry-title {
+		margin-top: 0;
 		margin-bottom: 5px;
 	}
 }
@@ -131,6 +132,7 @@ Table of Contents
 .fusion-blog-layout-large, 
 .fusion-blog-layout-medium {
 	.entry-title {
+		margin-top: 0;
 		margin-bottom: 25px;
 	}
 }
@@ -146,6 +148,7 @@ Table of Contents
 .fusion-blog-layout-large-alternate, 
 .fusion-blog-layout-medium-alternate {
 	.entry-title {
+		margin-top: 0;
 		margin-bottom: 5px;
 	}
 	
@@ -162,7 +165,6 @@ Table of Contents
 .fusion-blog-layout-medium, 
 .fusion-blog-layout-medium-alternate {
 	.fusion-post-slideshow {
-		/* overflow: hidden; */
 		float: left;
 		margin-right: 25px;
 		width: 320px;
@@ -226,6 +228,12 @@ Table of Contents
 		.fusion-post-content {
 			margin-left: 436px;
 		}
+	}
+	
+	&.fusion-blog-no-images {
+		.fusion-post-content {
+			margin-left: 99px;
+		}	
 	}
 
 }

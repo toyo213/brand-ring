@@ -232,9 +232,9 @@ function avada_secondary_main_menu() { ?>
 			if( fusion_get_theme_option('header_layout') == 'v4' ) {
 				$header_content_3 = fusion_get_theme_option( 'header_v4_content' );
 				if( $header_content_3 == 'Tagline And Search' ) {
-					echo get_search_form( false );
+					echo sprintf( '<div class="fusion-secondary-menu-search">%s</div>', get_search_form( false ) );
 				} elseif( $header_content_3 == 'Search' ) {
-					echo get_search_form( false );
+					echo sprintf( '<div class="fusion-secondary-menu-search">%s</div>', get_search_form( false ) );
 				}
 			}
 			?>
@@ -288,7 +288,7 @@ if( ! function_exists( 'avada_logo' ) ) {
 						$logo_size['width'] = '';
 						$logo_size['height'] = '';
 					}
-					$style = sprintf( 'style="max-width:%1$s%3$s; max-height: %2$s%3$s; height: auto;"', $logo_size['width'], $logo_size['height'], 'px' );
+					$style = sprintf( 'style="width:%1$s%3$s; max-height: %2$s%3$s; height: auto;"', $logo_size['width'], $logo_size['height'], 'px' );
 					?>
 					<img src="<?php echo $retina_logo; ?>" alt="<?php bloginfo('name'); ?>" <?php echo $style; ?> class="fusion-logo-2x fusion-mobile-logo-2x" />
 					<?php else: ?>
@@ -311,7 +311,7 @@ if( ! function_exists( 'avada_logo' ) ) {
 						$logo_size['width'] = '';
 						$logo_size['height'] = '';
 					}
-					$style = sprintf( 'style="max-width:%1$s%3$s; max-height: %2$s%3$s; height: auto;"', $logo_size['width'], $logo_size['height'], 'px' );
+					$style = sprintf( 'style="width:%1$s%3$s; max-height: %2$s%3$s; height: auto;"', $logo_size['width'], $logo_size['height'], 'px' );
 					?>
 					<img src="<?php echo $retina_logo; ?>" alt="<?php bloginfo('name'); ?>" <?php echo $style; ?> class="fusion-logo-2x fusion-sticky-logo-2x" />
 					<?php else: ?>
@@ -475,7 +475,11 @@ if( ! function_exists( 'avada_secondary_header_content' ) ) {
 		} elseif( fusion_get_theme_option( $content_area ) == 'Social Links' ) {
 			return avada_header_social_links();
 		} elseif( fusion_get_theme_option( $content_area ) == 'Navigation' ) {
-			return avada_secondary_nav() . '<div class="fusion-mobile-nav-holder"></div>';
+			$mobile_menu_wrapper = '';
+			if ( has_nav_menu( 'top_navigation' ) ) {
+				$mobile_menu_wrapper = '<div class="fusion-mobile-nav-holder"></div>';
+			}
+			return avada_secondary_nav() . $mobile_menu_wrapper;
 		}
 	}
 }
@@ -494,17 +498,17 @@ if( ! function_exists( 'avada_header_content_3' ) ) {
 			if( fusion_get_theme_option( 'header_position' ) == 'Top' ) {
 				if( fusion_get_theme_option( 'logo_alignment' ) == 'Right' ) {
 					$html .= avada_header_tagline();
-					$html .= get_search_form( false );
+					$html .= sprintf( '<div class="fusion-secondary-menu-search">%s</div>', get_search_form( false ) );
 				} else {
-					$html .= get_search_form( false );
+					$html .= sprintf( '<div class="fusion-secondary-menu-search">%s</div>', get_search_form( false ) );
 					$html .= avada_header_tagline();				
 				}
 			} else {
 				$html .= avada_header_tagline();
-				$html .= get_search_form( false );				
+				$html .= sprintf( '<div class="fusion-secondary-menu-search">%s</div>', get_search_form( false ) );			
 			}
 		} elseif( $header_content_3 == 'Search' ) {
-			$html .= get_search_form( false );
+			$html .= sprintf( '<div class="fusion-secondary-menu-search">%s</div>', get_search_form( false ) );
 		} elseif( $header_content_3 == 'Banner' ) {
 			$html .= avada_header_banner();
 		}

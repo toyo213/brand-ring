@@ -17,163 +17,182 @@ if( !class_exists( 'Avada_Admin' ) ){
 		function avada_add_wp_toolbar_menu() {
 			global $wp_admin_bar;
 
-			$registration_complete = FALSE;
-			$avada_options = get_option( 'Avada_options' );
-			$tf_username = isset( $avada_options[ 'tf_username' ] ) ? $avada_options[ 'tf_username' ] : '';
-			$tf_api = isset( $avada_options[ 'tf_api' ] ) ? $avada_options[ 'tf_api' ] : '';
-			$tf_purchase_code = isset( $avada_options[ 'tf_purchase_code' ] ) ? $avada_options[ 'tf_purchase_code' ] : '';
-			if ( $tf_username !== '' && 
-				 $tf_api !== '' && 
-				 $tf_purchase_code !== ''
-			) {
-				$registration_complete = TRUE;
-			}
-			$avada_parent_menu_title = '<span class="ab-icon"></span><span class="ab-label">Avada</span>';
+			if ( current_user_can( 'edit_theme_options' ) ) {
 
-			$this->avada_add_wp_toolbar_menu_item( $avada_parent_menu_title, FALSE, admin_url( 'admin.php?page=avada' ), array( 'class' => 'avada-menu' ), 'avada' );
-			
-			if ( ! $registration_complete ) {
-				$this->avada_add_wp_toolbar_menu_item( __( 'Product Registration', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada' ) );
+				$registration_complete = FALSE;
+				$avada_options = get_option( 'Avada_Key' );
+				$tf_username = isset( $avada_options[ 'tf_username' ] ) ? $avada_options[ 'tf_username' ] : '';
+				$tf_api = isset( $avada_options[ 'tf_api' ] ) ? $avada_options[ 'tf_api' ] : '';
+				$tf_purchase_code = isset( $avada_options[ 'tf_purchase_code' ] ) ? $avada_options[ 'tf_purchase_code' ] : '';
+				if ( $tf_username !== '' && 
+					 $tf_api !== '' && 
+					 $tf_purchase_code !== ''
+				) {
+					$registration_complete = TRUE;
+				}
+				$avada_parent_menu_title = '<span class="ab-icon"></span><span class="ab-label">Avada</span>';
+
+				$this->avada_add_wp_toolbar_menu_item( $avada_parent_menu_title, FALSE, admin_url( 'admin.php?page=avada' ), array( 'class' => 'avada-menu' ), 'avada' );
+				
+				if ( ! $registration_complete ) {
+					$this->avada_add_wp_toolbar_menu_item( __( 'Product Registration', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada' ) );
+				}
+				$this->avada_add_wp_toolbar_menu_item( __( 'Support', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada-support' ) );
+				$this->avada_add_wp_toolbar_menu_item( __( 'Install Demos', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada-demos' ) );
+				$this->avada_add_wp_toolbar_menu_item( __( 'Fusion Plugins', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada-plugins' ) );
+				$this->avada_add_wp_toolbar_menu_item( __( 'System Status', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada-system-status' ) );	
+				$this->avada_add_wp_toolbar_menu_item( __( 'Theme Options', 'Avada' ), 'avada', admin_url( 'themes.php?page=optionsframework' ) );
 			}
-			$this->avada_add_wp_toolbar_menu_item( __( 'Support', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada-support' ) );
-			$this->avada_add_wp_toolbar_menu_item( __( 'Install Demos', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada-demos' ) );
-			$this->avada_add_wp_toolbar_menu_item( __( 'Fusion Plugins', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada-plugins' ) );
-			$this->avada_add_wp_toolbar_menu_item( __( 'System Status', 'Avada' ), 'avada', admin_url( 'admin.php?page=avada-system-status' ) );	
-			$this->avada_add_wp_toolbar_menu_item( __( 'Theme Options', 'Avada' ), 'avada', admin_url( 'themes.php?page=optionsframework' ) );					
 		}
 
 		function avada_add_wp_toolbar_menu_item( $title, $parent = FALSE, $href = '', $custom_meta = array(), $custom_id = '' ) {
 			global $wp_admin_bar;
 
-			if ( ! is_super_admin() ||
-				 ! is_admin_bar_showing() 
-			) {
-				return;
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				if ( ! is_super_admin() ||
+					 ! is_admin_bar_showing() 
+				) {
+					return;
+				}
+
+				// Set custom ID
+				if ( $custom_id ) {
+					$id = $custom_id;
+				// Generate ID based on $title
+				} else {
+					$id = strtolower( str_replace( ' ', '-', $title ) );
+				}
+
+				// links from the current host will open in the current window
+				$meta = strpos( $href, site_url() ) !== false ? array() : array( 'target' => '_blank' ); // external links open in new tab/window
+				$meta = array_merge( $meta, $custom_meta );
+
+				$wp_admin_bar->add_node( array(
+					'parent' => $parent,
+					'id' => $id,
+					'title' => $title,
+					'href' => $href,
+					'meta' => $meta,
+				) );
 			}
-
-			// Set custom ID
-			if ( $custom_id ) {
-				$id = $custom_id;
-			// Generate ID based on $title
-			} else {
-				$id = strtolower( str_replace( ' ', '-', $title ) );
-			}
-
-			// links from the current host will open in the current window
-			$meta = strpos( $href, site_url() ) !== false ? array() : array( 'target' => '_blank' ); // external links open in new tab/window
-			$meta = array_merge( $meta, $custom_meta );
-
-			$wp_admin_bar->add_node( array(
-				'parent' => $parent,
-				'id' => $id,
-				'title' => $title,
-				'href' => $href,
-				'meta' => $meta,
-			) );
 		}
 		
 		function edit_admin_menus() {
 			global $submenu;
-			$submenu['avada'][0][0] = 'Product Registration'; // Change Avada to Product Registration
-			
-			// Unset the Theme Options menu entry in Appearance menu
-			/*
-			foreach( $submenu['themes.php'] as $key => $value ) {
-			
-				if ( array_key_exists( 3, $value ) &&
-					 $value[3] == 'Avada'
-				) {
-					unset( $submenu['themes.php'][$key] );	
-				}
+
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$submenu['avada'][0][0] = 'Product Registration'; // Change Avada to Product Registration
 			}
-			*/
 		}
 		
 		function avada_activation_redirect(){
-			header('Location:'.admin_url().'admin.php?page=avada');
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				header('Location:'.admin_url().'admin.php?page=avada');
+			}
 		}
 		
 		function avada_admin_init(){
-			if( isset( $_GET['avada-deactivate'] ) && $_GET['avada-deactivate'] == 'deactivate-plugin' ) {
-				check_admin_referer( 'avada-deactivate', 'avada-deactivate-nonce' );
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				// Save avada key in a different location
+				$avada_key = get_option( 'Avada_Key' );
+				if( ! is_array( $avada_key ) && empty( $avada_key ) ) {
+					$avada_options = get_option( 'Avada_options' );
+					$tf_username = isset( $avada_options[ 'tf_username' ] ) ? $avada_options[ 'tf_username' ] : '';
+					$tf_api = isset( $avada_options[ 'tf_api' ] ) ? $avada_options[ 'tf_api' ] : '';
+					$tf_purchase_code = isset( $avada_options[ 'tf_purchase_code' ] ) ? $avada_options[ 'tf_purchase_code' ] : '';
 
-				$plugins = TGM_Plugin_Activation::$instance->plugins;
-
-				foreach( $plugins as $plugin ) {
-					if( $plugin['slug'] == $_GET['plugin'] ) {
-						deactivate_plugins( $plugin['file_path'] );
+					if( $tf_username && $tf_api && $tf_purchase_code ) {
+						update_option( 'Avada_Key', array(
+							'tf_username' 		=> $tf_username,
+							'tf_api'	  		=> $tf_api,
+							'tf_purchase_code'	=> $tf_purchase_code
+						));
 					}
 				}
-			} if( isset( $_GET['avada-activate'] ) && $_GET['avada-activate'] == 'activate-plugin' ) {
-				check_admin_referer( 'avada-activate', 'avada-activate-nonce' );
 
-				$plugins = TGM_Plugin_Activation::$instance->plugins;
+				if( isset( $_GET['avada-deactivate'] ) && $_GET['avada-deactivate'] == 'deactivate-plugin' ) {
+					check_admin_referer( 'avada-deactivate', 'avada-deactivate-nonce' );
 
-				foreach( $plugins as $plugin ) {
-					if( $plugin['slug'] == $_GET['plugin'] ) {
-						activate_plugin( $plugin['file_path'] );
+					$plugins = TGM_Plugin_Activation::$instance->plugins;
+
+					foreach( $plugins as $plugin ) {
+						if( $plugin['slug'] == $_GET['plugin'] ) {
+							deactivate_plugins( $plugin['file_path'] );
+						}
+					}
+				} if( isset( $_GET['avada-activate'] ) && $_GET['avada-activate'] == 'activate-plugin' ) {
+					check_admin_referer( 'avada-activate', 'avada-activate-nonce' );
+
+					$plugins = TGM_Plugin_Activation::$instance->plugins;
+
+					foreach( $plugins as $plugin ) {
+						if( $plugin['slug'] == $_GET['plugin'] ) {
+							activate_plugin( $plugin['file_path'] );
+						}
 					}
 				}
 			}
 		}
 		function avada_admin_menu(){
-			// Work around for theme check
-			$avada_menu_page_creation_method = 'add_menu_page';
-			$avada_submenu_page_creation_method = 'add_submenu_page';
-		
-			$welcome_screen = $avada_menu_page_creation_method( 
-				'Avada',
-				'Avada',
-				'administrator',
-				'avada',
-				array( $this, 'avada_welcome_screen' ),
-				'dashicons-fusiona-logo',
-				3);			
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				// Work around for theme check
+				$avada_menu_page_creation_method = 'add_menu_page';
+				$avada_submenu_page_creation_method = 'add_submenu_page';
 			
-			$support = $avada_submenu_page_creation_method(
-					'avada',
-					__( 'Avada Support', 'Avada' ),
-					__( 'Support', 'Avada' ),
+				$welcome_screen = $avada_menu_page_creation_method( 
+					'Avada',
+					'Avada',
 					'administrator',
-					'avada-support',
-					array( $this, 'avada_support_tab' ) );
+					'avada',
+					array( $this, 'avada_welcome_screen' ),
+					'dashicons-fusiona-logo',
+					3);			
+				
+				$support = $avada_submenu_page_creation_method(
+						'avada',
+						__( 'Avada Support', 'Avada' ),
+						__( 'Support', 'Avada' ),
+						'administrator',
+						'avada-support',
+						array( $this, 'avada_support_tab' ) );
 
-			$demos = $avada_submenu_page_creation_method(
-					'avada',
-					__( 'Install Avada Demos', 'Avada' ),
-					__( 'Install Demos', 'Avada' ),
-					'administrator',
-					'avada-demos',
-					array( $this, 'avada_demos_tab' ) );
+				$demos = $avada_submenu_page_creation_method(
+						'avada',
+						__( 'Install Avada Demos', 'Avada' ),
+						__( 'Install Demos', 'Avada' ),
+						'administrator',
+						'avada-demos',
+						array( $this, 'avada_demos_tab' ) );
 
-			$plugins = $avada_submenu_page_creation_method(
-					'avada',
-					__( 'Fusion Plugins', 'Avada' ),
-					__( 'Fusion Plugins', 'Avada' ),
-					'administrator',
-					'avada-plugins',
-					array( $this, 'avada_plugins_tab' ) );					
-			
-			$status = $avada_submenu_page_creation_method(
-					'avada',
-					__( 'System Status', 'Avada' ),
-					__( 'System Status', 'Avada' ),
-					'administrator',
-					'avada-system-status',
-					array( $this, 'avada_system_status_tab' ) );
+				$plugins = $avada_submenu_page_creation_method(
+						'avada',
+						__( 'Fusion Plugins', 'Avada' ),
+						__( 'Fusion Plugins', 'Avada' ),
+						'administrator',
+						'avada-plugins',
+						array( $this, 'avada_plugins_tab' ) );					
+				
+				$status = $avada_submenu_page_creation_method(
+						'avada',
+						__( 'System Status', 'Avada' ),
+						__( 'System Status', 'Avada' ),
+						'administrator',
+						'avada-system-status',
+						array( $this, 'avada_system_status_tab' ) );
 
-			$theme_options = $avada_submenu_page_creation_method(
-					'avada',
-					__( 'Theme Options', 'Avada' ),
-					__( 'Theme Options', 'Avada' ),
-					'administrator',
-					'themes.php?page=optionsframework' );	
+				$theme_options = $avada_submenu_page_creation_method(
+						'avada',
+						__( 'Theme Options', 'Avada' ),
+						__( 'Theme Options', 'Avada' ),
+						'administrator',
+						'themes.php?page=optionsframework' );	
 
-			add_action( 'admin_print_scripts-'.$welcome_screen, array( $this, 'welcome_screen_scripts' ) );
-			add_action( 'admin_print_scripts-'.$support, array( $this, 'support_screen_scripts' ) );
-			add_action( 'admin_print_scripts-'.$demos, array( $this, 'demos_screen_scripts' ) );
-			add_action( 'admin_print_scripts-'.$plugins, array( $this, 'plugins_screen_scripts' ) );
-			add_action( 'admin_print_scripts-'.$status, array( $this, 'status_screen_scripts' ) );
+				add_action( 'admin_print_scripts-'.$welcome_screen, array( $this, 'welcome_screen_scripts' ) );
+				add_action( 'admin_print_scripts-'.$support, array( $this, 'support_screen_scripts' ) );
+				add_action( 'admin_print_scripts-'.$demos, array( $this, 'demos_screen_scripts' ) );
+				add_action( 'admin_print_scripts-'.$plugins, array( $this, 'plugins_screen_scripts' ) );
+				add_action( 'admin_print_scripts-'.$status, array( $this, 'status_screen_scripts' ) );
+			}
 		}
 		
 		function avada_welcome_screen(){
@@ -197,31 +216,48 @@ if( !class_exists( 'Avada_Admin' ) ){
 		}
 		
 		function avada_update_registration(){
-			$avada_options = get_option( 'Avada_options' );
+			global $wp_version;
+
+			$avada_options = get_option( 'Avada_Key' );
 			$data = $_POST;
 			$tf_username = isset( $data[ 'tf_username' ] ) ? $data[ 'tf_username' ] : '';
 			$tf_api = isset( $data[ 'tf_api' ] ) ? $data[ 'tf_api' ] : '';
 			$tf_purchase_code = isset( $data[ 'tf_purchase_code' ] ) ? $data[ 'tf_purchase_code' ] : '';
-			
+
 			if( $tf_username !== "" && $tf_api !== "" && $tf_purchase_code !== "" ) {
 				$avada_options[ 'tf_username' ] = $tf_username;
 				$avada_options[ 'tf_api' ] = $tf_api;
 				$avada_options[ 'tf_purchase_code' ] = $tf_purchase_code;
-				
-				$result = update_option( 'Avada_options', $avada_options );
-				if( $result ) {
-					echo __( "Updated", "Avada" );
+
+				$prepare_request = array(
+					'user-agent' => 'WordPress/'. $wp_version .'; '. home_url()
+				);
+
+				$raw_response = wp_remote_post( 'http://marketplace.envato.com/api/v3/' . $tf_username . '/' . $tf_api . '/download-purchase:' . $tf_purchase_code . '.json', $prepare_request );
+
+				if( ! is_wp_error( $raw_response ) ) {
+					$response = json_decode( $raw_response['body'], true );
+				}
+
+				if( ! empty( $response ) ) {
+					if( ( isset( $response['error'] ) ) || ( isset( $response['download-purchase'] ) && empty( $response['download-purchase'] ) ) ) {
+						echo 'Error';
+					} elseif( isset( $response['download-purchase'] ) && ! empty( $response['download-purchase'] ) ) {
+						$result = update_option( 'Avada_Key', $avada_options );
+						
+						echo 'Updated';
+					}
 				} else {
-					echo __( "Error", "Avada" );
+					echo 'Error';
 				}
 			} else {
-				echo __( "Empty", "Avada" );
+				echo 'Empty';
 			}
 			die();
 		}
 		
 		function avada_admin_scripts(){
-			if(is_admin()){
+			if ( is_admin() && current_user_can( 'edit_theme_options' ) ) {
 			?>
 			<style type="text/css">
 			@media screen and (max-width: 782px) {
@@ -294,20 +330,20 @@ if( !class_exists( 'Avada_Admin' ) ){
 				$actions = array(
 					'install' => sprintf(
 						'<a href="%1$s" class="button button-primary" title="Install %2$s">Install</a>',
-						wp_nonce_url(
+						esc_url( wp_nonce_url(
 							add_query_arg(
 								array(
-									'page'		  => TGM_Plugin_Activation::$instance->menu,
-									'plugin'		=> $item['slug'],
-									'plugin_name'   => $item['sanitized_plugin'],
-									'plugin_source' => $item['source'],
+									'page'		  	=> urlencode( TGM_Plugin_Activation::$instance->menu ),
+									'plugin'		=> urlencode( $item['slug'] ),
+									'plugin_name'   => urlencode( $item['sanitized_plugin'] ),
+									'plugin_source' => urlencode( $item['source'] ),
 									'tgmpa-install' => 'install-plugin',
 									'return_url' => 'fusion_plugins'
 								),
 								admin_url( TGM_Plugin_Activation::$instance->parent_url_slug )
 							),
 							'tgmpa-install'
-						),
+						) ),
 						$item['sanitized_plugin']
 					),
 				);
@@ -317,16 +353,16 @@ if( !class_exists( 'Avada_Admin' ) ){
 				$actions = array(
 					'activate' => sprintf(
 						'<a href="%1$s" class="button button-primary" title="Activate %2$s">Activate</a>',
-						add_query_arg(
+						esc_url( add_query_arg(
 							array(
-								'plugin'			   => $item['slug'],
-								'plugin_name'		  => $item['sanitized_plugin'],
-								'plugin_source'		=> $item['source'],
+								'plugin'			   => urlencode( $item['slug'] ),
+								'plugin_name'		  => urlencode( $item['sanitized_plugin'] ),
+								'plugin_source'		=> urlencode( $item['source'] ),
 								'avada-activate'	   => 'activate-plugin',
 								'avada-activate-nonce' => wp_create_nonce( 'avada-activate' ),
 							),
 							admin_url( 'admin.php?page=avada-plugins' )
-						),
+						) ),
 						$item['sanitized_plugin']
 					),
 				);
@@ -339,12 +375,12 @@ if( !class_exists( 'Avada_Admin' ) ){
 						wp_nonce_url(
 							add_query_arg(
 								array(
-									'page'		  => TGM_Plugin_Activation::$instance->menu,
-									'plugin'		=> $item['slug'],
-									'plugin_name'   => $item['sanitized_plugin'],
-									'plugin_source' => $item['source'],
+									'page'		  => urlencode( TGM_Plugin_Activation::$instance->menu ),
+									'plugin'		=> urlencode( $item['slug'] ),
+									'plugin_name'   => urlencode( $item['sanitized_plugin'] ),
+									'plugin_source' => urlencode( $item['source'] ),
 									'tgmpa-update' => 'update-plugin',
-									'version' => $item['version'],
+									'version' => urlencode( $item['version'] ),
 									'return_url' => 'fusion_plugins'
 								),
 								admin_url( TGM_Plugin_Activation::$instance->parent_url_slug )
@@ -358,16 +394,16 @@ if( !class_exists( 'Avada_Admin' ) ){
 				$actions = array(
 					'deactivate' => sprintf(
 						'<a href="%1$s" class="button button-primary" title="Deactivate %2$s">Deactivate</a>',
-						add_query_arg(
+						esc_url( add_query_arg(
 							array(
-								'plugin'			=> $item['slug'],
-								'plugin_name'		  => $item['sanitized_plugin'],
-								'plugin_source'		=> $item['source'],
+								'plugin'			=> urlencode( $item['slug'] ),
+								'plugin_name'		  => urlencode( $item['sanitized_plugin'] ),
+								'plugin_source'		=> urlencode( $item['source'] ),
 								'avada-deactivate'	   => 'deactivate-plugin',
 								'avada-deactivate-nonce' => wp_create_nonce( 'avada-deactivate' ),
 							),
 							admin_url( 'admin.php?page=avada-plugins' )
-						),
+						) ),
 						$item['sanitized_plugin']
 					),
 				);

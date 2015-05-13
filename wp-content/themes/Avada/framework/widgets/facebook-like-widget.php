@@ -23,7 +23,7 @@ if ( ! class_exists( 'Fusion_Facebook_Like_Widget' ) ) {
 			extract( $args );
 
 			$title = apply_filters('widget_title', $instance['title']);
-			$app_id = $instance['app_id'];
+			$app_id = isset( $instance['app_id'] ) ? $instance['app_id'] : '';
 			$language = get_locale();
 			$page_url = $instance['page_url'];
 			$widget_width = $instance['width'];

@@ -864,6 +864,7 @@ function avada_scripts() {
 			'tfes_interval' 				=> $smof_data['tfes_interval'],
 			'tfes_speed' 					=> $smof_data['tfes_speed'],
 			'tfes_width' 					=> $smof_data['tfes_width'],
+			'title_style_type'				=> $smof_data['title_style_type'],
 			'typography_responsive'			=> $smof_data['typography_responsive'],
 			'typography_sensitivity'		=> $smof_data['typography_sensitivity'],
 			'typography_factor'				=> $smof_data['typography_factor'],
@@ -884,47 +885,63 @@ function avada_scripts() {
 
 		wp_localize_script('avada', 'js_local_vars', $local_variables );
 
-		if( is_page('header-2') || is_page('header-3') || is_page('header-4') || is_page('header-5') ) {
+		if ( is_page('header-2') || is_page('header-3') || is_page('header-4') || is_page('header-5') ) {
 			$header_demo = true;
 		} else {
 			$header_demo = false;
 		}
 
 
-		if( $smof_data['google_body'] && $smof_data['google_body'] != 'None' ) {
+		if ( $smof_data['google_body'] && $smof_data['google_body'] != 'None' ) {
 			$gfont[ urlencode( $smof_data['google_body'] ) ] = '' . urlencode( $smof_data['google_body'] );
 		}
 
-		if( $smof_data['google_nav'] && $smof_data['google_nav'] != 'None' && $smof_data['google_nav'] != $smof_data['google_body'] ) {
+		if ( $smof_data['google_nav'] && $smof_data['google_nav'] != 'None' && $smof_data['google_nav'] != $smof_data['google_body'] ) {
 			$gfont[ urlencode( $smof_data['google_nav'] ) ] = '' . urlencode( $smof_data['google_nav'] );
 		}
 
-		if( $smof_data['google_headings'] && $smof_data['google_headings'] != 'None' && $smof_data['google_headings'] != $smof_data['google_body'] && $smof_data['google_headings'] != $smof_data['google_nav'] ) {
+		if ( $smof_data['google_headings'] && $smof_data['google_headings'] != 'None' && $smof_data['google_headings'] != $smof_data['google_body'] && $smof_data['google_headings'] != $smof_data['google_nav'] ) {
 			$gfont[ urlencode( $smof_data['google_headings'] ) ] = '' . urlencode( $smof_data['google_headings'] );
 		}
 
-		if( $smof_data['google_footer_headings'] && $smof_data['google_footer_headings'] != 'None' && $smof_data['google_footer_headings'] != $smof_data['google_body'] && $smof_data['google_footer_headings'] != $smof_data['google_nav'] && $smof_data['google_footer_headings'] != $smof_data['google_headings'] ) {
+		if ( $smof_data['google_footer_headings'] && $smof_data['google_footer_headings'] != 'None' && $smof_data['google_footer_headings'] != $smof_data['google_body'] && $smof_data['google_footer_headings'] != $smof_data['google_nav'] && $smof_data['google_footer_headings'] != $smof_data['google_headings'] ) {
 			$gfont[ urlencode( $smof_data['google_footer_headings'] ) ] = '' . urlencode( $smof_data['google_footer_headings'] );
 		}
 
-		if( $smof_data['google_footer_headings'] && $smof_data['google_footer_headings'] != 'None' && $smof_data['google_footer_headings'] != $smof_data['google_body'] && $smof_data['google_footer_headings'] != $smof_data['google_nav'] && $smof_data['google_footer_headings'] != $smof_data['google_headings'] ) {
+		if ( $smof_data['google_footer_headings'] && $smof_data['google_footer_headings'] != 'None' && $smof_data['google_footer_headings'] != $smof_data['google_body'] && $smof_data['google_footer_headings'] != $smof_data['google_nav'] && $smof_data['google_footer_headings'] != $smof_data['google_headings'] ) {
 			$gfont[ urlencode( $smof_data['google_footer_headings'] ) ] = '' . urlencode( $smof_data['google_footer_headings'] );
 		}
 
-		if( $smof_data['google_button'] && $smof_data['google_button'] != 'None' && $smof_data['google_button'] != $smof_data['google_body'] && $smof_data['google_button'] != $smof_data['google_nav'] && $smof_data['google_button'] != $smof_data['google_headings'] && $smof_data['google_button'] != $smof_data['google_footer_headings'] ) {
+		if ( $smof_data['google_button'] && $smof_data['google_button'] != 'None' && $smof_data['google_button'] != $smof_data['google_body'] && $smof_data['google_button'] != $smof_data['google_nav'] && $smof_data['google_button'] != $smof_data['google_headings'] && $smof_data['google_button'] != $smof_data['google_footer_headings'] ) {
 			$gfont[ urlencode( $smof_data['google_button'] ) ] = '' . urlencode( $smof_data['google_button'] );
 		}
 
-		if( isset( $gfont ) && $gfont ) {
-			$font_family = '';
-
-			foreach( $gfont as $g_font ) {
-				$font_family .= sprintf( '%s:%s|', $g_font, urlencode( $smof_data['gfont_settings'] ) );
+		if ( isset( $gfont ) && $gfont ) {
+			$font_families = '';
+			$font_settings = explode( '&', $smof_data['gfont_settings'] );
+			$font_styles = $font_subsets = '';
+			
+			if ( is_array( $font_settings ) ) {
+				$font_styles = $font_settings[0];
+				
+				if ( count( $font_settings ) > 1 ) {
+					$font_subsets = $font_settings[1];
+				}
 			}
 
-			wp_enqueue_style( 'avada-google-fonts', 'http' . ( ( is_ssl() ) ? 's' : '' ) . '://fonts.googleapis.com/css?family=' . $font_family, array(), '' );
-		}
+			foreach ( $gfont as $g_font ) {
+				$font_families .= sprintf( '%s:%s|', $g_font, urlencode( $font_styles ) );
+			}
+			
+			if ( $font_subsets ) {
+				$font_families = sprintf( '%s&%s', rtrim( $font_families, '|' ), $font_subsets );
+			} else {
+				$font_families = rtrim( $font_families, '|' );
+			}
 
+			wp_enqueue_style( 'avada-google-fonts', 'http' . ( ( is_ssl() ) ? 's' : '' ) . '://fonts.googleapis.com/css?family=' . $font_families, array(), '' );
+		}
+		
 		wp_enqueue_style( 'avada-stylesheet', get_stylesheet_uri(), array(), $theme_info->get( 'Version' ) );
 
 		if( isset( $smof_data['less_compiler'] ) && $smof_data['less_compiler'] == true ) {
@@ -1442,7 +1459,7 @@ function avada_register_required_plugins() {
 			'slug'	 				=> 'revslider', // The plugin slug (typically the folder name)
 			'source'   				=> get_template_directory() . '/framework/plugins/revslider.zip', // The plugin source
 			'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-			'version' 				=> '4.6.5', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+			'version' 				=> '4.6.92', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
 			'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
 			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
 			'external_url' 			=> '', // If set, overrides default API URL and points to an external URL
@@ -1453,7 +1470,7 @@ function avada_register_required_plugins() {
 			'slug'	 				=> 'fusion-core', // The plugin slug (typically the folder name)
 			'source'   				=> get_template_directory() . '/framework/plugins/fusion-core.zip', // The plugin source
 			'required' 				=> true, // If false, the plugin is only 'recommended' instead of required
-			'version' 				=> '1.7.2', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+			'version' 				=> '1.7.3', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
 			'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
 			'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
 			'external_url' 			=> '', // If set, overrides default API URL and points to an external URL
@@ -1536,9 +1553,9 @@ function woocommerce_product_archive_description() {
  */
 
 function avada_auto_updater() {
-	$smof_data = get_option( 'Avada_options' );
+	$avada_options = get_option( 'Avada_Key' );
 
-	if( isset( $smof_data['tf_username'] ) && !empty( $smof_data['tf_username'] ) && isset( $smof_data['tf_api'] ) && !empty( $smof_data['tf_api'] ) && isset( $smof_data['tf_purchase_code'] ) && !empty( $smof_data['tf_purchase_code'] ) ) {
+	if( isset( $avada_options['tf_username'] ) && !empty( $avada_options['tf_username'] ) && isset( $avada_options['tf_api'] ) && !empty( $avada_options['tf_api'] ) && isset( $avada_options['tf_purchase_code'] ) && !empty( $avada_options['tf_purchase_code'] ) ) {
 		$theme_info = wp_get_theme();
 		if( $theme_info->parent_theme ) {
 			$template_dir =  basename( get_template_directory() );

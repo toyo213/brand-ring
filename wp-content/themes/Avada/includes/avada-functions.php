@@ -249,7 +249,7 @@ add_action( 'avada_footer_copyright_content', 'avada_render_footer_social_icons'
  * Output the image rollover
  * @param  string 	$post_id 					ID of the current post
  * @param  string 	$permalink 					Permalink of current post
- * @param  boolean 	$display_woo_price 			Set to yes to show´woocommerce price tag for woo sliders
+ * @param  boolean 	$display_woo_price 			Set to yes to showÂ´woocommerce price tag for woo sliders
  * @param  boolean 	$display_woo_buttons		Set to yes to show the woocommerce "add to cart" and "show details" buttons
  * @param  string	$display_post_categories 	Controls if the post categories will be shown; "deafult": theme option setting; enable/disable otheriwse
  * @param  string	$display_post_title 		Controls if the post title will be shown; "deafult": theme option setting; enable/disable otheriwse
@@ -257,7 +257,7 @@ add_action( 'avada_footer_copyright_content', 'avada_render_footer_social_icons'
  * @return void 	Directly echos the placeholder image HTML markup
  **/
 if( ! function_exists( 'avada_render_rollover' ) ) {
-	function avada_render_rollover( $post_id, $post_permalink = '', $display_woo_price = FALSE, $display_woo_buttons = FALSE, $display_post_categories = 'default', $display_post_title = 'default' ) {
+	function avada_render_rollover( $post_id, $post_permalink = '', $display_woo_price = FALSE, $display_woo_buttons = FALSE, $display_post_categories = 'default', $display_post_title = 'default', $gallery_id = '' ) {
 		global $smof_data;
 
 		// Retrieve the permalink if it is not set
@@ -357,7 +357,7 @@ if( ! function_exists( 'avada_render_rollover' ) ) {
 							// Show the first image of every post on the archive page
 							} else {
 								$lightbox_content = '';
-								$data_rel = 'iLightbox[gallery]';							
+								$data_rel = sprintf( 'iLightbox[gallery%s]', $gallery_id );			
 							}
 							
 							echo sprintf( '<a class="fusion-rollover-gallery" href="%s" data-rel="%s" data-title="%s" data-caption="%s">Gallery</a>%s', 
@@ -403,7 +403,7 @@ if( ! function_exists( 'avada_render_rollover' ) ) {
 		echo '</div>';
 	}
 }
-add_action( 'avada_rollover', 'avada_render_rollover', 10, 6 );
+add_action( 'avada_rollover', 'avada_render_rollover', 10, 7 );
 
 /**
  * Action to output a placeholder image
@@ -415,7 +415,9 @@ if( ! function_exists( 'avada_render_placeholder_image' ) ) {
 	function avada_render_placeholder_image( $featured_image_size = 'full' ) {
 		global $_wp_additional_image_sizes;
 
-		if ( $featured_image_size == 'full' ) {
+		if ( $featured_image_size == 'full' ||
+			 $featured_image_size == 'fixed'
+		) {
 			$height = apply_filters( 'avada_set_placeholder_image_height', '150' );
 			$width = '100%';
 		} else {
@@ -439,7 +441,7 @@ if ( ! function_exists( 'avada_render_first_featured_image_markup' ) ) {
 	 *
 	 * @return string Full HTML markup of the first featured image
 	 **/
-	function avada_render_first_featured_image_markup( $post_id, $post_featured_image_size = '', $post_permalink = '', $display_placeholder_image = FALSE, $display_woo_price = FALSE, $display_woo_buttons = FALSE, $display_post_categories = 'default', $display_post_title = 'default', $type = '' ) {
+	function avada_render_first_featured_image_markup( $post_id, $post_featured_image_size = '', $post_permalink = '', $display_placeholder_image = FALSE, $display_woo_price = FALSE, $display_woo_buttons = FALSE, $display_post_categories = 'default', $display_post_title = 'default', $type = '', $gallery_id = '' ) {
 		global $smof_data;
 
 		$html = '<div class="fusion-image-wrapper" aria-haspopup="true">';
@@ -460,11 +462,12 @@ if ( ! function_exists( 'avada_render_first_featured_image_markup' ) ) {
 			}
 			$featured_image = ob_get_clean();
 
-			if( $type == 'related' && $post_featured_image_size == 'fixed' && get_post_thumbnail_id( $post_id ) ) {
+			if ( $type == 'related' && $post_featured_image_size == 'fixed' && get_post_thumbnail_id( $post_id ) ) {
 				$image = Fusion_Image_Resizer::image_resize( array(
 					'width' => '500',
 					'height' => '383',
-					'url' =>  wp_get_attachment_url(  get_post_thumbnail_id( $post_id ) )
+					'url' =>  wp_get_attachment_url( get_post_thumbnail_id( $post_id ) ),
+					'path' => get_attached_file( get_post_thumbnail_id( $post_id ) )
 				) );
 
 				$featured_image = sprintf( '<img src="%s" width="%s" height="%s" alt="%s" />', $image['url'], $image['width'], $image['height'], get_the_title( $post_id ) );
@@ -473,14 +476,14 @@ if ( ! function_exists( 'avada_render_first_featured_image_markup' ) ) {
 			// If rollovers are enabled, add one to the image container
 			if ( $smof_data['image_rollover'] ) {
 				$html .= $featured_image;
-				
+
 				ob_start();
 				/**
 				 * avada_rollover hook
 				 *
 				 * @hooked avada_render_rollover - 10 (outputs the HTML for the image rollover)
-				 */								
-				do_action( 'avada_rollover', $post_id, $post_permalink, $display_woo_price, $display_woo_buttons, $display_post_categories, $display_post_title );				
+				 */			 
+				do_action( 'avada_rollover', $post_id, $post_permalink, $display_woo_price, $display_woo_buttons, $display_post_categories, $display_post_title, $gallery_id );				
 				$rollover = ob_get_clean();
 				
 				$html .= $rollover;

@@ -497,7 +497,7 @@ if( ! function_exists( 'fusion_get_theme_option' ) ) {
 	function fusion_get_theme_option( $theme_option ) {
 		global $smof_data;
 
-		if( $theme_option ) {
+		if( $theme_option && isset( $smof_data[ $theme_option ] ) ) {
 			return $smof_data[ $theme_option ];
 		}
 
@@ -701,6 +701,10 @@ if ( ! function_exists( 'fusion_get_post_content_excerpt' ) ) {
 		if ( $strip_html ) {	
 			$more = 0;
 			$raw_content = strip_tags( get_the_content( $read_more ), '<p>' );
+			
+			// Strip out all attributes
+			$raw_content = preg_replace('/<(\w+)[^>]*>/', '<$1>', $raw_content);
+			
 			if ( $post->post_excerpt || 
 				$pos !== FALSE
 			) {

@@ -2414,18 +2414,26 @@
 							type = result.type,
 							source = result.source;
 
-						object.source = source.src,
-						object.width = source.width && parseInt(source.width) || 0,
-						object.height = source.height && parseInt(source.height) || 0,
 						object.type = type,
-						object.thumbnail = source.thumbnail || result.images[0],
 						object.html5video = result.html5video || {},
 						object.length = true;
 
-						if (source.type == 'application/x-shockwave-flash') { object.type = "flash"; }
-						else if (source.type.indexOf("video/") != -1) { object.type = "video"; }
-						else if (source.type.indexOf("/html") != -1) { object.type = "iframe"; }
-						else if (source.type.indexOf("image/") != -1) { object.type = "image"; }
+						if( result.images ) {
+							object.thumbnail = result.images[0];
+						}
+
+						if( source ) {
+
+							object.source = source.src,
+							object.width = source.width && parseInt(source.width) || 0,
+							object.height = source.height && parseInt(source.height) || 0,
+							object.thumbnail = source.thumbnail;
+
+							if (source.type == 'application/x-shockwave-flash') { object.type = "flash"; }
+							else if (source.type.indexOf("video/") != -1) { object.type = "video"; }
+							else if (source.type.indexOf("/html") != -1) { object.type = "iframe"; }
+							else if (source.type.indexOf("image/") != -1) { object.type = "image"; }
+						}
 
 					} else if (typeof data.response != 'undefined') {
 						throw data.response;

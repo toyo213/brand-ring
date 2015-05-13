@@ -56,6 +56,7 @@ if(isset($_POST['submit'])) {
 
 	// Check if recaptcha is used
 	if ( $re_captcha ) {
+		$re_captcha_response = null;
 		// Was there a reCAPTCHA response?
 		if ( $_POST["g-recaptcha-response"] ) {
 			$re_captcha_response = $re_captcha->verifyResponse(
@@ -228,40 +229,38 @@ if($double_sidebars == true) {
 				<?php } ?>
 			</div>
 			<form action="" method="post" class="avada-contact-form">
+				<div id="comment-input">
 
-					<div id="comment-input">
+					<input type="text" name="contact_name" id="author" value="<?php if(isset($_POST['contact_name']) && !empty($_POST['contact_name'])) { echo esc_html( $_POST['contact_name'] ); } ?>" placeholder="<?php echo __('Name (required)', 'Avada'); ?>" size="22" tabindex="1" aria-required="true" class="input-name">
 
-						<input type="text" name="contact_name" id="author" value="<?php if(isset($_POST['contact_name']) && !empty($_POST['contact_name'])) { echo esc_html( $_POST['contact_name'] ); } ?>" placeholder="<?php echo __('Name (required)', 'Avada'); ?>" size="22" tabindex="1" aria-required="true" class="input-name">
+					<input type="text" name="email" id="email" value="<?php if(isset($_POST['email']) && !empty($_POST['email'])) { echo esc_html( $_POST['email'] ); } ?>" placeholder="<?php echo __('Email (required)', 'Avada'); ?>" size="22" tabindex="2" aria-required="true" class="input-email">
 
-						<input type="text" name="email" id="email" value="<?php if(isset($_POST['email']) && !empty($_POST['email'])) { echo esc_html( $_POST['email'] ); } ?>" placeholder="<?php echo __('Email (required)', 'Avada'); ?>" size="22" tabindex="2" aria-required="true" class="input-email">
+					<input type="text" name="url" id="url" value="<?php if(isset($_POST['url']) && !empty($_POST['url'])) { echo esc_html( $_POST['url'] ); } ?>" placeholder="<?php echo __('Subject', 'Avada'); ?>" size="22" tabindex="3" class="input-website">
 
-						<input type="text" name="url" id="url" value="<?php if(isset($_POST['url']) && !empty($_POST['url'])) { echo esc_html( $_POST['url'] ); } ?>" placeholder="<?php echo __('Subject', 'Avada'); ?>" size="22" tabindex="3" class="input-website">
+				</div>
 
-					</div>
+				<div id="comment-textarea">
 
-					<div id="comment-textarea">
+					<textarea name="msg" id="comment" cols="39" rows="4" tabindex="4" class="textarea-comment" placeholder="<?php echo __('Message', 'Avada'); ?>"><?php if(isset($_POST['msg']) && !empty($_POST['msg'])) { echo esc_html( $_POST['msg'] ); } ?></textarea>
 
-						<textarea name="msg" id="comment" cols="39" rows="4" tabindex="4" class="textarea-comment" placeholder="<?php echo __('Message', 'Avada'); ?>"><?php if(isset($_POST['msg']) && !empty($_POST['msg'])) { echo esc_html( $_POST['msg'] ); } ?></textarea>
+				</div>
 
-					</div>
+				<?php if( $smof_data['recaptcha_public'] && $smof_data['recaptcha_private'] ): ?>
 
-					<?php if( $smof_data['recaptcha_public'] && $smof_data['recaptcha_private'] ): ?>
+				<div id="comment-recaptcha">
 
-					<div id="comment-recaptcha">
+					<div class="g-recaptcha" data-type="audio" data-theme="<?php echo $smof_data['recaptcha_color_scheme']; ?>" data-sitekey="<?php echo $smof_data['recaptcha_public']; ?>"></div>
+					<script type="text/javascript"
+						src="https://www.google.com/recaptcha/api.js?hl=<?php echo get_locale(); ?>">
+					</script>
 
-						<div class="g-recaptcha" data-type="audio" data-theme="<?php echo $smof_data['recaptcha_color_scheme']; ?>" data-sitekey="<?php echo $smof_data['recaptcha_public']; ?>"></div>
-						<script type="text/javascript"
-							src="https://www.google.com/recaptcha/api.js?hl=<?php echo get_locale(); ?>">
-						</script>
+				</div>
 
-					</div>
+				<?php endif; ?>
 
-					<?php endif; ?>
-
-					<div id="comment-submit-container">
-						<p><div><input name="submit" type="submit" id="submit" tabindex="5" value="<?php echo __('Submit Form', 'Avada'); ?>" class="<?php echo sprintf( 'comment-submit fusion-button fusion-button-default fusion-button-%s fusion-button-%s fusion-button-%s', strtolower( $smof_data['button_size'] ), strtolower( $smof_data['button_shape'] ), strtolower( $smof_data['button_type'] ) ); ?>"></div></p>
-					</div>
-
+				<div id="comment-submit-container">
+					<p><div><input name="submit" type="submit" id="submit" tabindex="5" value="<?php echo __('Submit Form', 'Avada'); ?>" class="<?php echo sprintf( 'comment-submit fusion-button fusion-button-default fusion-button-%s fusion-button-%s fusion-button-%s', strtolower( $smof_data['button_size'] ), strtolower( $smof_data['button_shape'] ), strtolower( $smof_data['button_type'] ) ); ?>"></div></p>
+				</div>
 			</form>
 		</div>
 		<?php endwhile; ?>

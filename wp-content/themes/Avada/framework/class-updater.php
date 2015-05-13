@@ -23,7 +23,7 @@ if( ! class_exists( 'AvadaThemeUpdater' ) ) {
 		
 		function check_for_update( $transient ) {
 			global $wp_filesystem;
-			$smof_data = get_option( 'Avada_options' );
+			$avada_options = get_option( 'Avada_Key' );
 
 			if( empty( $transient->checked ) )  {
 				return $transient;
@@ -37,8 +37,8 @@ if( ! class_exists( 'AvadaThemeUpdater' ) ) {
 
 			if( $this->api_url == 'http://updates.theme-fusion.com/avada-theme.php' ) {
 				$request_args['item_code'] = '2833226';
-				$request_args['envato_username'] = $smof_data['tf_username'];
-				$request_args['api_key'] = $smof_data['tf_api'];
+				$request_args['envato_username'] = $avada_options['tf_username'];
+				$request_args['api_key'] = $avada_options['tf_api'];
 			}
 
 			$filename = trailingslashit( get_template_directory() ) . 'log.txt';			

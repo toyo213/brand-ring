@@ -16,7 +16,7 @@ while ( have_posts() ): the_post();
 		echo avada_featured_images_for_pages();
 		
 		// Portfolio page content
-		echo '<div class="fusion-post-content">';	
+		echo '<div class="post-content">';	
 			the_content();
 			avada_link_pages();
 		echo '</div>';
@@ -77,6 +77,10 @@ if ( ! is_array( $categories_to_display_ids ) ||
 	count( $categories_to_display_ids ) == 0
 ) {
 	$terms = get_terms( 'portfolio_category' );
+	
+	if ( ! is_array( $categories_to_display_ids ) ) {
+		$categories_to_display_ids = array();
+	}
 
 	foreach ( $terms as $term ) {
 		$categories_to_display_ids[] = $term->term_id;
@@ -100,7 +104,9 @@ if ( is_array( $categories_to_display_ids ) &&
 }
 
 // Sort the category slugs alphabetically
-if ( is_array( $categories_to_display_slugs_names ) ) {
+if ( is_array( $categories_to_display_slugs_names ) && 
+	! function_exists( 'TO_activated' ) 
+) {
 	asort( $categories_to_display_slugs_names );
 }
 
@@ -282,7 +288,7 @@ if ( ! post_password_required( $current_page_id ) ) {
 										// Render the "View Project" button only is a project url was set
 										if ( fusion_get_page_option( 'project_url', $post->ID ) ) {
 											echo sprintf( '<a href="%s" class="fusion-button fusion-button-small fusion-button-default fusion-button-%s fusion-button-%s">%s</a>', fusion_get_page_option( 'project_url', $post->ID ), 
-														  strtolower( $smof_data['button_shape'] ), strtolower( $smof_data['button_type'] ), __(' View Project', 'Avada' ) );
+														  strtolower( $smof_data['button_shape'] ), strtolower( $smof_data['button_type'] ), __( ' View Project', 'Avada' ) );
 										}
 									echo '</div>';
 								}

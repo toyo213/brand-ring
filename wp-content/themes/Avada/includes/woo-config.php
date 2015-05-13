@@ -63,6 +63,9 @@
 				remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 10 );
 				// Backwards compatability to 2.2
 				add_filter( 'woocommerce_template_path', array( $this, 'backwards_compatability' ) );
+
+				/* Remove extra cart totals from the hook 2.3.8 woo */
+				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cart_totals', 10 );
 				
 			} // end __construct();
 

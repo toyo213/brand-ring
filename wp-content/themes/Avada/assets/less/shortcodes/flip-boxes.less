@@ -111,6 +111,10 @@
 		border: 1px solid;
 		.border-radius(50%);
 		
+		/* fix reversed -moz-background-clip: border;
+		-webkit-background-clip: border-box;
+		background-clip: border-box; */
+
 		i {
 			display: table-cell;
 			vertical-align: middle;
@@ -125,6 +129,7 @@
 	}
 
 	.flip-box-heading {
+		margin-top: 0;
 		margin-bottom: 15px;
 		
 		&.without-text {
