@@ -1,10 +1,10 @@
 === Contact Form Pro by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Donate link: http://bestwebsoft.com/donate/
 Tags: attachment, contact, contatc, conact, cnotact, contact button, contact form, contact form plugin, contact me, contacts, contacts form plugin, copy, feedback, feedback form, form, insert the shortcode, post feedback, request, send, send copy, send messages, shortcode, text, web-page feedback
 Requires at least: 3.1
-Tested up to: 4.2.1
-Stable tag: 2.0.2
+Tested up to: 4.2.2
+Stable tag: 2.0.3
 License: Proprietary
 License URI: http://bestwebsoft.com/end-user-license-agreement/
 
@@ -137,6 +137,7 @@ Here is an example for the German language files.
 = I'm not receiving messages from Contact Form Pro OR The plugin does not send an email - "Sorry, email message could not be delivered." =
 
 Please follow the instructions below:
+
 1. Please check the plugin settings '/wp-admin/admin.php?page=contact_form_pro.php' => 'What to use?' => change the lines from wp-mail to mail and vice versa.
 2. Email messages can be marked as spam on the server. Please choose another email instead of the admin's one ('Use this email:' block) - for example, gmail or similar. If the message is sent, it means that email filtering is set on your server. Please contact your hosting provider. 
 3. Perhaps email sending is not set. You should install an extra plugin called <a href="https://wordpress.org/plugins/bws-smtp/" target="_blank">SMTP by BestWebSoft</a> and configure it. Afterwards you should open the "Send A Test Email" tab on the plugin settings page, check an option "Display log", send a test email and you will see if the plugin logs have errors.
@@ -168,6 +169,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 12. The example of Contact Form Pro Plugin usage on client's site.
 
 == Changelog ==
+
+= V2.0.3 - 13.05.2015 =
+* Update : We updated all functionality for wordpress 4.2.2.
 
 = V2.0.2 - 04.05.2015 =
 * Update : We updated all functionality for wordpress 4.2.1.
@@ -379,6 +383,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Upgrade Notice ==
 
+= V2.0.3 =
+We updated all functionality for wordpress 4.2.2.
+
 = V2.0.2 =
 We updated all functionality for wordpress 4.2.1. The French language file is updated.
 
@@ -462,7 +469,7 @@ BWS plugins section is updated. The department is added in email. The French lan
 = V1.18 =
 We updated all functionality for wordpress 3.8. We changed capability to 'manage_options' for the plugins settings pages.
 
-= V1.17 - 04.12.2013 =
+= V1.17 =
 Ability to reorder elements in the department's list. Ability to send email in plain format. The Ukrainian language file is updated.
 
 = V1.16 =

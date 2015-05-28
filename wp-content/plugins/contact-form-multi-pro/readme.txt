@@ -1,10 +1,10 @@
 === Contact Form Multi Pro by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Donate link: http://bestwebsoft.com/donate/
 Tags: attachment, contact, contcat, conact, cnotact, contact button, contact form, contact form add-on, contact form parameters, contact form plugin, contact me, contacts, contacts form plugin, copy, feedback, feedback form, form, multiple contact forms, request, send, send copy, several contact forms, shortcode, text
 Requires at least: 3.1
-Tested up to: 4.2.1
-Stable tag: 1.0.8
+Tested up to: 4.2.2
+Stable tag: 1.0.9
 License: Proprietary
 License URI: http://bestwebsoft.com/end-user-license-agreement/
 
@@ -13,6 +13,7 @@ Add multiple contact forms to your WordPress website using the Contact Form Pro 
 == Description ==
 
 ATTENTION! This plugin is an EXCLUSIVE ADD-ON for the <a href="http://bestwebsoft.com/products/contact-form/?k=a375f81dc261915e207928347701c70c" target="_blank">Contact Form Pro</a> plugin by BestWebSoft. It will not work without Contact Form Pro by BestWebSoft.
+
 Contact Form Multi Pro makes it possible to create and implement multiple contact forms on your site. It is also possible to set different parameters for different contact forms. Please make sure you've enabled Javascript, otherwise the plugin will not work.
 
 http://www.youtube.com/watch?v=BlmKUo9QQ5Y
@@ -99,6 +100,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.0.9 - 13.05.2015 =
+* Update : We updated all functionality for Wordpress 4.2.2.
+
 = V1.0.8 - 05.05.2015 =
 * Update : We updated all functionality for Wordpress 4.2.1.
 
@@ -134,6 +138,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: The ability to change the settings of the forms was added.
 
 == Upgrade Notice ==
+
+= V1.0.9 =
+We updated all functionality for Wordpress 4.2.2.
 
 = V1.0.8 =
 We updated all functionality for Wordpress 4.2.1.
