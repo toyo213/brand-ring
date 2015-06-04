@@ -13,7 +13,7 @@
 		$( '.cntctfrmmltpr-tab-wrapper' ).prepend( '<input class="cntctfrmmltpr-enter" type="button" value="&#043" />' );
 		$( '.cntctfrmmltpr-tab-wrapper' ).after( '<div class="clear"></div>' );
 		for ( var i in cntctfrmmltpr_script_vars.cntctfrmmltpr_count ) {
-			$( '.cntctfrmmltpr-enter' ).before( '<li id="' + i + '" class="cntctfrmmltpr-nav-tab nav-tab"><input id="' + i + '" class="cntctfrmmltpr-text" style="display:none" size="10" type="text" value="' + cntctfrmmltpr_script_vars.cntctfrmmltpr_count[i] + '" /><div class="cntctfrmmltpr-noactive"></div><input type="button" name="cntctfrmmltpr_del" class="cntctfrmmltpr-delete" value=" " /></li>' );
+			$( '.cntctfrmmltpr-enter' ).before( '<li id="' + i + '" class="cntctfrmmltpr-nav-tab nav-tab"><input id="' + i + '" class="cntctfrmmltpr-text" maxlength="100" style="display:none" size="10" type="text" value="' + cntctfrmmltpr_script_vars.cntctfrmmltpr_count[i] + '" /><div class="cntctfrmmltpr-noactive"></div><input type="button" name="cntctfrmmltpr_del" class="cntctfrmmltpr-delete" value=" " /></li>' );
 			cntctfrmmltpr_room.push( i );			
 		}
 

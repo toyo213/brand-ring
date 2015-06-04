@@ -4,30 +4,30 @@
 
 		$( '#cntctfrmpr_style_options' ).change( function() {
 			if ( $( this ).is( ':checked' ) ) {
-				$( '.cntctfrmpr_style_block' ).removeClass( 'cntctfrmpr_hidden' );
+				$( '.cntctfrmpr_style_block' ).show();
 			} else {
-				$( '.cntctfrmpr_style_block' ).addClass( 'cntctfrmpr_hidden' );
+				$( '.cntctfrmpr_style_block' ).hide();
 			}
 		});
 		$( '#cntctfrmpr_change_label' ).change( function() {
 			if ( $( this ).is( ':checked' ) ) {
-				$( '.cntctfrmpr_change_label_block' ).removeClass( 'cntctfrmpr_hidden' );
+				$( '.cntctfrmpr_change_label_block' ).show();
 			} else {
-				$( '.cntctfrmpr_change_label_block' ).addClass( 'cntctfrmpr_hidden' );
+				$( '.cntctfrmpr_change_label_block' ).hide();
 			}
 		});
 		$( '#cntctfrmpr_display_add_info' ).change( function() {
 			if ( $( this ).is( ':checked' ) ) {
-				$( '.cntctfrmpr_display_add_info_block' ).removeClass( 'cntctfrmpr_hidden' );
+				$( '.cntctfrmpr_display_add_info_block' ).show();
 			} else {
-				$( '.cntctfrmpr_display_add_info_block' ).addClass( 'cntctfrmpr_hidden' );
+				$( '.cntctfrmpr_display_add_info_block' ).hide();
 			}
 		});
 		$( '#cntctfrmpr_auto_response' ).change( function() {
 			if ( $( this ).is( ':checked' ) ) {
-				$( '.cntctfrmpr_auto_response_block' ).removeClass( 'cntctfrmpr_hidden' );
+				$( '.cntctfrmpr_auto_response_block' ).show();
 			} else {
-				$( '.cntctfrmpr_auto_response_block' ).addClass( 'cntctfrmpr_hidden' );
+				$( '.cntctfrmpr_auto_response_block' ).hide();
 			}
 		});
 		$( '#cntctfrmpr_add_language_button' ).click( function() {
@@ -376,7 +376,7 @@
 			});
 		}
 	});
-	$(document).on( 'click', '.cntctfrmpr_language_tab_block_mini', function() {
+	$(document).on( 'click touchstart', '.cntctfrmpr_language_tab_block_mini', function() {
 		if ( $( '.cntctfrmpr_language_tab_block' ).css( 'display' ) == 'none' ) {
 			$( '.cntctfrmpr_language_tab_block' ).css( 'display', 'block' );
 			$( '.cntctfrmpr_language_tab_block_mini' ).css( 'background-position', '1px -3px' );

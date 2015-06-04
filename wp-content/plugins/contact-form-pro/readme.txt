@@ -4,7 +4,7 @@ Donate link: http://bestwebsoft.com/donate/
 Tags: attachment, contact, contatc, conact, cnotact, contact button, contact form, contact form plugin, contact me, contacts, contacts form plugin, copy, feedback, feedback form, form, insert the shortcode, post feedback, request, send, send copy, send messages, shortcode, text, web-page feedback
 Requires at least: 3.1
 Tested up to: 4.2.2
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: Proprietary
 License URI: http://bestwebsoft.com/end-user-license-agreement/
 
@@ -169,6 +169,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 12. The example of Contact Form Pro Plugin usage on client's site.
 
 == Changelog ==
+
+= V2.0.4 - 03.06.2015 =
+* Update : We fixed 'Send me a copy' email with the attachment.
+* Update : We fixed error of a visual display of the settings page.
 
 = V2.0.3 - 13.05.2015 =
 * Update : We updated all functionality for wordpress 4.2.2.
@@ -382,6 +386,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : You can use JavaScript for the form validation with highlighting option
 
 == Upgrade Notice ==
+
+= V2.0.4 =
+ We fixed 'Send me a copy' email with the attachment. We fixed error of a visual display of the settings page.
 
 = V2.0.3 =
 We updated all functionality for wordpress 4.2.2.

@@ -4,7 +4,7 @@ Donate link: http://bestwebsoft.com/donate/
 Tags: attachment, contact, contcat, conact, cnotact, contact button, contact form, contact form add-on, contact form parameters, contact form plugin, contact me, contacts, contacts form plugin, copy, feedback, feedback form, form, multiple contact forms, request, send, send copy, several contact forms, shortcode, text
 Requires at least: 3.1
 Tested up to: 4.2.2
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: Proprietary
 License URI: http://bestwebsoft.com/end-user-license-agreement/
 
@@ -100,6 +100,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.1.0 - 04.06.2015 =
+* Bugfix : Maxlength is added for input.
+* Update : BWS plugins section is updated.
+
 = V1.0.9 - 13.05.2015 =
 * Update : We updated all functionality for Wordpress 4.2.2.
 
@@ -138,6 +142,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW: The ability to change the settings of the forms was added.
 
 == Upgrade Notice ==
+
+= V1.1.0 =
+Maxlength is added for input. BWS plugins section is updated.
 
 = V1.0.9 =
 We updated all functionality for Wordpress 4.2.2.
